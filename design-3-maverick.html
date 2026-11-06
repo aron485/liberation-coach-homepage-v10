@@ -59,6 +59,22 @@
     display:inline-block;font-weight:700;font-size:.78rem;letter-spacing:.18em;
     text-transform:uppercase;color:var(--teal);margin-bottom:.9rem;
   }
+  /* inline highlighted-text accent (signature device, used sparingly) */
+  .hl-y{background:var(--yellow);color:var(--indigo);padding:.04em .28em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .hl-i{background:var(--indigo);color:var(--white);padding:.04em .28em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  h2:has(.hl-y),h2:has(.hl-i){line-height:1.3}
+
+  /* reusable torn / grunge divider between sections */
+  .divider-torn{position:relative;height:clamp(32px,5vw,64px);line-height:0;overflow:hidden}
+  .divider-torn svg{display:block;width:100%;height:100%}
+
+  /* zigzag accent strip */
+  .zig{height:10px;width:100%;background:
+    linear-gradient(135deg,var(--yellow) 25%,transparent 25%) -10px 0,
+    linear-gradient(225deg,var(--yellow) 25%,transparent 25%) -10px 0,
+    linear-gradient(315deg,var(--yellow) 25%,transparent 25%),
+    linear-gradient(45deg,var(--yellow) 25%,transparent 25%);
+    background-size:20px 20px;background-color:var(--indigo)}
 
   /* ======================================================
      1. NAV
@@ -139,19 +155,49 @@
   /* ======================================================
      3. BENEFIT QUAD
   ====================================================== */
-  .quad{background:var(--white);padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(2rem,5vw,3.5rem)}
-  .quad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2.5vw,2rem)}
-  .quad-item{text-align:left;border-top:4px solid var(--yellow);padding-top:1.1rem}
-  .quad-ic{width:48px;height:48px;margin-bottom:.8rem;color:var(--teal)}
-  .quad-item h3{font-size:1.22rem;color:var(--indigo);margin-bottom:.35rem}
-  .quad-item p{font-size:.95rem;color:var(--ink)}
-  @media(max-width:820px){.quad-grid{grid-template-columns:repeat(2,1fr);gap:1.6rem}}
+  .quad{background:var(--white);padding:clamp(2.2rem,5vw,3.6rem) 0 clamp(2.2rem,5vw,3.6rem)}
+  .quad .shead{max-width:680px;margin-bottom:2rem}
+  .quad h2{font-size:clamp(1.6rem,3.4vw,2.3rem);color:var(--indigo)}
+  .quad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,1.6rem)}
+  .quad-item{text-align:left;border:2px solid #ece9f5;border-top:5px solid var(--yellow);
+    padding:1.4rem 1.2rem;background:var(--white);transition:transform .15s ease,box-shadow .18s ease,border-color .18s ease}
+  .quad-item:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(34,28,75,.16);border-top-color:var(--teal)}
+  .quad-ic-wrap{width:52px;height:52px;background:var(--indigo);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+  .quad-ic{width:28px;height:28px;color:var(--yellow)}
+  .quad-item:hover .quad-ic-wrap{background:var(--teal)}
+  .quad-item h3{font-size:1.2rem;color:var(--indigo);margin-bottom:.4rem}
+  .quad-item p{font-size:.94rem;color:var(--ink)}
+  .quad-item .tiny{display:block;margin-top:.6rem;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+  @media(max-width:820px){.quad-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem}}
   @media(max-width:430px){.quad-grid{grid-template-columns:1fr}}
+
+  /* ======================================================
+     STATS STRIP
+  ====================================================== */
+  .stats{background:var(--indigo);padding:0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:clamp(1.6rem,3vw,2.4rem) 1rem;text-align:center;position:relative;
+    border-right:1px solid rgba(255,255,255,.1)}
+  .stat:last-child{border-right:0}
+  .stat:nth-child(2n){background:rgba(255,255,255,.04)}
+  .stat .snum{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;color:var(--yellow);line-height:1;letter-spacing:-0.02em}
+  .stat .slab{display:block;margin-top:.5rem;font-size:.82rem;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:#d9d7e8}
+  @media(max-width:620px){.stats-grid{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:0}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.1)}}
+
+  /* trust line */
+  .trust{background:var(--white);padding:1.2rem 0;border-bottom:1px solid #eee}
+  .trust p{text-align:center;font-size:.9rem;font-weight:600;color:var(--ink);letter-spacing:.01em}
+  .trust strong{color:var(--indigo)}
 
   /* ======================================================
      4. ROUTES
   ====================================================== */
-  .routes{padding:clamp(3rem,6vw,5rem) 0;background:#f6f6fb}
+  .routes{padding:clamp(2.6rem,5vw,4.2rem) 0;background:#f6f6fb}
+  .route-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0 1.4rem}
+  .chip{display:inline-block;background:var(--white);border:2px solid var(--indigo);color:var(--indigo);
+    font-size:.78rem;font-weight:700;padding:.32rem .8rem;letter-spacing:.02em}
   .routes .shead{max-width:720px;margin-bottom:2.6rem}
   .routes h2{font-size:clamp(1.8rem,4vw,2.8rem);color:var(--indigo)}
   .route-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;margin-bottom:clamp(2rem,4vw,3.2rem)}
@@ -174,10 +220,11 @@
      5. METHOD
   ====================================================== */
   .method{padding:clamp(3rem,6vw,5rem) 0;background:var(--white)}
-  .method-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+  .method-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:stretch}
   .method-img{position:relative;overflow:hidden;box-shadow:0 18px 40px rgba(34,28,75,.2);min-height:360px}
   .method-img img{width:100%;height:100%;min-height:360px;object-fit:cover;position:absolute;inset:0}
-  .method h2{font-size:clamp(1.8rem,4vw,2.7rem);color:var(--indigo);margin-bottom:1.4rem}
+  .method h2{font-size:clamp(1.8rem,4vw,2.7rem);color:var(--indigo);margin-bottom:1rem;line-height:1.15}
+  .method-lead{font-size:1.05rem;color:var(--ink);margin-bottom:.4rem}
   .q-list{list-style:none;margin:1.4rem 0}
   .q-list li{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem}
   .q-num{flex:0 0 auto;width:40px;height:40px;background:var(--indigo);color:var(--yellow);
@@ -189,28 +236,54 @@
   /* ======================================================
      6. MEET VICTOR
   ====================================================== */
-  .victor{background:var(--indigo);color:var(--white);padding:clamp(3.5rem,7vw,6rem) 0;position:relative;overflow:hidden}
-  .victor .geo-dots-dark{position:absolute;bottom:8%;left:-20px;width:170px;height:120px;opacity:.25;z-index:1}
-  .victor-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.8rem,5vw,4rem);align-items:center;position:relative;z-index:2}
-  .victor-photo{position:relative;overflow:hidden;box-shadow:0 22px 50px rgba(0,0,0,.4);border-bottom:8px solid var(--yellow)}
-  .victor-photo img{width:100%;height:100%;object-fit:cover}
-  .victor h2{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:1.3rem}
+  .victor{background:var(--indigo);color:var(--white);padding:clamp(3rem,6vw,4.6rem) 0;position:relative;overflow:hidden}
+  .victor .geo-dots-dark{position:absolute;bottom:6%;left:-20px;width:170px;height:120px;opacity:.22;z-index:1}
+  .victor .geo-tri-v{position:absolute;top:8%;right:4%;width:90px;opacity:.5;z-index:1}
+  .victor-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:clamp(1.6rem,4vw,3rem);align-items:stretch;position:relative;z-index:2}
+  /* left media column fills height with photo + episode cards + mini stats */
+  .victor-media{display:flex;flex-direction:column;gap:1rem}
+  .victor-photo{position:relative;overflow:hidden;box-shadow:0 22px 50px rgba(0,0,0,.4);border-bottom:8px solid var(--yellow);flex:1 1 auto;min-height:300px}
+  .victor-photo img{width:100%;height:100%;min-height:300px;object-fit:cover;object-position:center top}
+  .ep-card{display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.06);
+    border-left:4px solid var(--yellow);padding:.85rem 1rem;transition:background .15s ease,transform .15s ease}
+  .ep-card:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}
+  .ep-ic{flex:0 0 auto;width:38px;height:38px;background:var(--yellow);color:var(--indigo);display:flex;align-items:center;justify-content:center}
+  .ep-ic svg{width:20px;height:20px}
+  .ep-card .ep-t{font-weight:700;font-size:.95rem;color:#fff;line-height:1.2}
+  .ep-card .ep-s{font-size:.78rem;color:#b9b6d0}
+  .victor-mini{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  .vmini{background:var(--yellow);color:var(--indigo);padding:.9rem 1rem}
+  .vmini:nth-child(2){background:var(--teal);color:#fff}
+  .vmini .vn{font-size:1.5rem;font-weight:800;line-height:1}
+  .vmini .vl{font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .victor-txt{display:flex;flex-direction:column;justify-content:center}
+  .victor h2{font-size:clamp(1.9rem,4.2vw,2.9rem);margin-bottom:1.1rem}
   .victor h2 em{color:var(--yellow);font-style:normal}
-  .victor p.bio{font-size:1.08rem;color:#d9d7e8;margin-bottom:1.6rem;font-weight:400}
-  .victor-quote{border-left:5px solid var(--yellow);padding:.4rem 0 .4rem 1.4rem;margin:1.6rem 0;
-    font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:700;line-height:1.3;color:var(--white)}
-  .victor-btns{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.4rem}
-  @media(max-width:760px){.victor-grid{grid-template-columns:1fr}.victor-photo{max-width:380px}}
+  .victor p.bio{font-size:1.05rem;color:#d9d7e8;margin-bottom:1.3rem;font-weight:400}
+  /* "what you can bring" list adds richness to tall column */
+  .bring-list{list-style:none;margin:0 0 1.3rem;display:grid;gap:.6rem}
+  .bring-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.98rem;color:#e7e5f2}
+  .bring-list li::before{content:"";flex:0 0 auto;margin-top:.45rem;width:10px;height:10px;background:var(--yellow);transform:rotate(45deg)}
+  .victor-quote{border-left:5px solid var(--yellow);padding:.4rem 0 .4rem 1.4rem;margin:1.2rem 0;
+    font-size:clamp(1.1rem,2.3vw,1.4rem);font-weight:700;line-height:1.3;color:var(--white)}
+  .victor-btns{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.1rem}
+  @media(max-width:760px){.victor-grid{grid-template-columns:1fr}.victor-photo{min-height:340px}}
 
   /* ======================================================
      7. HOW IT BEGINS
   ====================================================== */
-  .begins{padding:clamp(3rem,6vw,5rem) 0;background:#f6f6fb}
-  .begins .shead{text-align:center;max-width:640px;margin:0 auto 2.8rem}
-  .begins h2{font-size:clamp(1.8rem,4vw,2.8rem);color:var(--indigo)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.5vw,2rem)}
-  .step{background:var(--white);padding:2rem 1.6rem;border-top:6px solid var(--yellow);box-shadow:0 10px 30px rgba(34,28,75,.1);position:relative}
-  .step .num{font-size:3rem;font-weight:800;color:var(--yellow);line-height:1;margin-bottom:.6rem;-webkit-text-stroke:1.5px var(--indigo)}
+  .begins{padding:clamp(2.6rem,5vw,4.2rem) 0;background:#f6f6fb;position:relative;overflow:hidden}
+  .begins .geo-dots-b{position:absolute;top:10%;right:-10px;width:150px;height:110px;opacity:.5;z-index:0}
+  .begins .shead{text-align:center;max-width:640px;margin:0 auto 2.4rem;position:relative;z-index:1}
+  .begins h2{font-size:clamp(1.8rem,4vw,2.7rem);color:var(--indigo)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.5vw,1.8rem);position:relative;z-index:1}
+  .step{background:var(--white);padding:2.6rem 1.6rem 2rem;border-top:6px solid var(--yellow);
+    box-shadow:0 10px 30px rgba(34,28,75,.1);position:relative;transition:transform .16s ease,box-shadow .18s ease}
+  .step:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(34,28,75,.2)}
+  .step .badge{position:absolute;top:-22px;left:1.6rem;width:46px;height:46px;background:var(--indigo);
+    color:var(--yellow);font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(34,28,75,.3)}
+  .step:hover .badge{background:var(--teal);color:#fff}
   .step h3{font-size:1.3rem;color:var(--indigo);margin-bottom:.6rem}
   .step p{font-size:.97rem}
   @media(max-width:820px){.steps{grid-template-columns:1fr}}
@@ -343,28 +416,53 @@
 <!-- ============ 3. BENEFIT QUAD ============ -->
 <section class="quad">
   <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">What changes</span>
+      <h2>Four things coaching is built to <span class="hl-y">move</span></h2>
+    </div>
     <div class="quad-grid">
       <div class="quad-item">
-        <svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h3>More Clarity</h3>
-        <p>Name the real situation instead of a vague worry.</p>
+        <p>Name the real situation instead of carrying a vague, looping worry.</p>
+        <span class="tiny">See it clearly</span>
       </div>
       <div class="quad-item">
-        <svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>
+        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg></div>
         <h3>More Composure</h3>
-        <p>Respond on purpose instead of reacting.</p>
+        <p>Respond on purpose under pressure instead of reacting on reflex.</p>
+        <span class="tiny">Steady yourself</span>
       </div>
       <div class="quad-item">
-        <svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M18 14l3 3-3 3"/></svg>
+        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M18 14l3 3-3 3"/></svg></div>
         <h3>More Control</h3>
-        <p>Decide with intention, not by default.</p>
+        <p>Make the call with intention, not by default or by avoidance.</p>
+        <span class="tiny">Decide on purpose</span>
       </div>
       <div class="quad-item">
-        <svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h6v6"/></svg>
+        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h6v6"/></svg></div>
         <h3>More Momentum</h3>
-        <p>Take the next step and build on it.</p>
+        <p>Take the next concrete step, then build on what you learned.</p>
+        <span class="tiny">Keep moving</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat"><div class="snum">180+</div><span class="slab">Podcast Episodes</span></div>
+    <div class="stat"><div class="snum">2</div><span class="slab">Audiences Served</span></div>
+    <div class="stat"><div class="snum">18+</div><span class="slab">Adults Only</span></div>
+    <div class="stat"><div class="snum">Online</div><span class="slab">Worldwide</span></div>
+  </div>
+</section>
+
+<!-- ============ TRUST LINE ============ -->
+<section class="trust">
+  <div class="wrap">
+    <p>Featured on <strong>Acta Non Verba</strong> &amp; <strong>Super Mamas</strong> &middot; Host of <strong>The Zen Stoic Path Show</strong></p>
   </div>
 </section>
 
@@ -373,7 +471,7 @@
   <div class="wrap">
     <div class="shead">
       <span class="eyebrow">Coaching for two kinds of pressure</span>
-      <h2>Where does the pressure show up for you?</h2>
+      <h2>Where does the pressure <span class="hl-y">show up</span> for you?</h2>
     </div>
 
     <div class="route-row">
@@ -385,6 +483,11 @@
       <div class="route-txt">
         <h3>For Founders &amp; Business Owners</h3>
         <p>Leading a business can put you between a decision and the people who need an answer. Start with a real situation and the response you want to change.</p>
+        <div class="route-chips">
+          <span class="chip">Hard decisions</span>
+          <span class="chip">Team pressure</span>
+          <span class="chip">High stakes</span>
+        </div>
         <a href="#apply" class="btn btn-indigo">Start With a Situation</a>
       </div>
     </div>
@@ -398,6 +501,11 @@
       <div class="route-txt">
         <h3>For Adult Athletes</h3>
         <p>You may trust a skill in practice and begin to doubt it in competition. Start with a moment your focus or confidence changed — and what you noticed.</p>
+        <div class="route-chips">
+          <span class="chip">Competition nerves</span>
+          <span class="chip">Focus &amp; confidence</span>
+          <span class="chip">Practice vs. game day</span>
+        </div>
         <a href="#apply" class="btn btn-indigo">Start With a Moment</a>
       </div>
     </div>
@@ -412,7 +520,8 @@
     </div>
     <div class="method-txt">
       <span class="eyebrow">The Method</span>
-      <h2>Turn a broad concern into something you can work on</h2>
+      <h2>Turn a broad concern into something you can <span class="hl-y">work on</span></h2>
+      <p class="method-lead">Most pressure arrives as a vague, heavy feeling. Three plain questions break it down into a situation you can actually act on.</p>
       <ul class="q-list">
         <li><span class="q-num">1</span><strong>What happened?</strong></li>
         <li><span class="q-num">2</span><strong>What are you assuming it means?</strong></li>
@@ -422,6 +531,13 @@
     </div>
   </div>
 </section>
+
+<!-- torn divider into the indigo band -->
+<div class="divider-torn" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path fill="#221C4B" d="M0,60 L0,30 L40,40 L80,18 L130,36 L180,14 L230,34 L285,16 L340,36 L400,18 L460,38 L520,20 L585,38 L650,16 L715,36 L780,18 L845,38 L910,18 L975,36 L1040,18 L1110,36 L1160,20 L1200,34 L1200,60 Z"/>
+  </svg>
+</div>
 
 <!-- ============ 6. MEET VICTOR ============ -->
 <section class="victor" id="victor">
@@ -433,14 +549,39 @@
       <circle cx="10" cy="115" r="4"/><circle cx="45" cy="115" r="4"/><circle cx="80" cy="115" r="4"/><circle cx="115" cy="115" r="4"/><circle cx="150" cy="115" r="4"/>
     </g>
   </svg>
+  <svg class="geo-tri-v" viewBox="0 0 90 90" aria-hidden="true">
+    <polygon points="8,82 45,14 82,82" fill="none" stroke="#1F8FA6" stroke-width="3"/>
+    <polygon points="30,82 52,40 74,82" fill="#1F8FA6" opacity=".55"/>
+  </svg>
   <div class="wrap victor-grid">
-    <div class="victor-photo">
-      <img src="assets/victor-studio.jpg" alt="Victor Pierantoni standing with arms crossed, a calm, focused expression">
+    <!-- LEFT: media column filled with photo + episode cards + mini stats -->
+    <div class="victor-media">
+      <div class="victor-photo">
+        <img src="assets/victor-studio.jpg" alt="Victor Pierantoni standing with arms crossed, a calm, focused expression">
+      </div>
+      <a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener" class="ep-card">
+        <span class="ep-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+        <span><span class="ep-t">The Zen Stoic Path Show</span><span class="ep-s">Listen on Apple Podcasts</span></span>
+      </a>
+      <a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener" class="ep-card">
+        <span class="ep-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></span>
+        <span><span class="ep-t">Conversations on YouTube</span><span class="ep-s">Watch the channel</span></span>
+      </a>
+      <div class="victor-mini">
+        <div class="vmini"><div class="vn">180+</div><div class="vl">Episodes</div></div>
+        <div class="vmini"><div class="vn">Austin</div><div class="vl">Texas · Online</div></div>
+      </div>
     </div>
+    <!-- RIGHT: text column -->
     <div class="victor-txt">
       <span class="eyebrow">Meet Victor</span>
       <h2>Coaching from <em>Austin, Texas</em></h2>
       <p class="bio">Victor Pierantoni is the coach behind Liberation Coach. His background includes martial arts and a long interest in how Zen and Stoic philosophy relate to daily life. He hosts the Zen Stoic Path Show — more than 180 conversations — and coaches online from Austin, Texas.</p>
+      <ul class="bring-list">
+        <li>A martial-arts background that shapes how he talks about pressure and composure.</li>
+        <li>A working interest in how Zen and Stoic ideas apply to everyday decisions.</li>
+        <li>Years of recorded conversations with guests on The Zen Stoic Path Show.</li>
+      </ul>
       <blockquote class="victor-quote">"It's better to be a warrior in the garden than a gardener in a war."</blockquote>
       <div class="victor-btns">
         <a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener" class="btn btn-yellow btn-sm">Listen to the Podcast</a>
@@ -452,24 +593,32 @@
 
 <!-- ============ 7. HOW IT BEGINS ============ -->
 <section class="begins">
+  <svg class="geo-dots-b" viewBox="0 0 150 110" aria-hidden="true">
+    <g fill="#221C4B" opacity=".9">
+      <circle cx="10" cy="10" r="4"/><circle cx="40" cy="10" r="4"/><circle cx="70" cy="10" r="4"/><circle cx="100" cy="10" r="4"/><circle cx="130" cy="10" r="4"/>
+      <circle cx="10" cy="40" r="4"/><circle cx="40" cy="40" r="4"/><circle cx="70" cy="40" r="4"/><circle cx="100" cy="40" r="4"/><circle cx="130" cy="40" r="4"/>
+      <circle cx="10" cy="70" r="4"/><circle cx="40" cy="70" r="4"/><circle cx="70" cy="70" r="4"/><circle cx="100" cy="70" r="4"/><circle cx="130" cy="70" r="4"/>
+      <circle cx="10" cy="100" r="4"/><circle cx="40" cy="100" r="4"/><circle cx="70" cy="100" r="4"/><circle cx="100" cy="100" r="4"/><circle cx="130" cy="100" r="4"/>
+    </g>
+  </svg>
   <div class="wrap">
     <div class="shead">
       <span class="eyebrow">How it begins</span>
-      <h2>Three steps to get started</h2>
+      <h2>Three steps to <span class="hl-y">get started</span></h2>
     </div>
     <div class="steps">
       <div class="step">
-        <div class="num">1</div>
+        <div class="badge">1</div>
         <h3>Apply</h3>
         <p>A short, honest application — no payment and no commitment to coach.</p>
       </div>
       <div class="step">
-        <div class="num">2</div>
+        <div class="badge">2</div>
         <h3>Discovery Call</h3>
         <p>A no-obligation Zoom with Victor to see if the work fits — not a booked session, and not automatic acceptance.</p>
       </div>
       <div class="step">
-        <div class="num">3</div>
+        <div class="badge">3</div>
         <h3>Decide Together</h3>
         <p>If it's a fit, you begin 1:1 coaching. All coaching members receive access to Circle alongside their work.</p>
       </div>
@@ -506,6 +655,13 @@
     </div>
   </div>
 </section>
+
+<!-- torn divider into the final indigo band -->
+<div class="divider-torn" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path fill="#221C4B" d="M0,60 L0,32 L45,42 L90,20 L140,38 L190,16 L245,36 L300,18 L360,38 L420,20 L480,40 L545,22 L610,40 L675,18 L740,38 L805,20 L870,40 L935,20 L1000,38 L1065,20 L1130,38 L1180,22 L1200,36 L1200,60 Z"/>
+  </svg>
+</div>
 
 <!-- ============ 9. FINAL CTA ============ -->
 <section class="final">

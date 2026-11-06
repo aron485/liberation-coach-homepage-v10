@@ -44,13 +44,30 @@ h1,h2,h3{line-height:1.12;font-weight:900;letter-spacing:-.01em;}
 .btn-outline{background:transparent;color:var(--charcoal);border:2px solid var(--charcoal);border-radius:0 8px 8px 8px;}
 .btn-outline:hover{background:var(--charcoal);color:var(--white);}
 
+/* ---------- TOP UTILITY BAR ---------- */
+.topbar{
+  position:fixed;top:0;left:0;width:100%;z-index:1001;height:40px;
+  background:#1c1c1f;border-bottom:1px solid rgba(255,194,13,.18);
+  display:flex;align-items:center;transition:transform .3s ease,opacity .3s ease;
+}
+.topbar-inner{display:flex;align-items:center;gap:0;width:100%;}
+.topbar-label{font-size:.7rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);white-space:nowrap;}
+.topbar-links{display:flex;gap:0;margin-left:22px;flex-wrap:wrap;overflow:hidden;}
+.topbar-links a{
+  font-size:.74rem;font-weight:700;color:rgba(255,255,255,.72);letter-spacing:.04em;
+  padding:0 16px;border-left:1px solid rgba(255,255,255,.12);white-space:nowrap;transition:color .2s;
+}
+.topbar-links a:first-child{border-left:none;padding-left:0;}
+.topbar-links a:hover{color:var(--amber);}
+.topbar.hide{transform:translateY(-100%);opacity:0;}
+
 /* ---------- NAV ---------- */
 .nav{
-  position:fixed;top:0;left:0;width:100%;z-index:1000;
-  transition:background .3s ease,box-shadow .3s ease,padding .3s ease;
+  position:fixed;top:40px;left:0;width:100%;z-index:1000;
+  transition:background .3s ease,box-shadow .3s ease,padding .3s ease,top .3s ease;
   padding:18px 0;
 }
-.nav.solid{background:var(--charcoal);box-shadow:0 2px 20px rgba(0,0,0,.35);padding:12px 0;}
+.nav.solid{background:var(--charcoal);box-shadow:0 2px 20px rgba(0,0,0,.35);padding:12px 0;top:0;}
 .nav-inner{display:flex;align-items:center;gap:24px;}
 .brand{font-weight:900;font-size:1.3rem;color:var(--white);letter-spacing:-.02em;white-space:nowrap;}
 .brand .dot{color:var(--amber);}
@@ -116,13 +133,21 @@ h1,h2,h3{line-height:1.12;font-weight:900;letter-spacing:-.01em;}
   background:var(--white);border-radius:14px;padding:34px 30px;
   box-shadow:0 24px 50px rgba(39,39,42,.18);
   display:flex;flex-direction:column;border-top:4px solid var(--amber);
+  border:1px solid #ececef;border-top:4px solid var(--amber);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.icard:hover{transform:translateY(-8px);box-shadow:0 34px 64px rgba(39,39,42,.26);border-color:var(--amber);}
+.icard .ctag{
+  align-self:flex-start;font-size:.66rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+  color:#a16207;background:rgba(255,194,13,.16);padding:5px 11px;border-radius:0 6px 6px 6px;margin-bottom:18px;
 }
 .icard .ic{
-  width:56px;height:56px;border-radius:12px;background:rgba(255,194,13,.16);
-  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  width:60px;height:60px;border-radius:14px;background:rgba(255,194,13,.16);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background .22s ease;
 }
-.icard .ic svg{width:30px;height:30px;stroke:var(--charcoal);}
-.icard h3{font-size:1.25rem;margin-bottom:10px;color:var(--charcoal);}
+.icard:hover .ic{background:var(--amber);}
+.icard .ic svg{width:32px;height:32px;stroke:var(--charcoal);}
+.icard h3{font-size:1.3rem;margin-bottom:10px;color:var(--charcoal);}
 .icard p{font-size:.98rem;color:#52525b;margin-bottom:22px;flex:1;}
 .icard .btn{align-self:flex-start;padding:10px 20px;font-size:.9rem;}
 
@@ -131,6 +156,19 @@ section{position:relative;}
 .sec-pad{padding:clamp(60px,9vw,110px) 0;}
 .sec-grey{background:var(--grey);}
 .sec-dark{background:var(--charcoal);color:var(--white);}
+.sec-texture{position:relative;}
+.sec-texture::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,194,13,.08) 1.2px,transparent 1.3px);
+  background-size:26px 26px;
+}
+.sec-texture > .wrap{position:relative;z-index:1;}
+.method-note{
+  margin-top:28px;background:rgba(255,255,255,.05);border-left:3px solid var(--amber);
+  border-radius:0 10px 10px 10px;padding:20px 22px;
+}
+.method-note strong{color:var(--amber);}
+.method-note p{font-size:1rem;color:rgba(255,255,255,.82);margin:0;}
 .sec-head-eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#a16207;margin-bottom:16px;}
 .sec-dark .sec-head-eyebrow{color:var(--amber);}
 
@@ -139,14 +177,58 @@ section{position:relative;}
 .intro-block h2{font-size:clamp(1.9rem,4vw,2.75rem);color:var(--charcoal);margin-bottom:22px;}
 .intro-block p{font-size:1.15rem;color:#3f3f46;margin-bottom:30px;}
 
+/* amber rule accent */
+.amber-rule{width:60px;height:4px;background:var(--amber);border-radius:2px;margin-bottom:22px;}
+.sec-dark .amber-rule{opacity:.95;}
+
+/* intro split */
+.split-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center;}
+.bring-card{
+  background:var(--white);border-radius:16px;padding:clamp(28px,4vw,40px);
+  box-shadow:0 20px 48px rgba(39,39,42,.12);border-top:4px solid var(--amber);
+}
+.bring-card h3{font-size:1.2rem;color:var(--charcoal);margin-bottom:6px;}
+.bring-card .sub{font-size:.95rem;color:#71717a;margin-bottom:22px;}
+.bring-list{list-style:none;}
+.bring-list li{
+  display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid #ededf0;
+  font-size:1.03rem;color:#3f3f46;
+}
+.bring-list li:first-of-type{border-top:none;}
+.bring-list .chk{
+  flex:0 0 26px;width:26px;height:26px;border-radius:0 7px 7px 7px;background:var(--amber);
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.bring-list .chk svg{width:15px;height:15px;stroke:var(--charcoal);stroke-width:3;}
+
 /* story two-col */
-.story-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(30px,5vw,64px);align-items:center;}
-.story-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 48px rgba(39,39,42,.25);}
-.story-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);aspect-ratio:4/5;}
+.story-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:stretch;}
+.story-media{display:flex;flex-direction:column;gap:18px;}
+.story-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 48px rgba(39,39,42,.25);flex:1;}
+.story-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);min-height:360px;}
 .story-photo .photo-accent{position:absolute;left:0;bottom:0;width:70px;height:70px;background:var(--amber);border-radius:0 16px 0 0;}
+.story-photo .photo-cap{
+  position:absolute;left:0;bottom:0;right:0;z-index:2;
+  background:linear-gradient(transparent,rgba(39,39,42,.9));
+  color:#fff;padding:40px 24px 20px;font-size:.9rem;font-weight:700;letter-spacing:.02em;
+}
+.photo-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.pfact{
+  background:var(--white);border:1px solid #ececef;border-radius:0 10px 10px 10px;padding:18px 20px;
+}
+.pfact .pf-num{font-size:1.7rem;font-weight:900;color:#b58a05;line-height:1;}
+.pfact .pf-lbl{margin-top:6px;font-size:.84rem;color:#52525b;font-weight:700;}
+.story-text{display:flex;flex-direction:column;justify-content:center;}
 .story-text h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:var(--charcoal);margin-bottom:22px;}
 .story-text p{font-size:1.08rem;color:#3f3f46;margin-bottom:22px;}
-.story-quote{font-style:italic;font-weight:700;color:#b58a05;font-size:1.3rem;line-height:1.4;border-left:4px solid var(--amber);padding-left:20px;margin:28px 0;}
+.story-quote{
+  position:relative;font-style:italic;font-weight:700;color:#b58a05;font-size:1.35rem;line-height:1.45;
+  border-left:4px solid var(--amber);padding:6px 0 6px 56px;margin:28px 0;
+}
+.story-quote::before{
+  content:"\201C";position:absolute;left:14px;top:-18px;
+  font-size:4.6rem;line-height:1;color:var(--amber);font-family:Georgia,serif;opacity:.9;
+}
 .pill-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;}
 .pill{
   display:inline-flex;align-items:center;gap:8px;background:var(--charcoal);color:var(--white);
@@ -178,6 +260,15 @@ section{position:relative;}
 .stat .lbl{margin-top:10px;font-size:.98rem;color:rgba(255,255,255,.82);font-weight:700;letter-spacing:.02em;}
 .stats-head{text-align:center;max-width:620px;margin:0 auto;}
 .stats-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:var(--white);}
+.stats-head .amber-rule{margin:16px auto 0;}
+
+/* advantage numbered list */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px;padding-top:50px;border-top:1px solid rgba(255,255,255,.12);}
+.adv{display:flex;flex-direction:column;gap:12px;}
+.adv .adv-no{font-size:2.4rem;font-weight:900;color:var(--amber);line-height:1;letter-spacing:-.02em;}
+.adv h3{font-size:1.25rem;color:var(--white);}
+.adv p{font-size:1rem;color:rgba(255,255,255,.78);}
+.adv .adv-bar{width:44px;height:3px;background:rgba(255,194,13,.5);border-radius:2px;}
 
 /* how it begins */
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px;}
@@ -240,9 +331,11 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
   .nav.open .nav-util{display:flex;}
   .nav.open .nav-right{flex-direction:column;align-items:flex-start;position:absolute;top:100%;left:0;width:100%;}
   .story-grid{grid-template-columns:1fr;}
-  .story-photo img{aspect-ratio:16/11;}
+  .story-photo img{min-height:300px;}
+  .split-grid{grid-template-columns:1fr;}
   .method-grid{grid-template-columns:1fr;}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:34px 20px;}
+  .adv-grid{grid-template-columns:1fr;gap:30px;margin-top:46px;padding-top:40px;}
   .footer-top{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:720px){
@@ -252,6 +345,12 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
   .mobile-apply{display:block;}
   .hero-inner{padding-bottom:70px;}
   .footer{padding-bottom:90px;}
+  .topbar{display:none;}
+  .nav{top:0;}
+  .photo-facts{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:400px){
+  .photo-facts{grid-template-columns:1fr;}
 }
 @media(max-width:480px){
   .footer-top{grid-template-columns:1fr;gap:30px;}
@@ -261,6 +360,18 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 </style>
 </head>
 <body>
+
+<!-- TOP UTILITY BAR -->
+<div class="topbar" id="topbar">
+  <div class="wrap topbar-inner">
+    <span class="topbar-label">As Heard On</span>
+    <div class="topbar-links">
+      <a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener">The Zen Stoic Path Show</a>
+      <a href="#about">Acta Non Verba</a>
+      <a href="#about">Super Mamas</a>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
@@ -313,6 +424,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
     <div class="cards-grid">
       <!-- Card A -->
       <div class="icard" id="founders">
+        <span class="ctag">Audience</span>
         <div class="ic">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
         </div>
@@ -322,6 +434,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
       </div>
       <!-- Card B -->
       <div class="icard" id="athletes">
+        <span class="ctag">Audience</span>
         <div class="ic">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M6 22l3-7 3 2 2 5M9 15l-1-5 5-1 3 3 3 1M8 10l-2 1"/></svg>
         </div>
@@ -331,6 +444,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
       </div>
       <!-- Card C -->
       <div class="icard" id="method-card">
+        <span class="ctag">Approach</span>
         <div class="ic">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
         </div>
@@ -345,11 +459,24 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 <!-- INTRO / REPUTATION -->
 <section class="sec-pad sec-grey" id="coaching">
   <div class="wrap">
-    <div class="intro-block">
-      <p class="sec-head-eyebrow">Individual Work</p>
-      <h2>Individual work, not a program</h2>
-      <p>Founders, business owners and athletes aged 18 and older bring a specific situation, examine the assumptions around it, and consider a practical next step. No scripts, no program to complete — one person, one situation, one honest conversation at a time.</p>
-      <a href="#method" class="btn btn-charcoal">See the method &rarr;</a>
+    <div class="split-grid">
+      <div class="intro-block">
+        <p class="sec-head-eyebrow">Individual Work</p>
+        <div class="amber-rule"></div>
+        <h2>Individual work, not a program</h2>
+        <p>Founders, business owners and athletes aged 18 and older bring a specific situation, examine the assumptions around it, and consider a practical next step. No scripts, no program to complete — one person, one situation, one honest conversation at a time.</p>
+        <a href="#method" class="btn btn-charcoal">See the method &rarr;</a>
+      </div>
+      <div class="bring-card">
+        <h3>What you can bring</h3>
+        <p class="sub">The work starts with something specific, not a broad goal.</p>
+        <ul class="bring-list">
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>A decision you keep circling back to.</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>A pattern that shows up under pressure.</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>A moment you want to respond to differently next time.</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>A call you have to make and want to think through aloud.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -358,12 +485,20 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 <section class="sec-pad" id="about">
   <div class="wrap">
     <div class="story-grid">
-      <div class="story-photo">
-        <img src="assets/victor-green.jpg" alt="Victor Pierantoni, founder and coach of Liberation Coach, in a composed portrait">
-        <span class="photo-accent"></span>
+      <div class="story-media">
+        <div class="story-photo">
+          <img src="assets/victor-green.jpg" alt="Victor Pierantoni, founder and coach of Liberation Coach, in a composed portrait">
+          <span class="photo-accent"></span>
+          <div class="photo-cap">Victor Pierantoni &middot; Austin, Texas</div>
+        </div>
+        <div class="photo-facts">
+          <div class="pfact"><div class="pf-num">180+</div><div class="pf-lbl">Zen Stoic Path Show episodes</div></div>
+          <div class="pfact"><div class="pf-num">Austin</div><div class="pf-lbl">Coaches online from Texas</div></div>
+        </div>
       </div>
       <div class="story-text">
         <p class="sec-head-eyebrow">The Coach</p>
+        <div class="amber-rule"></div>
         <h2>A background in martial arts and philosophy</h2>
         <p>Victor Pierantoni is the coach behind Liberation Coach. His background includes martial arts and a long interest in how Zen and Stoic philosophy relate to daily life. He hosts the Zen Stoic Path Show — more than 180 conversations — and coaches online from Austin, Texas.</p>
         <blockquote class="story-quote">"It's better to be a warrior in the garden than a gardener in a war."</blockquote>
@@ -383,13 +518,17 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 </section>
 
 <!-- THE METHOD -->
-<section class="sec-pad sec-dark" id="method">
+<section class="sec-pad sec-dark sec-texture" id="method">
   <div class="wrap">
     <div class="method-grid">
       <div class="method-copy">
         <p class="sec-head-eyebrow">The Method</p>
+        <div class="amber-rule"></div>
         <h2>What the work is for</h2>
         <p>In coaching, you and Victor work through those questions together — then review what you did and what you learned.</p>
+        <div class="method-note">
+          <p><strong>No scripts.</strong> Each conversation starts from your situation, not a fixed curriculum — and you leave with a next step you chose.</p>
+        </div>
       </div>
       <ol class="q-list">
         <li><h3>What happened?</h3></li>
@@ -406,12 +545,33 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
     <div class="stats-head">
       <p class="sec-head-eyebrow">The Advantage</p>
       <h2>Grounded in real work, open to anyone online</h2>
+      <div class="amber-rule"></div>
     </div>
     <div class="stats-grid">
-      <div class="stat"><div class="num">180+</div><div class="lbl">Episodes</div></div>
-      <div class="stat"><div class="num">2</div><div class="lbl">Audiences</div></div>
+      <div class="stat"><div class="num">180+</div><div class="lbl">Podcast episodes hosted</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Audiences: founders &amp; athletes</div></div>
       <div class="stat"><div class="num">18+</div><div class="lbl">Adults only</div></div>
-      <div class="stat"><div class="num">Online</div><div class="lbl">Worldwide</div></div>
+      <div class="stat"><div class="num">Online</div><div class="lbl">Worldwide, over Zoom</div></div>
+    </div>
+    <div class="adv-grid">
+      <div class="adv">
+        <span class="adv-no">01</span>
+        <span class="adv-bar"></span>
+        <h3>One to one</h3>
+        <p>Every session is individual work with Victor — never a group program or a course to complete.</p>
+      </div>
+      <div class="adv">
+        <span class="adv-no">02</span>
+        <span class="adv-bar"></span>
+        <h3>Situation-first</h3>
+        <p>You bring one specific situation, and the conversation stays on it until you have a next step.</p>
+      </div>
+      <div class="adv">
+        <span class="adv-no">03</span>
+        <span class="adv-bar"></span>
+        <h3>Online, worldwide</h3>
+        <p>Coaching is delivered online, so you can work together from wherever you are.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -421,6 +581,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
   <div class="wrap">
     <div class="intro-block" style="max-width:640px;">
       <p class="sec-head-eyebrow">How It Begins</p>
+      <div class="amber-rule"></div>
       <h2>Three honest steps</h2>
       <p>No payment and no commitment to start — just a conversation to see whether the work fits.</p>
     </div>
@@ -453,6 +614,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
     <div class="faq-head">
       <p class="sec-head-eyebrow">Questions</p>
       <h2>What to know before you apply</h2>
+      <div class="amber-rule" style="margin-left:auto;margin-right:auto;margin-top:16px;"></div>
     </div>
     <details>
       <summary>Are sessions online?</summary>
@@ -540,8 +702,10 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 <script>
 // nav solid on scroll
 var nav=document.getElementById('nav');
+var topbar=document.getElementById('topbar');
 function onScroll(){
-  if(window.scrollY>60){nav.classList.add('solid');}else{nav.classList.remove('solid');}
+  if(window.scrollY>60){nav.classList.add('solid');topbar.classList.add('hide');}
+  else{nav.classList.remove('solid');topbar.classList.remove('hide');}
 }
 window.addEventListener('scroll',onScroll);onScroll();
 // hamburger

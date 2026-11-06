@@ -101,27 +101,44 @@
 
   /* ---------- IMPACT PANEL ---------- */
   .impact-wrap{margin-top:-46px;position:relative;z-index:5;}
-  .impact{background:var(--navy);color:var(--white);border-radius:28px;padding:clamp(28px,4vw,46px);box-shadow:0 24px 60px rgba(33,34,81,.28);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);}
-  .impact-col{position:relative;padding-left:18px;}
+  .impact{position:relative;background:var(--navy);color:var(--white);border-radius:28px;padding:clamp(28px,4vw,46px);box-shadow:0 24px 60px rgba(33,34,81,.28);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);overflow:hidden;}
+  .impact::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.10) 1.4px,transparent 1.4px);background-size:22px 22px;opacity:.5;pointer-events:none;}
+  .impact-col{position:relative;z-index:1;padding:18px 0 4px 18px;border-radius:14px;transition:background .2s ease,transform .2s ease;}
   .impact-col::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;border-radius:4px;background:var(--gold);}
+  .impact-col:hover{background:rgba(255,255,255,.06);transform:translateY(-4px);}
+  .impact-step{font-weight:800;font-size:.78rem;letter-spacing:.12em;color:var(--gold);display:block;margin-bottom:6px;}
   .impact-col h3{font-size:clamp(1.15rem,1.7vw,1.4rem);font-weight:800;margin-bottom:8px;}
   .impact-col p{font-size:.98rem;color:rgba(255,255,255,.82);}
 
+  /* ---------- TRUST STRIP ---------- */
+  .trust{padding:clamp(34px,4vw,48px) 0 clamp(14px,2vw,22px);}
+  .trust-label{text-align:center;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.76rem;color:var(--navy);opacity:.75;margin-bottom:18px;}
+  .trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+  .trust-chip{display:inline-flex;align-items:center;gap:.55em;background:var(--white);border:1px solid rgba(33,34,81,.12);color:var(--indigo);font-weight:700;font-size:.9rem;padding:.6em 1.2em;border-radius:40px;box-shadow:0 6px 16px rgba(33,34,81,.05);transition:transform .18s ease,box-shadow .18s ease;}
+  .trust-chip:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(33,34,81,.12);}
+  .trust-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;}
+
   /* ---------- SECTION SHELL ---------- */
-  section.band{padding:clamp(54px,7vw,92px) 0;}
+  section.band{padding:clamp(54px,7vw,92px) 0;position:relative;overflow:hidden;}
+  .sec-spark{position:absolute;pointer-events:none;z-index:0;opacity:.5;}
+  section.band>.wrap{position:relative;z-index:1;}
   .eyebrow{display:inline-block;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;color:var(--navy);margin-bottom:14px;}
   .sec-head{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;line-height:1.12;letter-spacing:-.015em;margin-bottom:clamp(26px,3.5vw,40px);}
   .brush-word.dark .brush path{stroke:var(--gold);}
 
   /* ---------- ROUTES ---------- */
   .routes-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,30px);}
-  .route-card{position:relative;border-radius:26px;overflow:hidden;min-height:clamp(360px,42vw,460px);display:flex;align-items:flex-end;color:var(--white);isolation:isolate;}
+  .route-card{position:relative;border-radius:26px;overflow:hidden;min-height:clamp(360px,42vw,460px);display:flex;align-items:flex-end;color:var(--white);isolation:isolate;transition:transform .25s ease,box-shadow .25s ease;box-shadow:0 14px 34px rgba(33,34,81,.14);}
+  .route-card:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(33,34,81,.3);}
+  .route-card:hover .photo{transform:scale(1.05);}
+  .route-card .photo{transition:transform .5s ease;}
   .route-card .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);z-index:-2;}
   .route-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(33,34,81,.28) 0%,rgba(33,34,81,.78) 60%,rgba(43,55,155,.92) 100%);}
   .route-body{padding:clamp(24px,3vw,34px);width:100%;}
+  .route-pill{display:inline-flex;align-items:center;gap:.5em;background:rgba(239,203,48,.18);border:1px solid rgba(239,203,48,.55);color:var(--gold);font-weight:700;font-size:.82rem;letter-spacing:.02em;padding:.4em 1em;border-radius:40px;margin-bottom:14px;}
   .route-body h3{font-size:clamp(1.35rem,2.4vw,1.85rem);font-weight:800;margin-bottom:12px;}
   .route-body p{font-size:.98rem;color:rgba(255,255,255,.88);max-width:42ch;margin-bottom:20px;}
-  .route-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .route-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid rgba(255,255,255,.18);padding-top:18px;}
   .route-tag{font-weight:700;font-size:.92rem;color:var(--gold);}
   .stock-label{position:absolute;top:12px;right:12px;z-index:1;background:rgba(33,34,81,.72);color:rgba(255,255,255,.82);font-size:.66rem;letter-spacing:.04em;padding:4px 9px;border-radius:30px;font-weight:600;}
 
@@ -133,26 +150,56 @@
 
   /* ---------- MEET VICTOR ---------- */
   .meet{background:var(--indigo);color:var(--white);}
-  .meet-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,60px);align-items:center;}
+  .meet-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,60px);align-items:start;}
   .meet-photo-wrap{position:relative;}
   .meet-photo-wrap .blob{position:absolute;inset:auto;width:88%;aspect-ratio:1/1;background:var(--gold);border-radius:46% 54% 50% 50%/52% 48% 52% 48%;top:52%;left:50%;transform:translate(-50%,-50%);z-index:0;}
   .meet-photo{position:relative;z-index:1;border-radius:24px;width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:top center;box-shadow:0 20px 50px rgba(0,0,0,.35);}
   .meet h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;margin-bottom:18px;line-height:1.14;}
   .meet p{color:rgba(255,255,255,.86);font-size:1.03rem;margin-bottom:24px;max-width:52ch;}
-  .meet-links{display:flex;flex-wrap:wrap;gap:14px;}
+  .meet-links{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
+  .meet-focus{margin:0 0 26px;}
+  .meet-focus-label{font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.74rem;color:var(--gold);margin-bottom:13px;}
+  .meet-focus-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .meet-focus-list li{position:relative;padding-left:26px;color:rgba(255,255,255,.88);font-size:1rem;}
+  .meet-focus-list li::before{content:"";position:absolute;left:4px;top:.55em;width:8px;height:8px;background:var(--gold);border-radius:50%;}
+  .meet-episodes{display:flex;flex-direction:column;gap:10px;}
+  .ep{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 16px;font-weight:600;color:rgba(255,255,255,.9);font-size:.96rem;transition:background .18s ease,transform .18s ease,border-color .18s ease;}
+  .ep:hover{background:rgba(255,255,255,.1);transform:translateX(4px);border-color:var(--gold);}
+  .ep .ep-ic{width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--indigo);display:inline-flex;align-items:center;justify-content:center;font-size:.64rem;flex:none;}
+  .meet-left{display:flex;flex-direction:column;gap:20px;}
+  .meet-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .meet-tile{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 12px;text-align:center;}
+  .meet-tile b{display:block;color:var(--gold);font-weight:800;font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.1;}
+  .meet-tile span{display:block;margin-top:5px;font-size:.78rem;color:rgba(255,255,255,.72);font-weight:500;letter-spacing:.02em;}
+  .meet-quote{position:relative;background:var(--gold);color:var(--indigo);border-radius:18px;padding:22px 24px 22px 28px;font-weight:700;font-size:1.02rem;line-height:1.4;}
+  .meet-quote::before{content:"\201C";position:absolute;left:14px;top:2px;font-size:2.6rem;opacity:.35;font-weight:800;}
+  .meet-quote cite{display:block;margin-top:8px;font-style:normal;font-weight:700;font-size:.85rem;opacity:.75;}
 
   /* ---------- STATS BAND ---------- */
-  .stats{background:var(--navy);color:var(--white);}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,30px);text-align:center;}
+  .stats{background:var(--navy);color:var(--white);position:relative;overflow:hidden;}
+  .stats::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(239,203,48,.12),transparent 45%);pointer-events:none;}
+  .stats-head{text-align:center;position:relative;z-index:1;margin-bottom:clamp(26px,3.5vw,40px);}
+  .stats-head .eyebrow{color:var(--gold);}
+  .stats-head h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,30px);text-align:center;position:relative;z-index:1;}
+  .stat{padding:0 6px;position:relative;}
+  .stat:not(:last-child)::after{content:"";position:absolute;right:0;top:12%;height:66%;width:1px;background:rgba(255,255,255,.14);}
   .stat b{display:block;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:var(--gold);line-height:1;letter-spacing:-.02em;}
-  .stat span{display:block;margin-top:8px;font-size:.95rem;color:rgba(255,255,255,.82);font-weight:500;}
+  .stat span{display:block;margin-top:8px;font-size:.95rem;color:var(--white);font-weight:700;}
+  .stat small{display:block;margin-top:4px;font-size:.78rem;color:rgba(255,255,255,.62);font-weight:500;line-height:1.3;}
 
   /* ---------- HOW IT BEGINS ---------- */
   .begins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,28px);}
-  .step{background:var(--white);border-radius:24px;padding:clamp(26px,3vw,36px);box-shadow:0 10px 30px rgba(33,34,81,.07);border:1px solid rgba(33,34,81,.06);position:relative;}
-  .step-num{width:48px;height:48px;border-radius:50%;background:var(--indigo);color:var(--gold);font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .step{background:var(--white);border-radius:24px;padding:clamp(26px,3vw,36px);box-shadow:0 10px 30px rgba(33,34,81,.07);border:1px solid rgba(33,34,81,.06);position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease;}
+  .step::before{content:"";position:absolute;left:0;top:0;height:5px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+  .step:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(33,34,81,.14);}
+  .step:hover::before{transform:scaleX(1);}
+  .step-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+  .step-num{width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--indigo);font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 8px 18px rgba(239,203,48,.4);}
+  .step-kick{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);opacity:.7;}
   .step h3{font-size:clamp(1.2rem,1.9vw,1.4rem);font-weight:800;margin-bottom:10px;}
   .step p{color:#4a4b6b;font-size:.98rem;}
+  .step-note{margin-top:16px;padding-top:14px;border-top:1px solid rgba(33,34,81,.1);font-size:.82rem;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:.5em;}
 
   /* ---------- FAQ ---------- */
   .faq-list{max-width:820px;margin:0 auto;}
@@ -296,22 +343,37 @@
 <div class="wrap impact-wrap" id="impact">
   <div class="impact">
     <div class="impact-col">
+      <span class="impact-step">STEP 01</span>
       <h3>Create Clarity</h3>
       <p>Name the real situation in front of you.</p>
     </div>
     <div class="impact-col">
+      <span class="impact-step">STEP 02</span>
       <h3>Build Composure</h3>
       <p>Respond instead of react under pressure.</p>
     </div>
     <div class="impact-col">
+      <span class="impact-step">STEP 03</span>
       <h3>Decide and Act</h3>
       <p>Take a next step you chose for yourself.</p>
     </div>
   </div>
 </div>
 
+<!-- ============ TRUST STRIP ============ -->
+<div class="wrap trust">
+  <p class="trust-label">As Heard On</p>
+  <div class="trust-row">
+    <span class="trust-chip"><span class="dot"></span>The Zen Stoic Path Show</span>
+    <span class="trust-chip"><span class="dot"></span>Acta Non Verba</span>
+    <span class="trust-chip"><span class="dot"></span>Super Mamas</span>
+    <span class="trust-chip"><span class="dot"></span>Online, worldwide</span>
+  </div>
+</div>
+
 <!-- ============ ROUTES ============ -->
 <section class="band" id="routes">
+  <svg class="sec-spark" style="top:6%;right:4%;width:40px;" viewBox="0 0 24 24" fill="none" stroke="#EFCB30" stroke-width="1.6" stroke-linecap="round"><path d="M12 2 L13.4 10.6 L22 12 L13.4 13.4 L12 22 L10.6 13.4 L2 12 L10.6 10.6 Z"/></svg>
   <div class="wrap">
     <span class="eyebrow">Where to Start</span>
     <h2 class="sec-head">Two routes into the same
@@ -322,7 +384,7 @@
         <span class="stock-label">Stock placeholder</span>
         <img class="photo" src="assets/bg-city-night.jpg" alt="City skyline at night representing business leadership">
         <div class="route-body">
-          <span class="route-tag">For Founders &amp; Business Owners</span>
+          <span class="route-pill">For Founders &amp; Business Owners</span>
           <h3>Leading, under pressure</h3>
           <p>Leading a business can put you between a decision and the people who need an answer. Start with a real situation and the response you want to change.</p>
           <div class="route-foot">
@@ -337,7 +399,7 @@
         <span class="stock-label">Stock placeholder</span>
         <img class="photo" src="assets/bg-gi.jpg" alt="Martial arts gi folded, representing athletic discipline">
         <div class="route-body">
-          <span class="route-tag">For Adult Athletes</span>
+          <span class="route-pill">For Adult Athletes</span>
           <h3>Focus, when it counts</h3>
           <p>You may trust a skill in practice and begin to doubt it in competition. Start with a moment your focus or confidence changed — and what you noticed.</p>
           <div class="route-foot">
@@ -365,17 +427,42 @@
 <section class="band meet" id="meet">
   <div class="wrap">
     <div class="meet-grid">
-      <div class="meet-photo-wrap">
-        <div class="blob"></div>
-        <img class="meet-photo" src="assets/victor-cream.jpg" alt="Victor Pierantoni, founder and coach of Liberation Coach">
+      <div class="meet-left">
+        <div class="meet-photo-wrap">
+          <div class="blob"></div>
+          <img class="meet-photo" src="assets/victor-cream.jpg" alt="Victor Pierantoni, founder and coach of Liberation Coach">
+        </div>
+        <div class="meet-tiles">
+          <div class="meet-tile"><b>180+</b><span>Episodes</span></div>
+          <div class="meet-tile"><b>Austin, TX</b><span>Home Base</span></div>
+          <div class="meet-tile"><b>Online</b><span>Worldwide</span></div>
+        </div>
+        <div class="meet-quote">
+          Work grounded in martial arts and a long interest in how Zen and Stoic philosophy meet daily life.
+          <cite>— The Liberation Coach approach</cite>
+        </div>
       </div>
       <div class="meet-text">
         <span class="eyebrow" style="color:var(--gold)">Meet Your Coach</span>
         <h2>Victor Pierantoni</h2>
         <p>Victor Pierantoni is the coach behind Liberation Coach, offering 1:1 coaching for founders, business owners and adult athletes. His background includes martial arts and a long interest in how Zen and Stoic philosophy relate to daily life. He hosts the Zen Stoic Path Show — more than 180 conversations — and coaches online from Austin, Texas.</p>
+        <div class="meet-focus">
+          <p class="meet-focus-label">Where the work goes</p>
+          <ul class="meet-focus-list">
+            <li>A decision you keep revisiting</li>
+            <li>A conversation you are putting off</li>
+            <li>A moment of pressure you want to handle differently</li>
+          </ul>
+        </div>
         <div class="meet-links">
           <a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener" class="pill pill-gold">The Zen Stoic Path Show</a>
           <a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener" class="pill pill-ghost-light">Watch on YouTube</a>
+        </div>
+        <div class="meet-episodes">
+          <p class="meet-focus-label">Recent on the podcast</p>
+          <a class="ep" href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener"><span class="ep-ic">&#9654;</span>The 5 Pillars of Emotional Currency</a>
+          <a class="ep" href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener"><span class="ep-ic">&#9654;</span>Living Your Purpose with Ikigai</a>
+          <a class="ep" href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener"><span class="ep-ic">&#9654;</span>The Key To Finding Balance</a>
         </div>
       </div>
     </div>
@@ -385,35 +472,45 @@
 <!-- ============ STATS BAND ============ -->
 <section class="band stats">
   <div class="wrap">
+    <div class="stats-head">
+      <span class="eyebrow">By The Numbers</span>
+      <h2>A grounded, focused practice</h2>
+    </div>
     <div class="stats-grid">
-      <div class="stat"><b>180+</b><span>episodes</span></div>
-      <div class="stat"><b>2</b><span>audiences</span></div>
-      <div class="stat"><b>18+</b><span>only</span></div>
-      <div class="stat"><b>Online</b><span>worldwide</span></div>
+      <div class="stat"><b>180+</b><span>Episodes</span><small>Of the Zen Stoic Path Show</small></div>
+      <div class="stat"><b>2</b><span>Audiences</span><small>Founders and adult athletes</small></div>
+      <div class="stat"><b>18+</b><span>Only</span><small>Adults aged eighteen and up</small></div>
+      <div class="stat"><b>Online</b><span>Worldwide</span><small>Work from wherever you are</small></div>
     </div>
   </div>
 </section>
 
 <!-- ============ HOW IT BEGINS ============ -->
 <section class="band" id="begins">
+  <svg class="sec-spark" style="bottom:10%;left:3%;width:34px;opacity:.4;" viewBox="0 0 24 24" fill="none" stroke="#2B379B" stroke-width="1.6" stroke-linecap="round"><path d="M12 3 L13 11 L21 12 L13 13 L12 21 L11 13 L3 12 L11 11 Z"/></svg>
   <div class="wrap">
     <span class="eyebrow">The Process</span>
-    <h2 class="sec-head">How it begins</h2>
+    <h2 class="sec-head">How it
+      <span class="brush-word dark">begins<svg class="brush" viewBox="0 0 170 24" preserveAspectRatio="none" fill="none"><path d="M4 15 C 38 7, 64 19, 98 11 C 130 4, 150 17, 166 10" stroke="#EFCB30" stroke-width="7" stroke-linecap="round"/></svg></span>
+    </h2>
     <div class="begins-grid">
       <div class="step">
-        <div class="step-num">1</div>
+        <div class="step-head"><div class="step-num">1</div><span class="step-kick">First</span></div>
         <h3>Apply</h3>
         <p>A short, honest application. No payment, no commitment — just a clear picture of what you want to work on.</p>
+        <div class="step-note"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;"></span>Takes a few minutes</div>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
+        <div class="step-head"><div class="step-num">2</div><span class="step-kick">Then</span></div>
         <h3>Discovery call</h3>
         <p>A no-obligation Zoom with Victor to see if the work fits. Not a booked session, and not automatic acceptance.</p>
+        <div class="step-note"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;"></span>No obligation to proceed</div>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-head"><div class="step-num">3</div><span class="step-kick">If It Fits</span></div>
         <h3>Decide together</h3>
         <p>If it&rsquo;s a fit on both sides, you begin 1:1 coaching — with Circle access included for members.</p>
+        <div class="step-note"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;"></span>Circle access included for members</div>
       </div>
     </div>
   </div>
@@ -421,9 +518,12 @@
 
 <!-- ============ FAQ ============ -->
 <section class="band" id="faq" style="background:var(--cream);">
+  <svg class="sec-spark" style="top:8%;right:6%;width:36px;opacity:.4;" viewBox="0 0 24 24" fill="none" stroke="#2B379B" stroke-width="1.6" stroke-linecap="round"><path d="M12 4 L12.8 11.2 L20 12 L12.8 12.8 L12 20 L11.2 12.8 L4 12 L11.2 11.2 Z"/></svg>
   <div class="wrap">
     <span class="eyebrow" style="display:block;text-align:center;">Questions</span>
-    <h2 class="sec-head" style="text-align:center;">Frequently asked</h2>
+    <h2 class="sec-head" style="text-align:center;">Frequently
+      <span class="brush-word dark">asked<svg class="brush" viewBox="0 0 150 24" preserveAspectRatio="none" fill="none"><path d="M4 15 C 34 7, 58 19, 88 11 C 118 4, 134 17, 146 10" stroke="#EFCB30" stroke-width="7" stroke-linecap="round"/></svg></span>
+    </h2>
     <div class="faq-list">
       <details class="faq" open>
         <summary>Are sessions online? <span class="ic">+</span></summary>
