@@ -293,7 +293,7 @@ details[open] summary::after{transform:rotate(45deg);}
 details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 
 /* final CTA */
-.final{background:var(--amber);text-align:center;}
+.final{background:linear-gradient(rgba(255,194,13,.90),rgba(255,194,13,.92)),url('assets/bg-garden.jpg') center/cover no-repeat;text-align:center;}
 .final h2{font-size:clamp(2rem,4.6vw,3rem);color:var(--charcoal);margin-bottom:18px;}
 .final p{font-size:1.15rem;color:#3f3f46;max-width:48ch;margin:0 auto 30px;}
 .final .btn-charcoal{font-size:1.1rem;padding:17px 38px;}
@@ -323,13 +323,17 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
   .nav-util{display:none;}
   .hamburger{display:flex;}
   .nav .btn{display:none;}
+  .nav.open{background:var(--charcoal);box-shadow:0 14px 30px rgba(0,0,0,.4);}
+  .nav.open .nav-inner{flex-wrap:wrap;row-gap:0;}
   .nav.open .nav-menu{
-    display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;
-    background:var(--charcoal);padding:20px clamp(20px,5vw,56px) 28px;gap:16px;margin:0;
-    box-shadow:0 14px 30px rgba(0,0,0,.4);
+    display:flex;flex-direction:column;flex-basis:100%;width:100%;order:5;
+    gap:16px;margin:16px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);
   }
-  .nav.open .nav-util{display:flex;}
-  .nav.open .nav-right{flex-direction:column;align-items:flex-start;position:absolute;top:100%;left:0;width:100%;}
+  .nav.open .nav-right{
+    display:flex;flex-direction:column;align-items:flex-start;flex-basis:100%;width:100%;order:6;
+    margin:14px 0 4px;gap:14px;
+  }
+  .nav.open .nav-util{display:flex;gap:20px;}
   .story-grid{grid-template-columns:1fr;}
   .story-photo img{min-height:300px;}
   .split-grid{grid-template-columns:1fr;}
@@ -353,7 +357,8 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
   .photo-facts{grid-template-columns:1fr;}
 }
 @media(max-width:480px){
-  .footer-top{grid-template-columns:1fr;gap:30px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:30px 20px;}
+  .footer-top>div:first-child{grid-column:1 / -1;}
   .stats-grid{grid-template-columns:1fr;}
   .hero-cta{flex-direction:column;align-items:flex-start;}
 }
@@ -540,7 +545,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 </section>
 
 <!-- STATS -->
-<section class="sec-pad sec-dark" style="border-top:1px solid rgba(255,255,255,.08);">
+<section class="sec-pad sec-dark" style="background:#17171a;border-top:1px solid rgba(255,194,13,.22);">
   <div class="wrap">
     <div class="stats-head">
       <p class="sec-head-eyebrow">The Advantage</p>

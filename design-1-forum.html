@@ -203,15 +203,15 @@
 
   /* ---------- FAQ ---------- */
   .faq-list{max-width:820px;margin:0 auto;}
-  details.faq{background:var(--white);border-radius:18px;margin-bottom:14px;border:1px solid rgba(33,34,81,.08);overflow:hidden;box-shadow:0 6px 18px rgba(33,34,81,.05);}
+  details.faq{background:var(--cream);border-radius:18px;margin-bottom:14px;border:1px solid rgba(33,34,81,.1);overflow:hidden;box-shadow:0 6px 18px rgba(33,34,81,.06);}
   details.faq summary{list-style:none;cursor:pointer;padding:22px clamp(20px,3vw,28px);font-weight:700;font-size:clamp(1.02rem,1.5vw,1.15rem);display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--indigo);}
   details.faq summary::-webkit-details-marker{display:none;}
-  details.faq summary .ic{flex:none;width:30px;height:30px;border-radius:50%;background:var(--cream);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;transition:transform .2s,background .2s,color .2s;}
+  details.faq summary .ic{flex:none;width:30px;height:30px;border-radius:50%;background:var(--white);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;transition:transform .2s,background .2s,color .2s;}
   details.faq[open] summary .ic{transform:rotate(45deg);background:var(--gold);color:var(--indigo);}
   details.faq .faq-a{padding:0 clamp(20px,3vw,28px) 24px;color:#4a4b6b;font-size:1rem;}
 
   /* ---------- FINAL CTA ---------- */
-  .final{background:var(--indigo);color:var(--white);text-align:center;position:relative;overflow:hidden;}
+  .final{background:var(--navy);color:var(--white);text-align:center;position:relative;overflow:hidden;border-bottom:4px solid var(--gold);}
   .final h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;line-height:1.14;max-width:20ch;margin:0 auto 14px;position:relative;z-index:2;}
   .final p{color:rgba(255,255,255,.8);max-width:48ch;margin:0 auto 28px;position:relative;z-index:2;}
   .final .pill{position:relative;z-index:2;}
@@ -262,7 +262,8 @@
   @media(max-width:480px){
     .nav-apply{padding:.5em 1em;font-size:.88rem;}
     .brand{font-size:1.1rem;}
-    .foot-top{grid-template-columns:1fr;}
+    .foot-top{grid-template-columns:1fr 1fr;gap:28px 20px;}
+    .foot-brand{grid-column:1 / -1;}
     .stat b{font-size:2rem;}
   }
 </style>
@@ -517,7 +518,7 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="band" id="faq" style="background:var(--cream);">
+<section class="band" id="faq" style="background:var(--white);">
   <svg class="sec-spark" style="top:8%;right:6%;width:36px;opacity:.4;" viewBox="0 0 24 24" fill="none" stroke="#2B379B" stroke-width="1.6" stroke-linecap="round"><path d="M12 4 L12.8 11.2 L20 12 L12.8 12.8 L12 20 L11.2 12.8 L4 12 L11.2 11.2 Z"/></svg>
   <div class="wrap">
     <span class="eyebrow" style="display:block;text-align:center;">Questions</span>
