@@ -118,6 +118,9 @@
   /* duotone treatments */
   .seg.side img{filter:grayscale(1) contrast(1.05) brightness(.62)}
   .seg.side::after{content:"";position:absolute;inset:0;background:var(--indigo);mix-blend-mode:color;opacity:.55}
+  /* right panel = Victor, lifted so he reads clearly while staying in the band's tone */
+  .seg.side.seg-victor img{filter:grayscale(1) contrast(1.06) brightness(.92);object-position:50% 20%}
+  .seg.side.seg-victor::after{opacity:.38}
   .seg.center img{filter:grayscale(1) contrast(1.08) brightness(.9)}
   .seg.center::before{content:"";position:absolute;inset:0;z-index:2;
     background:linear-gradient(135deg,var(--teal),var(--indigo));mix-blend-mode:screen;opacity:.72}
@@ -374,7 +377,7 @@
   <div class="hero-band" aria-hidden="true">
     <div class="seg side"><img src="assets/bg-gi.jpg" alt=""></div>
     <div class="seg center"><img src="assets/victor-gesture.jpg" alt=""></div>
-    <div class="seg side"><img src="assets/bg-city-night.jpg" alt=""></div>
+    <div class="seg side seg-victor"><img src="assets/victor-avatar.jpg" alt=""></div>
   </div>
   <div class="hero-overlay-dark" aria-hidden="true"></div>
 
