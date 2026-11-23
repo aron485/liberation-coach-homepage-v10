@@ -7,7 +7,7 @@
 <meta name="description" content="Explore one-on-one coaching with Victor Pierantoni for founders and adult athletes: the focus of the work, session examples and how to apply.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 :root{
   --charcoal:#27272A;
@@ -15,7 +15,6 @@
   --amber:#FFC20D;
   --amber-deep:#a16207;
   --white:#FFFFFF;
-  --bone:#F4F1EA;
   --grey:#F4F4F5;
   --ink:#27272A;
 }
@@ -25,15 +24,14 @@ body{
   font-family:'Lato',Arial,Helvetica,sans-serif;
   color:var(--ink);
   background:var(--white);
-  line-height:1.62;
+  line-height:1.6;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
-h1,h2,h3{line-height:1.1;font-weight:900;letter-spacing:-.015em;}
-.wrap{width:100%;max-width:1220px;margin:0 auto;padding:0 clamp(20px,5vw,60px);}
-.mono{font-family:'DM Mono',ui-monospace,monospace;}
+h1,h2,h3{line-height:1.12;font-weight:900;letter-spacing:-.01em;}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,56px);}
 
 /* ---------- BUTTONS ---------- */
 .btn{
@@ -43,7 +41,7 @@ h1,h2,h3{line-height:1.1;font-weight:900;letter-spacing:-.015em;}
   text-align:center;line-height:1.2;
 }
 .btn-amber{background:var(--amber);color:var(--charcoal);border-radius:8px;}
-.btn-amber:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,194,13,.42);}
+.btn-amber:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,194,13,.4);}
 .btn-charcoal{background:var(--charcoal);color:var(--white);border-radius:0 8px 8px 8px;}
 .btn-charcoal:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(39,39,42,.35);}
 .btn-outline{background:transparent;color:var(--charcoal);border:2px solid var(--charcoal);border-radius:0 8px 8px 8px;}
@@ -58,10 +56,10 @@ h1,h2,h3{line-height:1.1;font-weight:900;letter-spacing:-.015em;}
   display:flex;align-items:center;transition:transform .3s ease,opacity .3s ease;
 }
 .topbar-inner{display:flex;align-items:center;gap:0;width:100%;}
-.topbar-label{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);white-space:nowrap;}
+.topbar-label{font-size:.7rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);white-space:nowrap;}
 .topbar-links{display:flex;gap:0;margin-left:22px;flex-wrap:wrap;overflow:hidden;}
 .topbar-links a{
-  font-size:.72rem;font-weight:400;color:rgba(255,255,255,.72);letter-spacing:.04em;
+  font-size:.74rem;font-weight:700;color:rgba(255,255,255,.72);letter-spacing:.04em;
   padding:0 16px;border-left:1px solid rgba(255,255,255,.12);white-space:nowrap;transition:color .2s;
 }
 .topbar-links a:first-child{border-left:none;padding-left:0;}
@@ -72,12 +70,11 @@ h1,h2,h3{line-height:1.1;font-weight:900;letter-spacing:-.015em;}
 .nav{
   position:fixed;top:40px;left:0;width:100%;z-index:1000;
   transition:background .3s ease,box-shadow .3s ease,padding .3s ease,top .3s ease;
-  padding:18px 0;background:transparent;
+  padding:18px 0;
 }
 .nav.solid{background:var(--charcoal);box-shadow:0 2px 20px rgba(0,0,0,.35);padding:12px 0;top:0;}
 .nav-inner{display:flex;align-items:center;gap:24px;}
-.brand{font-weight:900;font-size:1.3rem;color:var(--white);letter-spacing:-.02em;white-space:nowrap;display:inline-flex;align-items:center;gap:9px;}
-.brand .mark{width:22px;height:22px;flex:none;}
+.brand{font-weight:900;font-size:1.3rem;color:var(--white);letter-spacing:-.02em;white-space:nowrap;}
 .brand .dot{color:var(--amber);}
 .nav-menu{display:flex;gap:26px;margin:0 auto;list-style:none;}
 .nav-menu a{color:var(--white);font-weight:700;font-size:.95rem;opacity:.9;transition:color .2s;padding-bottom:3px;}
@@ -85,86 +82,124 @@ h1,h2,h3{line-height:1.1;font-weight:900;letter-spacing:-.015em;}
 .nav-menu a[aria-current="page"]{color:var(--amber);opacity:1;border-bottom:2px solid var(--amber);}
 .nav-right{display:flex;align-items:center;gap:18px;margin-left:auto;}
 .nav .btn{padding:10px 22px;font-size:.9rem;}
-.nav-video{display:inline-flex;align-items:center;gap:8px;color:var(--white);font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.4);border-radius:40px;padding:8px 16px;transition:border-color .2s,color .2s;}
-.nav-video:hover{border-color:var(--amber);color:var(--amber);}
-.nav-video svg{width:13px;height:13px;}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto;}
 .hamburger span{width:26px;height:3px;background:var(--white);border-radius:2px;transition:.3s;}
 
-/* ---------- CINEMATIC HERO ---------- */
+/* ---------- FULL-BLEED PHOTO HERO ---------- */
 .hero{
-  position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;
-  background:radial-gradient(130% 120% at 18% 20%,#34343a 0%,#232327 46%,#161618 100%);
-  padding-top:clamp(120px,15vw,160px);padding-bottom:clamp(70px,9vw,110px);
+  position:relative;min-height:88vh;display:flex;align-items:center;
+  color:var(--white);overflow:hidden;
 }
-.hero-victor{position:absolute;right:0;top:0;bottom:0;width:48%;z-index:1;}
-.hero-victor img{
-  width:100%;height:100%;object-fit:cover;object-position:60% 18%;filter:grayscale(.25) contrast(1.04) brightness(.96);
-  -webkit-mask-image:linear-gradient(to left,#000 60%,transparent 96%);mask-image:linear-gradient(to left,#000 60%,transparent 96%);
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:url('assets/victor-studio.jpg') 78% 28%/cover no-repeat;
+  filter:grayscale(1) brightness(.82) contrast(1.04);
 }
-.hero::after{content:"";position:absolute;inset:0;z-index:2;
-  background:linear-gradient(97deg,#17171a 30%,rgba(23,23,26,.78) 50%,rgba(23,23,26,.25) 70%,transparent 86%);}
-.hero .wrap{position:relative;z-index:3;width:100%;}
-.hero-inner{max-width:620px;}
-.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);margin-bottom:22px;}
-.hero .eyebrow::before{content:"";width:28px;height:1px;background:var(--amber);display:inline-block;}
-.hero h1{font-size:clamp(2.5rem,5.6vw,4rem);color:#fff;line-height:1.02;margin-bottom:24px;letter-spacing:-.025em;}
-.hero h1 .amber{color:var(--amber);}
-.hero .lead{font-size:clamp(1.08rem,1.6vw,1.26rem);color:rgba(255,255,255,.88);max-width:46ch;margin-bottom:32px;line-height:1.6;}
-.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px;}
-.hero .fineprint{font-size:.84rem;color:rgba(255,255,255,.58);max-width:52ch;margin-top:26px;line-height:1.55;}
-.stock-badge{position:absolute;top:14px;right:16px;z-index:4;background:rgba(0,0,0,.6);color:rgba(255,255,255,.82);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:4px;}
+.hero-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(23,23,25,.94) 0%,rgba(23,23,25,.72) 46%,rgba(23,23,25,.18) 100%);
+}
+.hero-inner{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:150px;}
+.hero-content{max-width:680px;}
+.eyebrow{
+  display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--amber);margin-bottom:22px;
+}
+.hero h1{
+  font-size:clamp(2.2rem,5.6vw,3.6rem);color:var(--amber);font-weight:900;
+  margin-bottom:24px;max-width:15ch;line-height:1.04;
+}
+.hero p.lead{font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--white);max-width:48ch;margin-bottom:30px;opacity:.96;text-shadow:0 1px 10px rgba(0,0,0,.45);}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:20px;}
+.hero .finepoint{font-size:.85rem;color:rgba(255,255,255,.72);max-width:30ch;}
+
+/* fixed apply edge tab */
+.edge-tab{
+  position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:900;
+  background:var(--amber);color:var(--charcoal);font-weight:900;letter-spacing:.06em;font-size:.82rem;
+  padding:14px 22px;border-radius:0 8px 8px 8px;box-shadow:-3px 4px 16px rgba(0,0,0,.25);
+  cursor:pointer;transition:transform .2s,box-shadow .2s;
+}
+.edge-tab:hover{transform:translateY(-50%) translateY(-2px);box-shadow:0 10px 28px rgba(255,194,13,.4);}
+
+/* ---------- OVERLAP CARDS ---------- */
+.cards-overlap{position:relative;z-index:5;}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:-90px;}
+.icard{
+  background:var(--white);border-radius:14px;padding:34px 30px;
+  box-shadow:0 24px 50px rgba(39,39,42,.18);
+  display:flex;flex-direction:column;border:1px solid #ececef;border-top:4px solid var(--amber);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.icard:hover{transform:translateY(-8px);box-shadow:0 34px 64px rgba(39,39,42,.26);border-color:var(--amber);}
+.icard .ctag{
+  align-self:flex-start;font-size:.66rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--amber-deep);background:rgba(255,194,13,.16);padding:5px 11px;border-radius:0 6px 6px 6px;margin-bottom:18px;
+}
+.icard .ic{
+  width:60px;height:60px;border-radius:14px;background:rgba(255,194,13,.16);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background .22s ease;
+}
+.icard:hover .ic{background:var(--amber);}
+.icard .ic svg{width:32px;height:32px;stroke:var(--amber-deep);fill:none;stroke-width:2;}
+.icard:hover .ic svg{stroke:var(--charcoal);}
+.icard h3{font-size:1.28rem;margin-bottom:10px;color:var(--charcoal);}
+.icard p{font-size:.98rem;color:#52525b;margin:0;}
 
 /* ---------- SECTIONS ---------- */
 section{position:relative;}
-.sec-pad{padding:clamp(66px,9vw,120px) 0;}
-.sec-bone{background:var(--bone);}
+.sec-pad{padding:clamp(64px,9vw,112px) 0;}
+.sec-grey{background:var(--grey);}
 .sec-dark{background:var(--charcoal);color:var(--white);}
-.sec-black{background:var(--black);color:var(--white);}
-.eyebrow-lbl{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:20px;}
-.eyebrow-lbl::before{content:"";width:26px;height:1px;background:currentColor;}
-.sec-dark .eyebrow-lbl,.sec-black .eyebrow-lbl{color:var(--amber);}
+.sec-head-eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:16px;}
+.sec-dark .sec-head-eyebrow{color:var(--amber);}
+.amber-rule{width:60px;height:4px;background:var(--amber);border-radius:2px;margin-bottom:22px;}
 
-/* big editorial lede */
-.lede{background:var(--white);}
-.lede .wrap{max-width:1000px;}
-.lede p{font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.34;font-weight:400;color:var(--charcoal);letter-spacing:-.01em;}
-.lede p + p{margin-top:22px;font-size:clamp(1.15rem,1.7vw,1.35rem);color:#52525b;}
-.lede .amber-word{color:var(--amber-deep);font-weight:700;}
+/* opening definition (white editorial lede) */
+.lede-block{max-width:880px;}
+.lede-block h2{font-size:clamp(1.9rem,4vw,2.75rem);color:var(--charcoal);margin-bottom:24px;}
+.lede-block p{font-size:clamp(1.15rem,1.9vw,1.4rem);color:#3f3f46;line-height:1.5;margin-bottom:22px;}
+.lede-block p:last-child{margin-bottom:0;}
 
-/* two-column feature row (media + prose) */
-.feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,72px);align-items:center;}
-.feature.flip .feat-media{order:2;}
-.feat-prose h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:20px;color:inherit;}
-.sec-bone .feat-prose h2{color:var(--charcoal);}
-.feat-prose .lead-line{font-size:1.2rem;font-weight:700;margin-bottom:18px;color:#3f3f46;}
-.sec-dark .feat-prose .lead-line,.sec-black .feat-prose .lead-line{color:rgba(255,255,255,.92);}
-.feat-prose p{font-size:1.08rem;margin-bottom:17px;color:#3f3f46;}
-.sec-dark .feat-prose p,.sec-black .feat-prose p{color:rgba(255,255,255,.84);}
-.feat-prose p:last-of-type{margin-bottom:0;}
-.btn-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px;}
+/* numbered advantage list — vertical rows */
+.sec-headline{max-width:680px;margin-bottom:10px;}
+.sec-headline h2{font-size:clamp(1.9rem,3.8vw,2.6rem);color:var(--charcoal);margin-bottom:16px;}
+.sec-headline .lead-line{font-size:1.2rem;font-weight:700;color:#52525b;}
+.adv-rows{margin-top:46px;border-top:1px solid #e0e0e4;}
+.adv-row{
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(22px,4vw,54px);
+  padding:clamp(28px,4vw,40px) 0;border-bottom:1px solid #e0e0e4;align-items:start;
+}
+.adv-row .adv-no{font-size:clamp(2.8rem,7vw,4.4rem);font-weight:900;color:var(--amber);line-height:.85;letter-spacing:-.03em;}
+.adv-row h3{font-size:clamp(1.3rem,2.6vw,1.75rem);color:var(--charcoal);margin-bottom:12px;}
+.adv-row p{font-size:1.07rem;color:#3f3f46;max-width:72ch;}
+.btn-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px;}
 
-/* image framing motif — amber corner bracket */
-.framed{position:relative;}
-.framed img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
-.framed.tall img{height:clamp(380px,46vw,560px);}
-.framed::before{content:"";position:absolute;left:-14px;top:-14px;width:72px;height:72px;border-left:3px solid var(--amber);border-top:3px solid var(--amber);z-index:2;}
-.framed::after{content:"";position:absolute;right:-14px;bottom:-14px;width:72px;height:72px;border-right:3px solid var(--amber);border-bottom:3px solid var(--amber);z-index:2;}
-.framed .stock-label{position:absolute;right:12px;top:12px;background:rgba(0,0,0,.66);color:#fff;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:4px;z-index:3;}
+/* examine — charcoal editorial + pull-quote */
+.examine-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:clamp(34px,5vw,70px);align-items:center;}
+.examine-copy h2{font-size:clamp(1.9rem,3.8vw,2.6rem);color:var(--amber);margin-bottom:22px;}
+.examine-copy p{font-size:1.09rem;color:rgba(255,255,255,.88);margin-bottom:20px;}
+.examine-copy p:last-of-type{margin-bottom:0;}
+.pull{
+  font-style:italic;font-weight:900;color:var(--amber);line-height:1.3;
+  font-size:clamp(1.5rem,3.2vw,2.3rem);border-left:4px solid var(--amber);
+  padding:10px 0 10px 32px;position:relative;
+}
+.pull::before{
+  content:"\201C";position:absolute;left:14px;top:-26px;
+  font-size:4.2rem;line-height:1;color:rgba(255,194,13,.5);font-family:Georgia,serif;
+}
 
-/* circular ringed motif image */
-.ring-media{position:relative;width:min(100%,420px);margin:0 auto;aspect-ratio:1;}
-.ring-media img{width:100%;height:100%;object-fit:cover;border-radius:50%;filter:grayscale(.3) contrast(1.05);}
-.ring-media::after{content:"";position:absolute;inset:-12px;border:2px solid var(--amber);border-radius:50%;}
-.ring-media .stock-label{position:absolute;right:8%;top:8%;background:rgba(0,0,0,.66);color:#fff;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:4px;z-index:3;}
-
-/* illustration callout */
-.callout{background:rgba(255,194,13,.08);border-left:3px solid var(--amber);border-radius:0 10px 10px 10px;padding:24px 28px;margin-top:28px;max-width:66ch;}
+/* useful starting point */
+.start-block{max-width:860px;}
+.start-block h2{font-size:clamp(1.9rem,3.8vw,2.6rem);color:var(--charcoal);margin-bottom:18px;}
+.start-block .lead-line{font-size:1.2rem;font-weight:700;color:#3f3f46;margin-bottom:16px;}
+.start-block > p{font-size:1.08rem;color:#3f3f46;max-width:66ch;}
+.callout{background:rgba(255,194,13,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 10px;padding:24px 28px;margin-top:30px;max-width:68ch;}
 .callout p{font-size:1.05rem;color:#3f3f46;margin:0;}
 .callout strong{color:var(--amber-deep);}
 
-/* compact strip (Section 5) */
-.strip{background:var(--black);color:var(--white);padding:clamp(44px,6vw,68px) 0;}
+/* online + circle compact strip */
 .strip-inner{display:flex;align-items:center;gap:clamp(24px,5vw,56px);}
 .strip-icon{flex:0 0 72px;width:72px;height:72px;border-radius:0 14px 14px 14px;background:rgba(255,194,13,.14);display:flex;align-items:center;justify-content:center;}
 .strip-icon svg{width:36px;height:36px;stroke:var(--amber);fill:none;stroke-width:2;}
@@ -172,54 +207,48 @@ section{position:relative;}
 .strip-text .lead-line{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px;}
 .strip-text p{font-size:1.04rem;color:rgba(255,255,255,.82);margin:0;max-width:72ch;}
 
-/* steps (Section 6) — numbered timeline cards */
-.sec-head{max-width:640px;margin-bottom:12px;}
-.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--charcoal);margin-bottom:16px;}
-.sec-head .lead-line{font-size:1.2rem;font-weight:700;color:#52525b;}
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px;}
-.step{position:relative;background:var(--white);border:1px solid #e7e5e0;border-radius:14px;padding:38px 30px 32px;box-shadow:0 18px 44px rgba(39,39,42,.08);}
-.step .step-no{font-family:'DM Mono',monospace;font-size:3rem;font-weight:500;color:rgba(255,194,13,.5);line-height:1;margin-bottom:16px;}
+/* how to begin — icon/step cards */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px;}
+.step{background:var(--white);border-radius:14px;padding:34px 30px;box-shadow:0 14px 36px rgba(39,39,42,.1);position:relative;border-bottom:4px solid var(--amber);}
+.step .ic{width:52px;height:52px;border-radius:12px;background:rgba(255,194,13,.16);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.step .ic svg{width:28px;height:28px;stroke:var(--amber-deep);fill:none;stroke-width:2;}
+.step .step-no{font-size:.8rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:10px;}
 .step h3{font-size:1.3rem;color:var(--charcoal);margin-bottom:12px;}
-.step p{font-size:1rem;color:#52525b;margin:0;}
-.step::after{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--amber);border-radius:14px 14px 0 0;}
+.step p{font-size:1rem;color:#52525b;}
 
-/* background/fit (Section 7) */
-.fit-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(34px,5vw,68px);align-items:center;}
-.fit-photo{position:relative;}
-.fit-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:6px;max-height:560px;min-height:420px;}
-.fit-photo::before{content:"";position:absolute;left:-14px;top:-14px;width:72px;height:72px;border-left:3px solid var(--amber);border-top:3px solid var(--amber);}
-.fit-photo .photo-cap{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(23,23,25,.82);color:#fff;padding:9px 16px;font-size:.82rem;font-weight:700;letter-spacing:.04em;border-radius:0 8px 8px 8px;}
-.fit-sub{margin-top:30px;padding-top:28px;border-top:1px solid rgba(0,0,0,.1);}
-.sec-dark .fit-sub{border-top-color:rgba(255,255,255,.16);}
-.fit-sub h3{font-size:1.35rem;margin-bottom:12px;}
-.note-quiet{margin-top:24px;background:rgba(0,0,0,.035);border-left:3px solid #c9c7c1;border-radius:0 10px 10px 10px;padding:18px 22px;font-size:.95rem;color:#52525b;max-width:70ch;}
-.sec-dark .note-quiet{background:rgba(255,255,255,.05);border-left-color:rgba(255,255,255,.3);color:rgba(255,255,255,.72);}
+/* background & fit — story grid */
+.story-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:stretch;}
+.story-media{display:flex;flex-direction:column;gap:18px;}
+.story-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 48px rgba(39,39,42,.25);flex:1;}
+.story-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(1) contrast(1.05);min-height:380px;}
+.story-photo .photo-accent{position:absolute;left:0;bottom:0;width:70px;height:70px;background:var(--amber);border-radius:0 16px 0 0;}
+.story-photo .photo-cap{position:absolute;left:0;bottom:0;right:0;z-index:2;background:linear-gradient(transparent,rgba(39,39,42,.9));color:#fff;padding:40px 24px 20px;font-size:.9rem;font-weight:700;letter-spacing:.02em;}
+.story-text{display:flex;flex-direction:column;justify-content:center;}
+.story-text h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:var(--charcoal);margin-bottom:22px;}
+.story-text p{font-size:1.08rem;color:#3f3f46;margin-bottom:22px;}
+.fit-sub{margin-top:8px;padding-top:28px;border-top:1px solid rgba(0,0,0,.1);}
+.fit-sub h3{font-size:1.35rem;color:var(--charcoal);margin-bottom:12px;}
+.fit-sub p{font-size:1.05rem;color:#3f3f46;margin-bottom:0;}
+.note-quiet{margin-top:24px;background:rgba(0,0,0,.035);border-left:3px solid #c9c7c1;border-radius:0 10px 10px 10px;padding:18px 22px;font-size:.95rem;color:#52525b;max-width:72ch;}
 
-/* cinematic final CTA */
-.final{position:relative;min-height:62vh;display:flex;align-items:center;overflow:hidden;
-  background:radial-gradient(120% 120% at 20% 30%,#303035 0%,#202023 50%,#161618 100%);
-  padding:clamp(70px,9vw,120px) 0;}
-.final-victor{position:absolute;right:0;top:0;bottom:0;width:44%;z-index:1;}
-.final-victor img{width:100%;height:100%;object-fit:cover;object-position:60% 16%;filter:grayscale(.3) contrast(1.04) brightness(.95);
-  -webkit-mask-image:linear-gradient(to left,#000 58%,transparent 95%);mask-image:linear-gradient(to left,#000 58%,transparent 95%);}
-.final::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(97deg,#17171a 30%,rgba(23,23,26,.72) 52%,transparent 82%);}
-.final .wrap{position:relative;z-index:3;width:100%;}
-.final-inner{max-width:560px;}
-.final h2{font-size:clamp(2rem,4.6vw,3.2rem);color:#fff;margin-bottom:20px;line-height:1.04;}
-.final h2 .amber{color:var(--amber);}
-.final p{font-size:1.18rem;color:rgba(255,255,255,.86);max-width:48ch;margin-bottom:32px;}
+/* final CTA — amber band */
+.final{position:relative;overflow:hidden;background:linear-gradient(rgba(255,194,13,.9),rgba(255,194,13,.92)),url('assets/bg-garden.jpg') center/cover no-repeat;text-align:center;}
+.final h2{font-size:clamp(2rem,4.6vw,3rem);color:var(--charcoal);margin-bottom:18px;}
+.final p{font-size:1.15rem;color:#3f3f46;max-width:48ch;margin:0 auto 30px;}
+.final .btn-charcoal{font-size:1.1rem;padding:17px 38px;}
+.stock-badge{position:absolute;top:14px;right:16px;z-index:3;background:rgba(0,0,0,.55);color:rgba(255,255,255,.9);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:4px;}
 
 /* footer */
-.footer{background:var(--black);color:rgba(255,255,255,.72);padding:72px 0 40px;}
+.footer{background:var(--charcoal);color:rgba(255,255,255,.72);padding:70px 0 40px;}
 .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
-.footer .brand{font-size:1.4rem;margin-bottom:16px;display:inline-flex;}
-.footer-blurb{font-size:.96rem;max-width:34ch;}
-.footer h4{color:var(--white);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;}
+.footer .brand{font-size:1.5rem;margin-bottom:16px;display:block;}
+.footer-blurb{font-size:.98rem;max-width:34ch;}
+.footer h4{color:var(--white);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;}
 .footer ul{list-style:none;}
 .footer ul li{margin-bottom:11px;}
-.footer ul a{font-size:.95rem;transition:color .2s;}
+.footer ul a{font-size:.96rem;transition:color .2s;}
 .footer ul a:hover{color:var(--amber);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:26px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;font-size:.84rem;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:26px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;font-size:.85rem;}
 .footer-legal{display:flex;flex-wrap:wrap;gap:20px;}
 .footer-legal a:hover{color:var(--amber);}
 .footer-disclaimer{width:100%;margin-top:18px;font-size:.8rem;color:rgba(255,255,255,.5);}
@@ -229,41 +258,43 @@ section{position:relative;}
 .mobile-apply .btn{width:100%;justify-content:center;}
 
 /* ---------- RESPONSIVE ---------- */
-@media(max-width:980px){
+@media(max-width:960px){
   .nav-menu{display:none;}
   .hamburger{display:flex;}
-  .nav .btn,.nav-video{display:none;}
+  .nav .btn{display:none;}
   .nav.open{background:var(--charcoal);box-shadow:0 14px 30px rgba(0,0,0,.4);}
   .nav.open .nav-inner{flex-wrap:wrap;row-gap:0;}
-  .nav.open .nav-menu{display:flex;flex-direction:column;flex-basis:100%;width:100%;order:5;gap:16px;margin:16px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);}
+  .nav.open .nav-menu{
+    display:flex;flex-direction:column;flex-basis:100%;width:100%;order:5;
+    gap:16px;margin:16px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);
+  }
   .nav.open .nav-menu a[aria-current="page"]{border-bottom:none;}
-  .nav.open .nav-right{display:flex;flex-direction:column;align-items:flex-start;flex-basis:100%;width:100%;order:6;margin:14px 0 4px;gap:14px;}
-  .nav.open .nav-video{display:inline-flex;}
-  .feature{grid-template-columns:1fr;gap:34px;}
-  .feature.flip .feat-media{order:0;}
-  .fit-grid{grid-template-columns:1fr;gap:34px;}
-  .fit-photo img{min-height:340px;max-height:460px;}
+  .nav.open .nav-right{
+    display:flex;flex-direction:column;align-items:flex-start;flex-basis:100%;width:100%;order:6;
+    margin:14px 0 4px;gap:14px;
+  }
+  .examine-grid{grid-template-columns:1fr;gap:30px;}
+  .story-grid{grid-template-columns:1fr;}
+  .story-photo img{min-height:320px;}
   .strip-inner{flex-direction:column;align-items:flex-start;gap:22px;}
-  .steps-grid{grid-template-columns:1fr;gap:20px;}
+  .steps-grid{grid-template-columns:1fr;}
   .footer-top{grid-template-columns:1fr 1fr;}
-  .hero-victor{width:62%;opacity:.5;}
-  .hero::after{background:linear-gradient(97deg,#17171a 52%,rgba(23,23,26,.82) 72%,rgba(23,23,26,.55) 100%);}
-  .final-victor{width:70%;opacity:.42;}
-  .final::after{background:linear-gradient(97deg,#17171a 54%,rgba(23,23,26,.8) 78%,rgba(23,23,26,.5) 100%);}
 }
 @media(max-width:720px){
+  .cards-grid{grid-template-columns:1fr;margin-top:40px;gap:20px;}
+  .edge-tab{display:none;}
   .mobile-apply{display:block;}
+  .hero-inner{padding-bottom:80px;}
   .footer{padding-bottom:90px;}
   .topbar{display:none;}
   .nav{top:0;}
-  .hero{min-height:auto;padding-top:clamp(104px,26vw,130px);}
-  .lede p{font-size:1.5rem;}
+  .hero{min-height:auto;}
 }
 @media(max-width:480px){
   .footer-top{grid-template-columns:1fr 1fr;gap:30px 20px;}
   .footer-top>div:first-child{grid-column:1 / -1;}
   .hero-cta{flex-direction:column;align-items:flex-start;}
-  .framed::before,.framed::after,.fit-photo::before{width:48px;height:48px;}
+  .adv-row{grid-template-columns:1fr;gap:6px;}
 }
 </style>
 </head>
@@ -272,7 +303,7 @@ section{position:relative;}
 <!-- TOP UTILITY BAR -->
 <div class="topbar" id="topbar">
   <div class="wrap topbar-inner">
-    <span class="topbar-label mono">As Heard On</span>
+    <span class="topbar-label">As Heard On</span>
     <div class="topbar-links">
       <a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener">The Zen Stoic Path Show</a>
       <a href="https://podcasts.apple.com/ie/podcast/victor-pierantoni-the-zen-stoic-on-the-similarities/id1531794099?i=1000620849756" target="_blank" rel="noopener">Acta Non Verba</a>
@@ -284,10 +315,7 @@ section{position:relative;}
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="/" class="brand">
-      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="#FFC20D" stroke-width="2.4"/><path d="M16 2a14 14 0 0 1 0 28 7 7 0 0 1 0-14 7 7 0 0 0 0-14Z" fill="#FFC20D"/></svg>
-      Liberation Coach<span class="dot">.</span>
-    </a>
+    <a href="/" class="brand">Liberation Coach<span class="dot">.</span></a>
     <ul class="nav-menu">
       <li><a href="/">Home</a></li>
       <li><a href="/coaching" aria-current="page">Coaching</a></li>
@@ -306,98 +334,148 @@ section{position:relative;}
   </div>
 </nav>
 
-<!-- CINEMATIC HERO -->
-<header class="hero">
-  <div class="hero-victor">
-    <img src="assets/victor-studio.jpg" alt="Victor Pierantoni standing with his arms crossed, a calm and composed expression">
-  </div>
-  <div class="wrap">
-    <div class="hero-inner">
-      <span class="eyebrow mono">1:1 Coaching</span>
-      <h1>One on one coaching with <span class="amber">Victor Pierantoni</span></h1>
+<!-- FULL-BLEED PHOTO HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-content">
+      <span class="eyebrow">1:1 Coaching</span>
+      <h1>One on one coaching with Victor Pierantoni</h1>
       <p class="lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
       <div class="hero-cta">
         <a href="/apply" class="btn btn-amber">Apply for 1:1 Coaching &rarr;</a>
-        <a href="/method" class="btn btn-outline-light">See What a Session Can Involve</a>
+        <span class="finepoint">Online sessions with Victor. Circle access for coaching members.</span>
       </div>
-      <p class="fineprint">Online sessions with Victor. Circle access for coaching members. Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
     </div>
   </div>
 </header>
 
-<!-- BIG EDITORIAL LEDE -->
-<section class="sec-pad lede">
-  <div class="wrap">
-    <p>The offer is for founders, business owners and adult athletes. Bring a decision, a difficult conversation or a performance concern that matters in your life.</p>
-    <p>Victor's questions examine your response and the assumptions shaping it; you consider what you want to do next. Sessions take place online, and all coaching members receive Circle access.</p>
-  </div>
-</section>
+<!-- FIXED APPLY EDGE TAB -->
+<a href="/apply" class="edge-tab">Apply &rarr;</a>
 
-<!-- SECTION 2 — What can you bring to coaching? (media + prose) -->
-<section class="sec-pad sec-bone">
+<!-- OVERLAP ICON CARDS -->
+<div class="cards-overlap">
   <div class="wrap">
-    <div class="feature">
-      <div class="feat-media">
-        <div class="framed tall">
-          <span class="stock-label">Stock placeholder</span>
-          <img src="assets/bg-desk.jpg" alt="A quiet desk with a notebook and pen, where a specific situation can be written down">
+    <div class="cards-grid">
+      <div class="icard">
+        <span class="ctag">Step One</span>
+        <div class="ic">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
         </div>
+        <h3>Bring a situation</h3>
+        <p>A decision, a difficult conversation or a performance concern that matters in your life.</p>
       </div>
-      <div class="feat-prose">
-        <span class="eyebrow-lbl mono">What You Can Bring</span>
-        <h2>What can you bring to coaching?</h2>
-        <p class="lead-line">Start with something specific.</p>
-        <p>For a founder, that could be a decision that keeps reopening or a conversation with someone you lead. You might want to understand why you avoid giving direct feedback, or what makes it difficult to trust someone with a responsibility. For an athlete, it could be pressure before competing, attention caught on a mistake or the demands of a changing sporting career.</p>
-        <p>Personal and professional priorities can overlap. Describe where a business or sporting goal competes with a relationship, rest or enjoyment of what you do, and which part you want to examine with Victor.</p>
-        <p>When productivity is the concern, describe the work you want to finish and why it matters. A useful starting question is which action would serve that goal, given your other responsibilities and the time you have.</p>
-        <div class="btn-row">
-          <a href="/for-founders" class="btn btn-charcoal">Explore Founder Coaching &rarr;</a>
-          <a href="/for-athletes" class="btn btn-outline">Explore Coaching for Athletes &rarr;</a>
+      <div class="icard">
+        <span class="ctag">Step Two</span>
+        <div class="ic">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         </div>
+        <h3>Examine the assumptions</h3>
+        <p>Victor's questions examine your response and the assumptions shaping it.</p>
       </div>
+      <div class="icard">
+        <span class="ctag">Step Three</span>
+        <div class="ic">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h12"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <h3>Choose a next step</h3>
+        <p>You consider what you want to do next and choose an action to try.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPENING DEFINITION -->
+<section class="sec-pad" id="coaching">
+  <div class="wrap">
+    <div class="lede-block">
+      <p class="sec-head-eyebrow">What This Is</p>
+      <div class="amber-rule"></div>
+      <h2>Individual work on how you respond</h2>
+      <p>Victor's questions examine your response and the assumptions shaping it; you consider what you want to do next.</p>
+      <p>The offer is for founders, business owners and adult athletes. Bring a decision, a difficult conversation or a performance concern that matters in your life. Sessions take place online, and all coaching members receive Circle access.</p>
     </div>
   </div>
 </section>
 
-<!-- SECTION 3 — What can one on one coaching help you examine? (dark, ringed motif) -->
-<section class="sec-pad sec-dark">
+<!-- WHAT CAN YOU BRING — NUMBERED ADVANTAGE LIST -->
+<section class="sec-pad sec-grey">
   <div class="wrap">
-    <div class="feature">
-      <div class="feat-media">
-        <div class="ring-media">
-          <span class="stock-label">Stock placeholder</span>
-          <img src="assets/bg-water.jpg" alt="Still water with a calm, even surface, suggesting a pause for reflection">
+    <div class="sec-headline">
+      <p class="sec-head-eyebrow">What You Can Bring</p>
+      <div class="amber-rule"></div>
+      <h2>What can you bring to coaching?</h2>
+      <p class="lead-line">Start with something specific.</p>
+    </div>
+    <div class="adv-rows">
+      <div class="adv-row">
+        <div class="adv-no">01</div>
+        <div>
+          <h3>A founder's angle</h3>
+          <p>For a founder, that could be a decision that keeps reopening or a conversation with someone you lead. You might want to understand why you avoid giving direct feedback, or what makes it difficult to trust someone with a responsibility.</p>
         </div>
       </div>
-      <div class="feat-prose">
-        <span class="eyebrow-lbl mono">The Conversation</span>
+      <div class="adv-row">
+        <div class="adv-no">02</div>
+        <div>
+          <h3>An athlete's angle</h3>
+          <p>For an athlete, it could be pressure before competing, attention caught on a mistake or the demands of a changing sporting career.</p>
+        </div>
+      </div>
+      <div class="adv-row">
+        <div class="adv-no">03</div>
+        <div>
+          <h3>Priorities and productivity</h3>
+          <p>Personal and professional priorities can overlap. Describe where a business or sporting goal competes with a relationship, rest or enjoyment of what you do, and which part you want to examine with Victor. When productivity is the concern, describe the work you want to finish and why it matters. A useful starting question is which action would serve that goal, given your other responsibilities and the time you have.</p>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <a href="/for-founders" class="btn btn-charcoal">Explore Founder Coaching &rarr;</a>
+      <a href="/for-athletes" class="btn btn-outline">Explore Coaching for Athletes &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT CAN COACHING HELP YOU EXAMINE — CHARCOAL + PULL-QUOTE -->
+<section class="sec-pad sec-dark">
+  <div class="wrap">
+    <div class="examine-grid">
+      <div class="examine-copy">
+        <p class="sec-head-eyebrow">The Conversation</p>
+        <div class="amber-rule"></div>
         <h2>What can one on one coaching help you examine?</h2>
         <p>Victor asks questions about what happened, how you interpret it and what you want from the conversation. His work can also include attention to feelings and bodily sensations. These are examples from his coaching and teaching, not a fixed script for every session.</p>
-        <p>A practical focus could be identifying a question to ask before deciding, checking an assumption or choosing an action to try. A chosen action is something you can do; the eventual business, personal or sporting result depends on more than a session.</p>
+        <p>A practical focus could be identifying a question to ask before deciding, checking an assumption or choosing an action to try.</p>
         <p>You can learn from an action you choose by comparing what you expected with what happened. For example, after a difficult conversation, note what you said, how the other person responded and which assumption you would check next time.</p>
         <div class="btn-row">
           <a href="/method" class="btn btn-outline-light">See What a Session Can Involve &rarr;</a>
         </div>
       </div>
+      <blockquote class="pull">A chosen action is something you can do; the eventual business, personal or sporting result depends on more than a session.</blockquote>
     </div>
   </div>
 </section>
 
-<!-- SECTION 4 — A useful starting point -->
-<section class="sec-pad sec-bone">
-  <div class="wrap" style="max-width:860px;">
-    <span class="eyebrow-lbl mono">Where To Begin</span>
-    <h2 style="font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--charcoal);margin-bottom:18px;">A useful starting point</h2>
-    <p style="font-size:1.2rem;font-weight:700;color:#3f3f46;margin-bottom:16px;">You can begin with an unresolved question.</p>
-    <p style="font-size:1.08rem;color:#3f3f46;max-width:66ch;">As a starting point, describe what happened, what you keep returning to and what you would like help thinking through. You do not need to arrive with an answer.</p>
-    <div class="callout">
-      <p><strong>Illustration:</strong> if you keep revisiting a decision, a useful focus could be distinguishing information you still need from an assumption you are making. That gives the conversation a specific question to examine.</p>
+<!-- A USEFUL STARTING POINT -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="start-block">
+      <p class="sec-head-eyebrow">Where To Begin</p>
+      <div class="amber-rule"></div>
+      <h2>A useful starting point</h2>
+      <p class="lead-line">You can begin with an unresolved question.</p>
+      <p>As a starting point, describe what happened, what you keep returning to and what you would like help thinking through. You do not need to arrive with an answer.</p>
+      <div class="callout">
+        <p><strong>Illustration:</strong> if you keep revisiting a decision, a useful focus could be distinguishing information you still need from an assumption you are making. That gives the conversation a specific question to examine.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 5 — Online sessions and Circle access (COMPACT STRIP) -->
-<section class="strip">
+<!-- ONLINE + CIRCLE — COMPACT STRIP -->
+<section class="sec-dark" style="padding:clamp(44px,6vw,68px) 0;">
   <div class="wrap">
     <div class="strip-inner">
       <div class="strip-icon">
@@ -412,26 +490,30 @@ section{position:relative;}
   </div>
 </section>
 
-<!-- SECTION 6 — How to begin (numbered steps) -->
-<section class="sec-pad">
+<!-- HOW TO BEGIN — ICON/STEP CARDS -->
+<section class="sec-pad sec-grey" id="apply">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow-lbl mono">How To Begin</span>
+    <div class="sec-headline" style="max-width:640px;">
+      <p class="sec-head-eyebrow">How To Begin</p>
+      <div class="amber-rule"></div>
       <h2>Apply, meet Victor, then decide.</h2>
     </div>
     <div class="steps-grid">
       <div class="step">
-        <div class="step-no">01</div>
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <div class="step-no">Step 01</div>
         <h3>Apply</h3>
         <p>Describe the situation you want to work on and what you would like to be different.</p>
       </div>
       <div class="step">
-        <div class="step-no">02</div>
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <div class="step-no">Step 02</div>
         <h3>Discovery Call</h3>
         <p>The next step is a Zoom conversation with Victor to explore whether coaching is a fit. There is no obligation to proceed with coaching.</p>
       </div>
       <div class="step">
-        <div class="step-no">03</div>
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="step-no">Step 03</div>
         <h3>Your Decision</h3>
         <p>If you choose to begin coaching, the work takes place online and coaching members receive Circle access.</p>
       </div>
@@ -442,20 +524,24 @@ section{position:relative;}
   </div>
 </section>
 
-<!-- SECTION 7 — Background and professional fit -->
-<section class="sec-pad sec-dark">
+<!-- BACKGROUND AND PROFESSIONAL FIT -->
+<section class="sec-pad" id="about">
   <div class="wrap">
-    <div class="fit-grid">
-      <div class="fit-photo">
-        <img src="assets/victor-avatar.jpg" alt="Victor Pierantoni, performance coach, in a relaxed studio portrait">
-        <span class="photo-cap">Victor Pierantoni</span>
+    <div class="story-grid">
+      <div class="story-media">
+        <div class="story-photo">
+          <img src="assets/victor-avatar.jpg" alt="Victor Pierantoni, performance coach, in a relaxed studio portrait with a warm expression">
+          <span class="photo-accent"></span>
+          <div class="photo-cap">Victor Pierantoni</div>
+        </div>
       </div>
-      <div class="feat-prose">
-        <span class="eyebrow-lbl mono">Background And Fit</span>
+      <div class="story-text">
+        <p class="sec-head-eyebrow">Background And Fit</p>
+        <div class="amber-rule"></div>
         <h2>Background and professional fit</h2>
         <p>Victor's public background includes martial arts and founding Zen Stoic. In his public interviews, he discusses attention, stillness and the questions people bring to their lives. Read Victor's background and dated interview references when considering whether the reflective approach described here fits your needs.</p>
-        <div class="btn-row">
-          <a href="/about" class="btn btn-outline-light">Read Victor's Background &rarr;</a>
+        <div class="btn-row" style="margin-top:4px;margin-bottom:8px;">
+          <a href="/about" class="btn btn-outline">Read Victor's Background &rarr;</a>
         </div>
         <div class="fit-sub">
           <h3>Coaching and professional advice</h3>
@@ -469,17 +555,13 @@ section{position:relative;}
   </div>
 </section>
 
-<!-- SECTION 8 — Cinematic final CTA -->
-<section class="final">
-  <div class="final-victor">
-    <img src="assets/victor-studio.jpg" alt="Victor Pierantoni standing with his arms crossed, ready to begin a conversation">
-  </div>
+<!-- FINAL CTA — AMBER BAND -->
+<section class="sec-pad final" id="contact">
+  <span class="stock-badge">Stock placeholder</span>
   <div class="wrap">
-    <div class="final-inner">
-      <h2>Apply for 1:1 coaching with <span class="amber">Victor</span>.</h2>
-      <p>Tell Victor what you would like to explore. Your next step is a discovery Zoom call with him, with no obligation to proceed with coaching.</p>
-      <a href="/apply" class="btn btn-amber">Apply for 1:1 Coaching &rarr;</a>
-    </div>
+    <h2>Apply for 1:1 coaching with Victor.</h2>
+    <p>Tell Victor what you would like to explore. Your next step is a discovery Zoom call with him, with no obligation to proceed with coaching.</p>
+    <a href="/apply" class="btn btn-charcoal">Apply for 1:1 Coaching &rarr;</a>
   </div>
 </section>
 
