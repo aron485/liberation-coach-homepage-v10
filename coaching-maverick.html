@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1:1 Coaching with Victor Pierantoni | Liberation Coach</title>
+<meta name="description" content="Explore one-on-one coaching with Victor Pierantoni for founders and adult athletes: the focus of the work, session examples and how to apply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FCC22D;
+    --indigo:#221C4B;
+    --teal:#1F8FA6;
+    --white:#FFFFFF;
+    --ink:#333232;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  h1,h2,h3,h4{font-weight:800;line-height:1.08;letter-spacing:-0.01em}
+
+  /* ---------- Buttons: SQUARE ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;
+    padding:.95rem 1.8rem;border:0;border-radius:0;cursor:pointer;
+    text-transform:none;letter-spacing:.01em;transition:transform .12s ease,box-shadow .15s ease;
+    line-height:1.1;
+  }
+  .btn-yellow{background:var(--yellow);color:var(--ink)}
+  .btn-yellow:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(34,28,75,.25)}
+  .btn-indigo{background:var(--indigo);color:var(--white)}
+  .btn-indigo:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(0,0,0,.2)}
+  .btn-outline{background:transparent;color:var(--white);border:2px solid var(--white)}
+  .btn-outline:hover{background:var(--white);color:var(--indigo)}
+  .btn-sm{padding:.7rem 1.3rem;font-size:.92rem}
+
+  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+  section{position:relative}
+
+  .stock-tag{
+    position:absolute;bottom:8px;right:8px;z-index:6;
+    background:rgba(34,28,75,.78);color:#fff;font-size:.6rem;font-weight:600;
+    letter-spacing:.04em;padding:3px 7px;border-radius:0;text-transform:uppercase;
+  }
+  .imgwrap{position:relative;overflow:hidden}
+
+  .eyebrow{
+    display:inline-block;font-weight:700;font-size:.78rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:.9rem;
+  }
+  /* inline highlighted-text accent (signature device, used sparingly) */
+  .hl-y{background:var(--yellow);color:var(--indigo);padding:.04em .28em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .hl-i{background:var(--indigo);color:var(--white);padding:.04em .28em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  h2:has(.hl-y),h2:has(.hl-i){line-height:1.3}
+
+  /* reusable torn / grunge divider between sections */
+  .divider-torn{position:relative;height:clamp(32px,5vw,64px);line-height:0;overflow:hidden}
+  .divider-torn svg{display:block;width:100%;height:100%}
+
+  /* zigzag accent strip */
+  .zig{height:10px;width:100%;background:
+    linear-gradient(135deg,var(--yellow) 25%,transparent 25%) -10px 0,
+    linear-gradient(225deg,var(--yellow) 25%,transparent 25%) -10px 0,
+    linear-gradient(315deg,var(--yellow) 25%,transparent 25%),
+    linear-gradient(45deg,var(--yellow) 25%,transparent 25%);
+    background-size:20px 20px;background-color:var(--indigo)}
+
+  /* ======================================================
+     1. NAV
+  ====================================================== */
+  .nav{
+    position:sticky;top:0;z-index:100;background:var(--white);
+    border-bottom:3px solid var(--indigo);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-weight:800;font-size:1.3rem;color:var(--indigo);letter-spacing:-0.02em;white-space:nowrap}
+  .logo span{color:var(--yellow);-webkit-text-stroke:.6px var(--indigo)}
+  .nav-menu{display:flex;align-items:center;gap:clamp(.9rem,2vw,1.9rem)}
+  .nav-menu a{font-weight:600;font-size:.95rem;color:var(--indigo);transition:color .15s}
+  .nav-menu a:hover{color:var(--teal)}
+  .nav-cta{display:flex;align-items:center;gap:1rem}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+  .hamburger span{width:26px;height:3px;background:var(--indigo);display:block;transition:.2s}
+
+  @media(max-width:900px){
+    .nav-menu{
+      position:fixed;top:74px;left:0;right:0;background:var(--indigo);
+      flex-direction:column;align-items:flex-start;gap:0;padding:1rem 1.5rem 2rem;
+      transform:translateY(-120%);transition:transform .28s ease;z-index:99;
+    }
+    .nav-menu.open{transform:translateY(0)}
+    .nav-menu a{color:#fff;width:100%;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:1.05rem}
+    .nav-desktop-apply{display:none}
+    .hamburger{display:flex}
+  }
+
+  /* ======================================================
+     2. HERO
+  ====================================================== */
+  .hero{position:relative;background:var(--indigo);overflow:hidden}
+  .hero-band{
+    position:absolute;inset:0;display:flex;justify-content:flex-end;z-index:1;
+  }
+  .hero-band .seg{position:relative;overflow:hidden}
+  .hero-band img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  /* right panel = Victor, a natural crop reading over the brand indigo */
+  .seg.side.seg-victor{flex:0 0 clamp(300px,44%,640px)}
+  .seg.side.seg-victor img{filter:grayscale(1) contrast(1.04) brightness(.95);object-position:50% 18%}
+  .seg.side.seg-victor::after{content:"";position:absolute;inset:0;background:var(--indigo);mix-blend-mode:color;opacity:.22}
+  /* soft left-to-right scrim so the headline reads over indigo and Victor blends in */
+  .hero-overlay-dark{position:absolute;inset:0;z-index:4;
+    background:linear-gradient(90deg,var(--indigo) 0%,rgba(34,28,75,.82) 34%,rgba(34,28,75,.3) 62%,rgba(34,28,75,.12) 100%)}
+
+  /* Phase 2: drop decorative dot-grids + triangles (AI-tell clutter) */
+  .geo-dots-dark,.geo-tri-v,.geo-dots-b,.geo-tri-final{display:none}
+  @media(max-width:700px){.seg.side.seg-victor{flex-basis:0;opacity:.28}}
+
+  .hero-content{position:relative;z-index:10;padding:clamp(3rem,7vw,6rem) 0 clamp(7rem,12vw,11rem)}
+  .headline-blocks{margin-bottom:1.6rem;max-width:18ch;text-wrap:balance;text-shadow:0 2px 16px rgba(20,16,45,.5)}
+  .hl-line{display:inline;font-weight:800;line-height:1.08;padding:0;
+    font-size:clamp(2rem,4.8vw,3.5rem);letter-spacing:-0.02em}
+  .hl-1{color:var(--yellow)}
+  .hl-2{color:var(--white)}
+
+  .hero-card{
+    background:var(--white);border-radius:0;box-shadow:0 22px 50px rgba(34,28,75,.3);
+    padding:clamp(1.4rem,3vw,2.2rem);max-width:560px;border-left:8px solid var(--yellow);
+  }
+  .hero-card p.lead{font-size:clamp(1rem,2.1vw,1.18rem);font-weight:500;color:var(--ink);margin-bottom:1.3rem}
+  .hero-card .fineprint{font-size:.82rem;color:#6b6980;margin-top:.9rem;font-weight:400}
+
+  /* torn white edge */
+  .torn{position:absolute;left:0;right:0;bottom:-1px;z-index:8;width:100%;height:clamp(40px,7vw,90px);display:block}
+  .torn svg{display:block;width:100%;height:100%}
+
+  /* ======================================================
+     3. BENEFIT QUAD
+  ====================================================== */
+  .quad{background:var(--white);padding:clamp(2.2rem,5vw,3.6rem) 0 clamp(2.2rem,5vw,3.6rem)}
+  .quad .shead{max-width:680px;margin-bottom:2rem}
+  .quad h2{font-size:clamp(1.6rem,3.4vw,2.3rem);color:var(--indigo)}
+  .quad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,1.6rem)}
+  .quad-item{text-align:left;border:2px solid #ece9f5;border-top:5px solid var(--yellow);
+    padding:1.4rem 1.2rem;background:var(--white);transition:transform .15s ease,box-shadow .18s ease,border-color .18s ease}
+  .quad-item:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(34,28,75,.16);border-top-color:var(--teal)}
+  .quad-ic-wrap{width:52px;height:52px;background:var(--indigo);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+  .quad-ic{width:28px;height:28px;color:var(--yellow)}
+  .quad-item:hover .quad-ic-wrap{background:var(--teal)}
+  .quad-item h3{font-size:1.2rem;color:var(--indigo);margin-bottom:.4rem}
+  .quad-item p{font-size:.94rem;color:var(--ink)}
+  .quad-item .tiny{display:block;margin-top:.6rem;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+  @media(max-width:820px){.quad-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem}}
+  @media(max-width:430px){.quad-grid{grid-template-columns:1fr}}
+
+  /* ======================================================
+     STATS STRIP
+  ====================================================== */
+  .stats{background:var(--indigo);padding:0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:clamp(1.6rem,3vw,2.4rem) 1rem;text-align:center;position:relative;
+    border-right:1px solid rgba(255,255,255,.1)}
+  .stat:last-child{border-right:0}
+  .stat:nth-child(2n){background:rgba(255,255,255,.04)}
+  .stat .snum{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;color:var(--yellow);line-height:1;letter-spacing:-0.02em}
+  .stat .slab{display:block;margin-top:.5rem;font-size:.82rem;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:#d9d7e8}
+  @media(max-width:620px){.stats-grid{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:0}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.1)}}
+
+  /* trust line */
+  .trust{background:var(--white);padding:1.2rem 0;border-bottom:1px solid #eee}
+  .trust p{text-align:center;font-size:.9rem;font-weight:600;color:var(--ink);letter-spacing:.01em}
+  .trust strong{color:var(--indigo)}
+
+  /* ======================================================
+     4. ROUTES
+  ====================================================== */
+  .routes{padding:clamp(2.6rem,5vw,4.2rem) 0;background:#f6f6fb}
+  .route-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0 1.4rem}
+  .chip{display:inline-block;background:var(--white);border:2px solid var(--indigo);color:var(--indigo);
+    font-size:.78rem;font-weight:700;padding:.32rem .8rem;letter-spacing:.02em}
+  .routes .shead{max-width:720px;margin-bottom:2.6rem}
+  .routes h2{font-size:clamp(1.8rem,4vw,2.8rem);color:var(--indigo)}
+  .route-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;margin-bottom:clamp(2rem,4vw,3.2rem)}
+  .route-row:last-child{margin-bottom:0}
+  .route-row.flip .route-img{order:2}
+  .route-img{position:relative;min-height:300px;overflow:hidden;box-shadow:0 18px 40px rgba(34,28,75,.22)}
+  .route-img img{width:100%;height:100%;min-height:300px;object-fit:cover;position:absolute;inset:0;filter:saturate(1.05) contrast(1.03)}
+  .route-img::after{content:"";position:absolute;inset:0;background:linear-gradient(140deg,rgba(31,143,166,.25),rgba(34,28,75,.35));mix-blend-mode:multiply}
+  .route-tag{position:absolute;top:0;left:0;z-index:3;background:var(--yellow);color:var(--indigo);
+    font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:.55rem 1rem}
+  .route-txt h3{font-size:clamp(1.5rem,3vw,2rem);color:var(--indigo);margin-bottom:.9rem}
+  .route-txt p{font-size:1.05rem;margin-bottom:1.4rem}
+  @media(max-width:820px){
+    .route-row{grid-template-columns:1fr;gap:1.4rem}
+    .route-row.flip .route-img{order:0}
+    .route-img,.route-img img{min-height:240px}
+  }
+
+  /* ======================================================
+     5. METHOD
+  ====================================================== */
+  .method{padding:clamp(3rem,6vw,5rem) 0;background:var(--white)}
+  .method-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:stretch}
+  .method-img{position:relative;overflow:hidden;box-shadow:0 18px 40px rgba(34,28,75,.2);min-height:360px}
+  .method-img img{width:100%;height:100%;min-height:360px;object-fit:cover;position:absolute;inset:0}
+  .method h2{font-size:clamp(1.8rem,4vw,2.7rem);color:var(--indigo);margin-bottom:1rem;line-height:1.15}
+  .method-lead{font-size:1.05rem;color:var(--ink);margin-bottom:.4rem}
+  .q-list{list-style:none;margin:1.4rem 0}
+  .q-list li{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem}
+  .q-num{flex:0 0 auto;width:40px;height:40px;background:var(--indigo);color:var(--yellow);
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+  .q-list li strong{display:block;font-size:1.18rem;color:var(--indigo);font-weight:700}
+  .method-note{font-size:1rem;color:var(--ink);background:#f6f6fb;border-left:5px solid var(--teal);padding:1rem 1.2rem}
+  @media(max-width:820px){.method-grid{grid-template-columns:1fr}.method-img{min-height:280px}.method-img img{min-height:280px}}
+
+  /* ======================================================
+     6. MEET VICTOR
+  ====================================================== */
+  .victor{background:var(--indigo);color:var(--white);padding:clamp(3rem,6vw,4.6rem) 0;position:relative;overflow:hidden}
+  .victor .geo-dots-dark{position:absolute;bottom:6%;left:-20px;width:170px;height:120px;opacity:.22;z-index:1}
+  .victor .geo-tri-v{position:absolute;top:8%;right:4%;width:90px;opacity:.5;z-index:1}
+  .victor-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:clamp(1.6rem,4vw,3rem);align-items:start;position:relative;z-index:2}
+  /* left media column: photo capped to text height + episode cards */
+  .victor-media{display:flex;flex-direction:column;gap:1rem}
+  .victor-photo{position:relative;overflow:hidden;box-shadow:0 22px 50px rgba(0,0,0,.4);border-bottom:8px solid var(--yellow);flex:0 0 auto;aspect-ratio:4/4.3;max-height:440px}
+  .victor-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+  .ep-card{display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.06);
+    border-left:4px solid var(--yellow);padding:.85rem 1rem;transition:background .15s ease,transform .15s ease}
+  .ep-card:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}
+  .ep-ic{flex:0 0 auto;width:38px;height:38px;background:var(--yellow);color:var(--indigo);display:flex;align-items:center;justify-content:center}
+  .ep-ic svg{width:20px;height:20px}
+  .ep-card .ep-t{font-weight:700;font-size:.95rem;color:#fff;line-height:1.2}
+  .ep-card .ep-s{font-size:.78rem;color:#b9b6d0}
+  .victor-mini{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  .vmini{background:var(--yellow);color:var(--indigo);padding:.9rem 1rem}
+  .vmini:nth-child(2){background:var(--teal);color:#fff}
+  .vmini .vn{font-size:1.5rem;font-weight:800;line-height:1}
+  .vmini .vl{font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .victor-txt{display:flex;flex-direction:column;justify-content:flex-start}
+  .victor h2{font-size:clamp(1.9rem,4.2vw,2.9rem);margin-bottom:1.1rem}
+  .victor h2 em{color:var(--yellow);font-style:normal}
+  .victor p.bio{font-size:1.05rem;color:#d9d7e8;margin-bottom:1.3rem;font-weight:400}
+  /* "what you can bring" list adds richness to tall column */
+  .bring-list{list-style:none;margin:0 0 1.3rem;display:grid;gap:.6rem}
+  .bring-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.98rem;color:#e7e5f2}
+  .bring-list li::before{content:"";flex:0 0 auto;margin-top:.45rem;width:10px;height:10px;background:var(--yellow);transform:rotate(45deg)}
+  .victor-quote{border-left:5px solid var(--yellow);padding:.4rem 0 .4rem 1.4rem;margin:1.2rem 0;
+    font-size:clamp(1.1rem,2.3vw,1.4rem);font-weight:700;line-height:1.3;color:var(--white)}
+  .victor-btns{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.1rem}
+  @media(max-width:760px){.victor-grid{grid-template-columns:1fr}.victor-photo{min-height:340px}}
+
+  /* ======================================================
+     7. HOW IT BEGINS
+  ====================================================== */
+  .begins{padding:clamp(2.6rem,5vw,4.2rem) 0;background:#f6f6fb;position:relative;overflow:hidden}
+  .begins .geo-dots-b{position:absolute;top:10%;right:-10px;width:150px;height:110px;opacity:.5;z-index:0}
+  .begins .shead{text-align:center;max-width:640px;margin:0 auto 2.4rem;position:relative;z-index:1}
+  .begins h2{font-size:clamp(1.8rem,4vw,2.7rem);color:var(--indigo)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.5vw,1.8rem);position:relative;z-index:1}
+  .step{background:var(--white);padding:2.6rem 1.6rem 2rem;border-top:6px solid var(--yellow);
+    box-shadow:0 10px 30px rgba(34,28,75,.1);position:relative;transition:transform .16s ease,box-shadow .18s ease}
+  .step:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(34,28,75,.2)}
+  .step .badge{position:absolute;top:-22px;left:1.6rem;width:46px;height:46px;background:var(--indigo);
+    color:var(--yellow);font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(34,28,75,.3)}
+  .step:hover .badge{background:var(--teal);color:#fff}
+  .step h3{font-size:1.3rem;color:var(--indigo);margin-bottom:.6rem}
+  .step p{font-size:.97rem}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+  /* ======================================================
+     8. FAQ
+  ====================================================== */
+  .faq{padding:clamp(3rem,6vw,5rem) 0;background:var(--white)}
+  .faq h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--indigo);margin-bottom:2rem;max-width:620px}
+  .faq-list{max-width:820px}
+  details{border:2px solid var(--indigo);border-radius:0;margin-bottom:1rem;background:var(--white)}
+  summary{list-style:none;cursor:pointer;padding:1.1rem 1.3rem;font-weight:700;font-size:1.08rem;color:var(--indigo);
+    display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.6rem;font-weight:800;color:var(--yellow);-webkit-text-stroke:1.5px var(--indigo);transition:transform .2s;line-height:1}
+  details[open] summary::after{content:"\2013";transform:rotate(0deg)}
+  details[open] summary{border-bottom:2px solid var(--yellow)}
+  .faq-ans{padding:1.1rem 1.3rem;font-size:1rem;color:var(--ink)}
+
+  /* ======================================================
+     9. FINAL CTA
+  ====================================================== */
+  .final{background:var(--indigo);padding:clamp(3.5rem,7vw,5.5rem) 0;text-align:center;position:relative;overflow:hidden}
+  .final .geo-tri-final{position:absolute;top:12%;right:6%;width:110px;opacity:.5}
+  @media(max-width:700px){.final .geo-tri-final{display:none}}
+  .final .hl-final{display:inline-block;background:var(--yellow);color:var(--indigo);font-weight:800;
+    font-size:clamp(1.6rem,4.5vw,3rem);line-height:1.1;padding:.3em .55em;margin-bottom:1.8rem;max-width:900px}
+  .final .btn{margin-top:.5rem}
+  .final .fine{color:#b9b6d0;font-size:.85rem;margin-top:1.2rem}
+
+  /* ======================================================
+     10. FOOTER
+  ====================================================== */
+  .footer{background:#1a1539;color:#c9c6dd;padding:clamp(3rem,5vw,4rem) 0 2rem}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
+  .footer .logo{color:#fff;margin-bottom:1rem;display:inline-block}
+  .footer-about{font-size:.92rem;color:#a7a3c2;max-width:340px}
+  .footer h4{color:#fff;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
+  .footer ul{list-style:none}
+  .footer ul li{margin-bottom:.55rem}
+  .footer ul a{font-size:.92rem;color:#c9c6dd;transition:color .15s}
+  .footer ul a:hover{color:var(--yellow)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.6rem;font-size:.83rem;color:#8b87a8}
+  .footer-bottom .disc{margin-top:.5rem;font-size:.78rem;color:#777397}
+  @media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr;gap:1.8rem}}
+  @media(max-width:480px){.footer-grid{grid-template-columns:1fr 1fr;gap:1.6rem 1.2rem}.footer-grid>div:first-child{grid-column:1 / -1}}
+
+  /* ======================================================
+     MOBILE STICKY APPLY BAR
+  ====================================================== */
+  .mobile-apply{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:120;
+    background:var(--indigo);padding:.7rem clamp(1rem,4vw,1.5rem);
+    box-shadow:0 -6px 20px rgba(0,0,0,.25);
+  }
+  .mobile-apply .btn{width:100%}
+  @media(max-width:900px){
+    .mobile-apply{display:block}
+    body{padding-bottom:70px}
+  }
+
+  /* ======================================================
+     P03 COACHING PAGE — page-specific additions
+  ====================================================== */
+  /* active nav treatment (desktop underline + mobile color) */
+  .nav-menu a[aria-current="page"]{color:var(--teal)}
+  .nav-menu a[aria-current="page"]::after{content:"";display:block;height:3px;background:var(--yellow);margin-top:4px}
+  @media(max-width:900px){
+    .nav-menu a[aria-current="page"]{color:var(--yellow)}
+    .nav-menu a[aria-current="page"]::after{display:none}
+  }
+  /* section 2 — "what can you bring" card trio */
+  .bring .shead{max-width:760px;margin-bottom:2rem}
+  .bring .shead .lead{display:block;margin:.3rem 0 .8rem;font-size:1.15rem;font-weight:700;color:var(--teal)}
+  .bring-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.6rem)}
+  .bring-card{border:2px solid #ece9f5;border-top:5px solid var(--yellow);padding:1.5rem 1.3rem;background:var(--white);
+    transition:transform .15s ease,box-shadow .18s ease,border-color .18s ease}
+  .bring-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(34,28,75,.16);border-top-color:var(--teal)}
+  .bring-card h3{font-size:1.12rem;color:var(--indigo);margin-bottom:.55rem}
+  .bring-card p{font-size:.95rem;color:var(--ink)}
+  .bring-links{margin-top:1.9rem;font-size:1.05rem;color:var(--ink)}
+  .inline-link{color:var(--teal);font-weight:700;border-bottom:2px solid var(--yellow)}
+  .inline-link:hover{color:var(--indigo)}
+  @media(max-width:820px){.bring-grid{grid-template-columns:1fr}}
+  /* section 4 — useful starting point illustration callout */
+  .illus-callout{background:#f0eff8;border-left:5px solid var(--teal);padding:1.1rem 1.3rem;font-size:1rem;color:var(--ink);margin-top:1.3rem}
+  /* section 5 — compact online + Circle band */
+  .compact-band{background:var(--indigo);color:#fff;padding:clamp(2.4rem,5vw,3.6rem) 0;text-align:center}
+  .compact-band h2{font-size:clamp(1.6rem,3.4vw,2.3rem);color:#fff;margin-bottom:.5rem}
+  .compact-band .lead{color:var(--yellow);font-weight:700;margin-bottom:.9rem;font-size:1.1rem}
+  .compact-band p.body{color:#d9d7e8;max-width:720px;margin:0 auto 1.4rem;font-size:1.05rem}
+  .compact-pills{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+  .compact-pill{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.07);
+    border-left:4px solid var(--yellow);padding:.7rem 1.1rem;font-weight:700;font-size:.95rem;color:#fff}
+  .compact-pill:nth-child(2){border-left-color:var(--teal)}
+  /* section 7 — background & professional fit band */
+  .fit-band{background:var(--indigo);color:#fff;padding:clamp(3rem,6vw,4.6rem) 0}
+  .fit-band h2{font-size:clamp(1.8rem,4vw,2.6rem);color:#fff;margin-bottom:1.1rem;max-width:780px}
+  .fit-band p{color:#d9d7e8;font-size:1.05rem;margin-bottom:1.1rem;max-width:840px}
+  .fit-sub{color:var(--yellow);font-size:1.3rem;font-weight:800;margin:1.8rem 0 .8rem;max-width:780px}
+  .fit-note{background:rgba(255,255,255,.06);border-left:5px solid var(--teal);padding:1.1rem 1.3rem;
+    font-size:.92rem;color:#c9c6dd;max-width:840px;margin-top:1.4rem}
+  /* section 8 — final CTA plain heading (Phase-2 restraint: no oversized filled block) */
+  .final h2.final-head{color:#fff;font-size:clamp(1.8rem,4.6vw,2.9rem);max-width:860px;margin:0 auto 1.3rem;line-height:1.12}
+  .final p.final-lead{color:#d9d7e8;font-size:1.08rem;max-width:680px;margin:0 auto 1.6rem}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. NAV ============ -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="logo">Liberation<span>Coach</span></a>
+    <div class="nav-menu" id="navMenu">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/coaching" aria-current="page">Coaching</a>
+      <a href="/method">Method</a>
+      <a href="/for-founders">For Founders</a>
+      <a href="/for-athletes">For Athletes</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="/apply" class="btn btn-yellow btn-sm nav-desktop-apply">Apply for 1:1 Coaching</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ 2. HERO (Section 1) ============ -->
+<header class="hero">
+  <!-- single natural portrait on the right over the brand indigo -->
+  <div class="hero-band" aria-hidden="true">
+    <div class="seg side seg-victor"><img src="assets/victor-avatar.jpg" alt=""></div>
+  </div>
+  <div class="hero-overlay-dark" aria-hidden="true"></div>
+
+  <div class="wrap hero-content">
+    <span class="eyebrow" style="color:var(--yellow)">Work with Victor Pierantoni</span>
+    <h1 class="headline-blocks">
+      <span class="hl-line hl-1">One on one coaching</span><br>
+      <span class="hl-line hl-2">with Victor Pierantoni</span>
+    </h1>
+    <div class="hero-card">
+      <p class="lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation. Victor's questions examine your response and the assumptions shaping it; you consider what you want to do next.</p>
+      <p class="lead" style="font-weight:500">The offer is for founders, business owners and adult athletes. Bring a decision, a difficult conversation or a performance concern that matters in your life. Sessions take place online, and all coaching members receive Circle access.</p>
+      <a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a>
+      <p class="fineprint">Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
+    </div>
+  </div>
+
+  <!-- torn white edge -->
+  <div class="torn" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path fill="#FFFFFF" d="M0,90 L0,42 L38,56 L74,30 L120,52 L165,24 L210,50 L255,28 L300,54 L350,32 L398,58 L446,34 L500,56 L548,30 L600,52 L650,26 L700,54 L752,32 L800,58 L850,30 L900,52 L950,24 L1000,50 L1050,30 L1100,54 L1150,32 L1200,50 L1200,90 Z"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ============ 2. WHAT CAN YOU BRING (Section 2) ============ -->
+<section class="quad bring">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">Bring something specific</span>
+      <h2>What can you bring to coaching?</h2>
+      <span class="lead">Start with something specific.</span>
+    </div>
+    <div class="bring-grid">
+      <div class="bring-card">
+        <h3>For Founders and Athletes</h3>
+        <p>For a founder, that could be a decision that keeps reopening or a conversation with someone you lead. You might want to understand why you avoid giving direct feedback, or what makes it difficult to trust someone with a responsibility. For an athlete, it could be pressure before competing, attention caught on a mistake or the demands of a changing sporting career.</p>
+      </div>
+      <div class="bring-card">
+        <h3>When Priorities Overlap</h3>
+        <p>Personal and professional priorities can overlap. Describe where a business or sporting goal competes with a relationship, rest or enjoyment of what you do, and which part you want to examine with Victor.</p>
+      </div>
+      <div class="bring-card">
+        <h3>When Productivity Is the Concern</h3>
+        <p>When productivity is the concern, describe the work you want to finish and why it matters. A useful starting question is which action would serve that goal, given your other responsibilities and the time you have.</p>
+      </div>
+    </div>
+    <p class="bring-links">Read the focus of <a href="/for-founders" class="inline-link">founder coaching</a> or <a href="/for-athletes" class="inline-link">coaching for adult athletes</a>.</p>
+  </div>
+</section>
+
+<!-- ============ 3. WHAT COACHING HELPS YOU EXAMINE (Section 3) ============ -->
+<section class="method">
+  <div class="wrap method-grid">
+    <div class="method-img imgwrap">
+      <img src="assets/bg-water.jpg" alt="Still, calm water reflecting soft light, suggesting reflection">
+      <span class="stock-tag">Stock placeholder</span>
+    </div>
+    <div class="method-txt">
+      <span class="eyebrow">The focus of the work</span>
+      <h2>What can one on one coaching help you examine?</h2>
+      <p class="method-lead">Victor asks questions about what happened, how you interpret it and what you want from the conversation. His work can also include attention to feelings and bodily sensations. These are examples from his coaching and teaching, not a fixed script for every session.</p>
+      <p class="method-lead" style="margin-top:1rem">A practical focus could be identifying a question to ask before deciding, checking an assumption or choosing an action to try. A chosen action is something you can do; the eventual business, personal or sporting result depends on more than a session.</p>
+      <p class="method-lead" style="margin-top:1rem">You can learn from an action you choose by comparing what you expected with what happened. For example, after a difficult conversation, note what you said, how the other person responded and which assumption you would check next time.</p>
+      <div style="margin-top:1.4rem"><a href="/method" class="btn btn-indigo">See the Session Examples and Approach</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- torn divider into the light band -->
+<div class="divider-torn" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path fill="#f6f6fb" d="M0,60 L0,30 L40,40 L80,18 L130,36 L180,14 L230,34 L285,16 L340,36 L400,18 L460,38 L520,20 L585,38 L650,16 L715,36 L780,18 L845,38 L910,18 L975,36 L1040,18 L1110,36 L1160,20 L1200,34 L1200,60 Z"/>
+  </svg>
+</div>
+
+<!-- ============ 4. A USEFUL STARTING POINT (Section 4) ============ -->
+<section class="method" style="background:#f6f6fb">
+  <div class="wrap method-grid">
+    <div class="method-txt">
+      <span class="eyebrow">Where to start</span>
+      <h2>A useful starting point</h2>
+      <p class="method-lead" style="font-weight:700;color:var(--teal)">You can begin with an unresolved question.</p>
+      <p class="method-lead" style="margin-top:1rem">As a starting point, describe what happened, what you keep returning to and what you would like help thinking through. You do not need to arrive with an answer.</p>
+      <p class="illus-callout"><strong>Illustration:</strong> if you keep revisiting a decision, a useful focus could be distinguishing information you still need from an assumption you are making. That gives the conversation a specific question to examine.</p>
+    </div>
+    <div class="method-img imgwrap">
+      <img src="assets/bg-stones.jpg" alt="Balanced stacked stones forming a cairn on a quiet shore">
+      <span class="stock-tag">Stock placeholder</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. ONLINE SESSIONS + CIRCLE (Section 5) ============ -->
+<section class="compact-band">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--yellow)">How it works</span>
+    <h2>Online sessions and Circle access</h2>
+    <p class="lead">Work with Victor online.</p>
+    <p class="body">Coaching sessions take place online. All coaching members receive Circle access alongside their 1:1 work with Victor.</p>
+    <div class="compact-pills">
+      <span class="compact-pill">Online sessions</span>
+      <span class="compact-pill">Circle access</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. HOW TO BEGIN (Section 6) ============ -->
+<section class="begins">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">How to begin</span>
+      <h2>How to begin</h2>
+      <p style="margin-top:.4rem;font-size:1.1rem;font-weight:700;color:var(--teal)">Apply, meet Victor, then decide.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="badge">1</div>
+        <h3>Apply</h3>
+        <p>Describe the situation you want to work on and what you would like to be different.</p>
+      </div>
+      <div class="step">
+        <div class="badge">2</div>
+        <h3>Discovery Call</h3>
+        <p>The next step is a Zoom conversation with Victor to explore whether coaching is a fit. There is no obligation to proceed with coaching.</p>
+      </div>
+      <div class="step">
+        <div class="badge">3</div>
+        <h3>Your Decision</h3>
+        <p>If you choose to begin coaching, the work takes place online and coaching members receive Circle access.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.4rem"><a href="/apply" class="btn btn-indigo">Apply for 1:1 Coaching</a></div>
+  </div>
+</section>
+
+<!-- ============ 7. BACKGROUND & PROFESSIONAL FIT (Section 7) ============ -->
+<section class="fit-band">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--yellow)">Is this the right kind of help?</span>
+    <h2>Background and professional fit</h2>
+    <p>Victor's public background includes martial arts and founding Zen Stoic. In his public interviews, he discusses attention, stillness and the questions people bring to their lives. Read <a href="/about" class="inline-link">Victor's background and dated interview references</a> when considering whether the reflective approach described here fits your needs.</p>
+    <h3 class="fit-sub">Coaching and professional advice</h3>
+    <p>Reflective coaching examines how you interpret and respond to a situation. Training teaches a skill through instruction and practice; a mentor offers guidance informed by experience in a relevant field. If you need someone to teach a sporting technique or advise on a business decision itself, check that person's relevant expertise. Different kinds of help can address different parts of the same concern.</p>
+    <p class="fit-note">Liberation Coach's services are educational. A mental health concern, injury or specialist business question may require the appropriate qualified professional. Coaching does not replace medical, psychological, legal or financial advice, and specific outcomes are not guaranteed.</p>
+  </div>
+</section>
+
+<!-- torn divider into the final indigo band -->
+<div class="divider-torn" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path fill="#221C4B" d="M0,60 L0,32 L45,42 L90,20 L140,38 L190,16 L245,36 L300,18 L360,38 L420,20 L480,40 L545,22 L610,40 L675,18 L740,38 L805,20 L870,40 L935,20 L1000,38 L1065,20 L1130,38 L1180,22 L1200,36 L1200,60 Z"/>
+  </svg>
+</div>
+
+<!-- ============ 8. FINAL CTA (Section 8) ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2 class="final-head">Apply for 1:1 coaching with Victor.</h2>
+    <p class="final-lead">Tell Victor what you would like to explore. Your next step is a discovery Zoom call with him, with no obligation to proceed with coaching.</p>
+    <div><a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a></div>
+  </div>
+</section>
+
+<!-- ============ 10. FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="logo">Liberation<span>Coach</span></a>
+        <p class="footer-about">Online 1:1 performance coaching with Victor Pierantoni for founders, business owners and adult athletes. Liberation Coach Inc.</p>
+      </div>
+      <div>
+        <h4>Coaching</h4>
+        <ul>
+          <li><a href="/for-founders">For Founders</a></li>
+          <li><a href="/for-athletes">For Athletes</a></li>
+          <li><a href="/method">The Method</a></li>
+          <li><a href="/apply">Apply for 1:1 Coaching</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/about">Meet Victor</a></li>
+          <li><a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener">Zen Stoic Path Show</a></li>
+          <li><a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Coaching Disclaimer</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Liberation Coach Inc. &middot; Online, worldwide</div>
+      <div class="disc">Performance coaching is not therapy, counseling or medical treatment.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MOBILE STICKY APPLY ============ -->
+<div class="mobile-apply">
+  <a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a>
+</div>
+
+<script>
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('navMenu');
+  ham.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // close mobile menu on link click
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -52,9 +52,13 @@
   <div class="bar">
     <div class="title">Liberation Coach <span>· Website Concepts</span></div>
     <div class="group designs" id="designs">
-      <button class="btn on" data-src="design-1-forum.html">1 · Forum<small>Navy &amp; Gold · association</small></button>
-      <button class="btn" data-src="design-2-institute.html">2 · Institute<small>Charcoal &amp; Amber · editorial</small></button>
-      <button class="btn" data-src="design-3-maverick.html">3 · Maverick<small>Indigo &amp; Yellow · bold</small></button>
+      <button class="btn on" data-design="forum">1 · Forum<small>Navy &amp; Gold · association</small></button>
+      <button class="btn" data-design="institute">2 · Institute<small>Charcoal &amp; Amber · editorial</small></button>
+      <button class="btn" data-design="maverick">3 · Maverick<small>Indigo &amp; Yellow · bold</small></button>
+    </div>
+    <div class="group pages" id="pages">
+      <button class="btn on" data-page="home">Home</button>
+      <button class="btn" data-page="coaching">Coaching</button>
     </div>
     <div class="group vp" id="viewport">
       <button class="btn on" data-vp="desktop">Desktop</button>
@@ -63,7 +67,7 @@
     <div class="spacer"></div>
     <a class="ext" id="openNew" href="design-1-forum.html" target="_blank" rel="noopener">Open full ↗</a>
   </div>
-  <div class="note">Three homepage directions for Liberation Coach — each patterned after a different reference site's structure. Toggle <b>Desktop / Mobile</b>. Photos are Victor's own; generic scene images are labelled placeholders until finals.</div>
+  <div class="note">Three directions for Liberation Coach — each patterned after a different reference site's structure. Switch design (1–3), flip between <b>Home</b> and <b>Coaching</b>, and toggle <b>Desktop / Mobile</b>. Photos are Victor's own; generic scene images are labelled placeholders until finals.</div>
   <div class="stage desktop" id="stage">
     <div class="frameWrap" id="wrap">
       <iframe id="frame" src="design-1-forum.html" title="Liberation Coach concept"></iframe>
@@ -71,26 +75,32 @@
   </div>
 
 <script>
-  var src="design-1-forum.html", vp="desktop";
-  var frame=document.getElementById('frame'), wrap=document.getElementById('wrap'),
+  var FILES={
+    forum:{home:'design-1-forum.html',coaching:'coaching-forum.html'},
+    institute:{home:'design-2-institute.html',coaching:'coaching-institute.html'},
+    maverick:{home:'design-3-maverick.html',coaching:'coaching-maverick.html'}
+  };
+  var design="forum", page="home", vp="desktop";
+  var wrap=document.getElementById('wrap'),
       stage=document.getElementById('stage'), openNew=document.getElementById('openNew');
+  function src(){ return FILES[design][page]; }
   function render(){
     stage.className='stage '+vp;
     if(vp==='mobile'){ wrap.innerHTML='<div class="phone"><iframe id="frame"></iframe></div>'; }
     else { wrap.innerHTML='<iframe id="frame"></iframe>'; }
-    var f=document.getElementById('frame'); f.title='Liberation Coach concept'; f.src=src;
-    openNew.href=src;
+    var f=document.getElementById('frame'); f.title='Liberation Coach concept'; f.src=src();
+    openNew.href=src();
   }
-  document.getElementById('designs').addEventListener('click',function(e){
-    var b=e.target.closest('.btn'); if(!b)return;
-    [].forEach.call(this.querySelectorAll('.btn'),x=>x.classList.remove('on')); b.classList.add('on');
-    src=b.dataset.src; render();
-  });
-  document.getElementById('viewport').addEventListener('click',function(e){
-    var b=e.target.closest('.btn'); if(!b)return;
-    [].forEach.call(this.querySelectorAll('.btn'),x=>x.classList.remove('on')); b.classList.add('on');
-    vp=b.dataset.vp; render();
-  });
+  function wire(id,set){
+    document.getElementById(id).addEventListener('click',function(e){
+      var b=e.target.closest('.btn'); if(!b)return;
+      [].forEach.call(this.querySelectorAll('.btn'),x=>x.classList.remove('on')); b.classList.add('on');
+      set(b); render();
+    });
+  }
+  wire('designs',function(b){design=b.dataset.design;});
+  wire('pages',function(b){page=b.dataset.page;});
+  wire('viewport',function(b){vp=b.dataset.vp;});
   render();
 </script>
 </body>
