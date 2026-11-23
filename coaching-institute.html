@@ -91,6 +91,11 @@ h1,h2,h3{line-height:1.12;font-weight:900;letter-spacing:-.01em;}
 .page-header .lead{font-size:clamp(1.08rem,1.9vw,1.32rem);color:rgba(255,255,255,.94);max-width:58ch;margin-bottom:30px;}
 .header-cta{display:flex;flex-wrap:wrap;align-items:center;gap:20px;}
 .header-cta .finepoint{font-size:.85rem;color:rgba(255,255,255,.66);max-width:34ch;}
+.ph-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(30px,5vw,60px);align-items:center;}
+.ph-media{position:relative;width:100%;max-width:360px;justify-self:center;}
+.ph-media img{width:100%;aspect-ratio:4/4.7;object-fit:cover;object-position:top center;filter:grayscale(1) contrast(1.05);border-radius:6px;box-shadow:0 22px 52px rgba(0,0,0,.45);}
+.ph-media::before{content:"";position:absolute;left:-12px;top:-12px;width:66px;height:66px;border-left:3px solid var(--amber);border-top:3px solid var(--amber);}
+.ph-media .photo-cap{position:absolute;left:12px;bottom:14px;background:rgba(23,23,25,.84);color:#fff;padding:8px 15px;font-size:.8rem;font-weight:700;letter-spacing:.03em;border-radius:0 8px 8px 8px;}
 
 /* ---------- SECTIONS ---------- */
 section{position:relative;}
@@ -227,6 +232,9 @@ section{position:relative;}
     display:flex;flex-direction:column;align-items:flex-start;flex-basis:100%;width:100%;order:6;
     margin:14px 0 4px;gap:14px;
   }
+  .ph-grid{grid-template-columns:1fr;gap:30px;}
+  .ph-media{order:-1;max-width:300px;}
+  .ph-media img{aspect-ratio:4/3.6;}
   .bring-grid{grid-template-columns:1fr;gap:32px;}
   .bring-media{order:-1;}
   .bring-media img{min-height:280px;}
@@ -252,10 +260,10 @@ section{position:relative;}
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="/" class="brand">Liberation Coach<span class="dot">.</span></a>
+    <a href="design-2-institute.html" class="brand">Liberation Coach<span class="dot">.</span></a>
     <ul class="nav-menu">
-      <li><a href="/">Home</a></li>
-      <li><a href="/coaching" aria-current="page">Coaching</a></li>
+      <li><a href="design-2-institute.html">Home</a></li>
+      <li><a href="coaching-institute.html" aria-current="page">Coaching</a></li>
       <li><a href="/method">Method</a></li>
       <li><a href="/for-founders">For Founders</a></li>
       <li><a href="/for-athletes">For Athletes</a></li>
@@ -275,16 +283,24 @@ section{position:relative;}
 <header class="page-header">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb">
-      <a href="/">Home</a>
+      <a href="design-2-institute.html">Home</a>
       <span class="sep">&rsaquo;</span>
       <span class="here" aria-current="page">Coaching</span>
     </nav>
-    <span class="eyebrow">1:1 Coaching</span>
-    <h1>One on one coaching with Victor Pierantoni</h1>
-    <p class="lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
-    <div class="header-cta">
-      <a href="/apply" class="btn btn-amber">Apply for 1:1 Coaching &rarr;</a>
-      <span class="finepoint">Online sessions with Victor. Circle access for coaching members.</span>
+    <div class="ph-grid">
+      <div class="ph-text">
+        <span class="eyebrow">1:1 Coaching</span>
+        <h1>One on one coaching with Victor Pierantoni</h1>
+        <p class="lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
+        <div class="header-cta">
+          <a href="/apply" class="btn btn-amber">Apply for 1:1 Coaching &rarr;</a>
+          <span class="finepoint">Online sessions with Victor. Circle access for coaching members.</span>
+        </div>
+      </div>
+      <div class="ph-media">
+        <img src="assets/victor-studio.jpg" alt="Victor Pierantoni standing with his arms crossed, a calm, composed expression">
+        <span class="photo-cap">Victor Pierantoni</span>
+      </div>
     </div>
   </div>
 </header>
@@ -452,7 +468,7 @@ section{position:relative;}
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <a href="/" class="brand">Liberation Coach<span class="dot">.</span></a>
+        <a href="design-2-institute.html" class="brand">Liberation Coach<span class="dot">.</span></a>
         <p class="footer-blurb">Online 1:1 performance coaching with Victor Pierantoni for founders, business owners and adult athletes. Liberation Coach Inc.</p>
       </div>
       <div>

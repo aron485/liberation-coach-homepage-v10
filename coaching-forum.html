@@ -86,10 +86,16 @@
   .page-header{background:var(--navy);color:var(--white);position:relative;overflow:hidden;}
   .page-header::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.4px,transparent 1.4px);background-size:22px 22px;opacity:.55;pointer-events:none;}
   .page-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--gold);opacity:.85;}
-  .page-header .wrap{position:relative;z-index:1;padding:clamp(40px,6vw,72px) clamp(18px,4vw,40px) clamp(44px,6vw,76px);max-width:960px;}
+  .page-header .wrap{position:relative;z-index:1;padding:clamp(40px,6vw,72px) clamp(18px,4vw,40px) clamp(44px,6vw,76px);max-width:1140px;}
+  .ph-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(26px,4.5vw,56px);align-items:center;}
   .ph-eyebrow{display:inline-block;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.76rem;color:var(--gold);margin-bottom:16px;}
   .page-header h1{font-size:clamp(2rem,4.2vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;max-width:18ch;}
   .page-header h1 .uline{border-bottom:3px solid var(--gold);padding-bottom:.04em;}
+  .ph-media{position:relative;display:flex;align-items:center;justify-content:center;min-height:300px;}
+  .ph-media .circ{position:absolute;width:min(82%,300px);aspect-ratio:1;background:var(--gold);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
+  .ph-media img{position:relative;z-index:1;width:min(82%,312px);aspect-ratio:3/3.4;object-fit:cover;object-position:top center;border-radius:22px;box-shadow:0 22px 50px rgba(0,0,0,.4);}
+  .ph-media .chip{position:absolute;z-index:2;bottom:12%;left:2%;background:var(--white);color:var(--indigo);font-weight:700;font-size:.8rem;padding:.5em 1.05em;border-radius:40px;box-shadow:0 10px 26px rgba(0,0,0,.28);display:inline-flex;align-items:center;gap:.5em;}
+  .ph-media .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);}
   .ph-lead{font-size:clamp(1.04rem,1.6vw,1.26rem);color:rgba(255,255,255,.9);max-width:54ch;margin-bottom:28px;font-weight:500;}
   .ph-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:18px;}
   .ph-fine{font-size:.88rem;color:rgba(255,255,255,.62);max-width:48ch;line-height:1.55;}
@@ -182,6 +188,10 @@
     .editorial{grid-template-columns:1fr;gap:26px;}
     .ed-figure{max-width:360px;}
     .ed-figure img{aspect-ratio:4/3.4;}
+    .ph-grid{grid-template-columns:1fr;gap:26px;}
+    .ph-media{order:-1;min-height:0;margin-bottom:6px;}
+    .ph-media img{width:min(62%,230px);}
+    .ph-media .circ{width:min(58%,210px);}
     .foot-top{grid-template-columns:1fr 1fr;}
     .mobile-apply{display:block;}
   }
@@ -200,10 +210,10 @@
 <header class="nav">
   <div class="wrap">
     <div class="nav-row1">
-      <a href="/" class="brand">Liberation<span>Coach</span></a>
+      <a href="design-1-forum.html" class="brand">Liberation<span>Coach</span></a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/coaching" aria-current="page">Coaching</a></li>
+        <li><a href="design-1-forum.html">Home</a></li>
+        <li><a href="coaching-forum.html" aria-current="page">Coaching</a></li>
         <li><a href="/method">Method</a></li>
         <li><a href="/for-founders">For Founders</a></li>
         <li><a href="/for-athletes">For Athletes</a></li>
@@ -220,8 +230,8 @@
   </div>
   <div class="mobile-panel" id="mobilePanel">
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/coaching" aria-current="page">Coaching</a></li>
+      <li><a href="design-1-forum.html">Home</a></li>
+      <li><a href="coaching-forum.html" aria-current="page">Coaching</a></li>
       <li><a href="/method">Method</a></li>
       <li><a href="/for-founders">For Founders</a></li>
       <li><a href="/for-athletes">For Athletes</a></li>
@@ -236,7 +246,7 @@
 <nav class="crumb" aria-label="Breadcrumb">
   <div class="wrap">
     <ol>
-      <li><a href="/">Home</a></li>
+      <li><a href="design-1-forum.html">Home</a></li>
       <li class="sep" aria-hidden="true">&rsaquo;</li>
       <li aria-current="page">Coaching</li>
     </ol>
@@ -246,13 +256,22 @@
 <!-- ============ PAGE HEADER (title treatment) ============ -->
 <header class="page-header">
   <div class="wrap">
-    <span class="ph-eyebrow">1:1 Coaching</span>
-    <h1>One on one coaching with <span class="uline">Victor Pierantoni</span></h1>
-    <p class="ph-lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
-    <div class="ph-cta">
-      <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching &rarr;</a>
+    <div class="ph-grid">
+      <div class="ph-text">
+        <span class="ph-eyebrow">1:1 Coaching</span>
+        <h1>One on one coaching with <span class="uline">Victor Pierantoni</span></h1>
+        <p class="ph-lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
+        <div class="ph-cta">
+          <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching &rarr;</a>
+        </div>
+        <p class="ph-fine">Online sessions with Victor. Circle access for coaching members.</p>
+      </div>
+      <div class="ph-media">
+        <span class="circ"></span>
+        <img src="assets/victor-avatar.jpg" alt="Victor Pierantoni, performance coach, in a relaxed studio portrait">
+        <span class="chip">Work with Victor</span>
+      </div>
     </div>
-    <p class="ph-fine">Online sessions with Victor. Circle access for coaching members.</p>
   </div>
 </header>
 
@@ -392,7 +411,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href="/" class="brand">Liberation<span style="color:var(--gold)">Coach</span></a>
+        <a href="design-1-forum.html" class="brand">Liberation<span style="color:var(--gold)">Coach</span></a>
         <p>Online 1:1 performance coaching with Victor Pierantoni for founders, business owners and adult athletes. Liberation Coach Inc.</p>
       </div>
       <div class="foot-col">
@@ -400,7 +419,7 @@
         <a href="/for-founders">For Founders</a>
         <a href="/for-athletes">For Athletes</a>
         <a href="/method">The Method</a>
-        <a href="/coaching">1:1 Coaching</a>
+        <a href="coaching-forum.html">1:1 Coaching</a>
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
