@@ -7,11 +7,12 @@
 <meta name="description" content="Explore one-on-one coaching with Victor Pierantoni for founders and adult athletes: the focus of the work, session examples and how to apply.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#2B379B;
     --indigo:#212251;
+    --indigo-deep:#191a40;
     --gold:#EFCB30;
     --cream:#F7EFE2;
     --white:#FFFFFF;
@@ -29,7 +30,9 @@
   }
   img{max-width:100%;display:block;}
   a{text-decoration:none;color:inherit;}
+  h1,h2,h3{line-height:1.12;letter-spacing:-.015em;}
   .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(18px,4vw,40px);}
+  .mono{font-family:'DM Mono',ui-monospace,monospace;}
 
   /* ---------- BUTTONS ---------- */
   .pill{
@@ -38,7 +41,7 @@
     border-radius:40px;padding:.85em 1.6em;
     border:2px solid transparent;cursor:pointer;
     transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease;
-    line-height:1.1;
+    line-height:1.1;text-align:center;
   }
   .pill-gold{background:var(--gold);color:var(--indigo);}
   .pill-gold:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(239,203,48,.35);}
@@ -47,28 +50,13 @@
   .pill-ghost-dark{background:transparent;color:var(--indigo);border-color:var(--indigo);}
   .pill-ghost-dark:hover{background:var(--indigo);color:var(--white);transform:translateY(-2px);}
 
-  .arrow-btn{
-    width:54px;height:54px;border-radius:50%;
-    background:var(--navy);color:var(--gold);
-    display:inline-flex;align-items:center;justify-content:center;
-    border:none;cursor:pointer;flex:none;
-    transition:transform .2s ease,background .2s ease;
-  }
-  .arrow-btn svg{width:22px;height:22px;}
-  .arrow-btn:hover{transform:translate(3px,-3px);background:var(--indigo);}
-
-  /* ---------- NAV ---------- */
-  .nav{position:sticky;top:0;z-index:100;background:var(--navy);color:var(--white);border-bottom:1px solid rgba(239,203,48,.3);box-shadow:0 3px 18px rgba(0,0,0,.2);}
+  /* ---------- NAV (transparent over hero, solid on scroll) ---------- */
+  .nav{position:fixed;top:0;left:0;width:100%;z-index:100;color:var(--white);background:transparent;transition:background .3s ease,box-shadow .3s ease,padding .3s ease;}
+  .nav.solid{background:var(--navy);box-shadow:0 3px 18px rgba(0,0,0,.25);border-bottom:1px solid rgba(239,203,48,.3);}
   .nav-row1{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
-  .brand{font-weight:800;font-size:clamp(1.15rem,2vw,1.45rem);letter-spacing:-.01em;color:var(--white);white-space:nowrap;}
+  .brand{font-weight:800;font-size:clamp(1.15rem,2vw,1.45rem);letter-spacing:-.01em;color:var(--white);white-space:nowrap;display:inline-flex;align-items:center;gap:9px;}
+  .brand .mark{width:24px;height:24px;flex:none;}
   .brand span{color:var(--gold);}
-  .nav-utility{display:flex;align-items:center;gap:clamp(12px,2vw,24px);}
-  .nav-utility a.util{font-weight:600;font-size:.95rem;color:rgba(255,255,255,.85);transition:color .15s;}
-  .nav-utility a.util:hover{color:var(--gold);}
-  .search-btn{background:transparent;border:none;color:var(--white);cursor:pointer;display:inline-flex;padding:4px;}
-  .search-btn:hover{color:var(--gold);}
-  .nav-apply{padding:.55em 1.3em;font-size:.95rem;}
-  .nav-right{display:flex;align-items:center;gap:14px;}
 
   .nav-menu{display:flex;align-items:center;gap:clamp(12px,1.8vw,26px);padding:0;list-style:none;flex:1;justify-content:center;}
   .nav-menu a{font-weight:600;font-size:.98rem;color:rgba(255,255,255,.9);position:relative;padding:4px 0;transition:color .15s;}
@@ -77,77 +65,131 @@
   .nav-menu a:hover::after{width:100%;}
   .nav-menu a[aria-current="page"]{color:var(--gold);font-weight:700;}
   .nav-menu a[aria-current="page"]::after{width:100%;}
+  .nav-right{display:flex;align-items:center;gap:14px;}
+  .nav-apply{padding:.55em 1.3em;font-size:.95rem;}
 
   .hamburger{display:none;background:transparent;border:none;color:var(--white);cursor:pointer;padding:6px;}
   .hamburger svg{width:28px;height:28px;}
 
-  /* ---------- INNER PAGE HEADER (compact, text-forward — NOT a homepage hero) ---------- */
-  .page-head{background:var(--indigo);color:var(--white);position:relative;border-bottom:3px solid var(--gold);}
-  .page-head .wrap{padding-top:clamp(40px,6vw,66px);padding-bottom:clamp(40px,6vw,66px);}
-  .page-head .eyebrow{color:var(--gold);}
-  .page-head h1{font-size:clamp(1.85rem,4vw,2.85rem);font-weight:800;line-height:1.14;letter-spacing:-.02em;margin-bottom:16px;max-width:20ch;text-wrap:balance;}
-  .page-head .lead{font-size:clamp(1.02rem,1.5vw,1.15rem);color:rgba(255,255,255,.86);max-width:62ch;margin-bottom:24px;}
-  .page-head .head-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:18px;}
-  .page-head .fineprint{font-size:.86rem;color:rgba(255,255,255,.6);max-width:64ch;line-height:1.5;}
+  /* ---------- CINEMATIC HERO ---------- */
+  .hero{
+    position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;
+    background:radial-gradient(130% 120% at 18% 20%,#2c2f6b 0%,var(--indigo) 46%,var(--indigo-deep) 100%);
+    padding-top:clamp(128px,16vw,172px);padding-bottom:clamp(70px,9vw,110px);
+  }
+  .hero-victor{position:absolute;right:0;top:0;bottom:0;width:48%;z-index:1;}
+  .hero-victor img{
+    width:100%;height:100%;object-fit:cover;object-position:60% 16%;filter:grayscale(.2) contrast(1.05) brightness(.98);
+    -webkit-mask-image:linear-gradient(to left,#000 60%,transparent 96%);mask-image:linear-gradient(to left,#000 60%,transparent 96%);
+  }
+  .hero::after{content:"";position:absolute;inset:0;z-index:2;
+    background:linear-gradient(97deg,var(--indigo-deep) 30%,rgba(25,26,64,.80) 50%,rgba(25,26,64,.28) 70%,transparent 87%);}
+  .hero .wrap{position:relative;z-index:3;width:100%;}
+  .hero-inner{max-width:620px;}
+  .hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+  .hero .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);display:inline-block;}
+  .hero h1{font-size:clamp(2.4rem,5.4vw,3.9rem);font-weight:800;color:#fff;line-height:1.04;margin-bottom:22px;letter-spacing:-.025em;}
+  .hero h1 span{color:var(--gold);}
+  .hero .lead{font-size:clamp(1.06rem,1.6vw,1.24rem);color:rgba(255,255,255,.88);max-width:46ch;margin-bottom:30px;line-height:1.6;}
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;}
+  .hero .fineprint{font-size:.85rem;color:rgba(255,255,255,.6);max-width:54ch;margin-top:26px;line-height:1.55;}
 
   /* ---------- SECTION SHELL ---------- */
-  section.band{padding:clamp(48px,6.5vw,86px) 0;position:relative;overflow:hidden;}
-  section.band.compact{padding:clamp(30px,4vw,50px) 0;}
-  .eyebrow{display:inline-block;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;color:var(--navy);margin-bottom:14px;}
-  .ihead{font-size:clamp(1.5rem,3vw,2.15rem);font-weight:800;line-height:1.14;letter-spacing:-.015em;margin-bottom:18px;max-width:22ch;}
-  .lead-line{font-weight:700;color:var(--navy);font-size:clamp(1.02rem,1.4vw,1.12rem);margin-bottom:16px;}
+  section{position:relative;}
+  .sec-pad{padding:clamp(56px,7.5vw,104px) 0;}
+  .sec-cream{background:var(--cream);}
+  .sec-white{background:var(--white);}
+  .sec-dark{background:var(--indigo);color:var(--white);}
+  .eyebrow-lbl{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',ui-monospace,monospace;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:18px;}
+  .eyebrow-lbl::before{content:"";width:26px;height:1px;background:currentColor;}
+  .sec-dark .eyebrow-lbl{color:var(--gold);}
 
-  /* readable prose column */
-  .prose p{font-size:1.04rem;color:#3a3b5c;max-width:66ch;margin-bottom:18px;}
-  .prose p:last-child{margin-bottom:0;}
-  .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;}
+  /* big editorial lede */
+  .lede .wrap{max-width:1000px;}
+  .lede p{font-size:clamp(1.4rem,2.9vw,2.15rem);line-height:1.34;font-weight:500;color:var(--indigo);letter-spacing:-.01em;}
+  .lede p+p{margin-top:22px;font-size:clamp(1.1rem,1.6vw,1.3rem);color:#52546f;font-weight:400;}
 
-  /* quiet illustration callout (Section 4) */
-  .illus{background:var(--white);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:18px 22px;max-width:66ch;color:#3a3b5c;font-size:1rem;box-shadow:0 6px 18px rgba(33,34,81,.06);margin-top:6px;}
-  .illus b{color:var(--navy);}
+  /* two-column feature row (media + prose) */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,72px);align-items:center;}
+  .feature.flip .feat-media{order:2;}
+  .feat-prose h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:800;margin-bottom:18px;color:var(--indigo);}
+  .sec-dark .feat-prose h2{color:#fff;}
+  .feat-prose .lead-line{font-size:1.18rem;font-weight:700;margin-bottom:16px;color:var(--navy);}
+  .sec-dark .feat-prose .lead-line{color:var(--gold);}
+  .feat-prose p{font-size:1.05rem;margin-bottom:16px;color:#3a3b5c;}
+  .sec-dark .feat-prose p{color:rgba(255,255,255,.85);}
+  .feat-prose p:last-of-type{margin-bottom:0;}
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
 
-  /* small labelled reflection image (Section 3) */
-  .reflect-img{position:relative;max-width:430px;border-radius:18px;overflow:hidden;margin-top:28px;box-shadow:0 12px 30px rgba(33,34,81,.14);}
-  .reflect-img img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.05);}
-  .stock-label{position:absolute;top:12px;right:12px;z-index:1;background:rgba(33,34,81,.72);color:rgba(255,255,255,.82);font-size:.66rem;letter-spacing:.04em;padding:4px 9px;border-radius:30px;font-weight:600;}
+  /* image framing motif — gold corner bracket */
+  .framed{position:relative;}
+  .framed img{width:100%;height:100%;object-fit:cover;border-radius:10px;}
+  .framed.tall img{height:clamp(360px,44vw,540px);filter:grayscale(.15) contrast(1.03);}
+  .framed::before{content:"";position:absolute;left:-14px;top:-14px;width:70px;height:70px;border-left:3px solid var(--gold);border-top:3px solid var(--gold);z-index:2;}
+  .framed::after{content:"";position:absolute;right:-14px;bottom:-14px;width:70px;height:70px;border-right:3px solid var(--gold);border-bottom:3px solid var(--gold);z-index:2;}
+  .stock-label{position:absolute;right:12px;top:12px;z-index:3;background:rgba(33,34,81,.72);color:rgba(255,255,255,.85);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:30px;font-weight:600;}
+
+  /* circular gold-ringed motif image (dark section) */
+  .ring-media{position:relative;width:min(100%,420px);margin:0 auto;aspect-ratio:1;}
+  .ring-media img{width:100%;height:100%;object-fit:cover;border-radius:50%;filter:grayscale(.35) contrast(1.05);}
+  .ring-media::after{content:"";position:absolute;inset:-12px;border:2px solid var(--gold);border-radius:50%;}
+  .ring-media .stock-label{right:8%;top:6%;}
+
+  /* quiet illustration callout */
+  .callout{background:var(--white);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:22px 26px;margin-top:26px;max-width:66ch;box-shadow:0 8px 22px rgba(33,34,81,.07);}
+  .callout p{font-size:1.04rem;color:#3a3b5c;margin:0;}
+  .callout b{color:var(--navy);}
+
+  .sec-head{max-width:640px;}
+  .sec-head h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--indigo);margin-bottom:14px;}
+  .sec-head .lead-line{font-size:1.18rem;font-weight:700;color:var(--navy);}
 
   /* ---------- COMPACT STRIP (Section 5) ---------- */
-  .strip{background:var(--navy);color:var(--white);border-radius:20px;padding:clamp(24px,3.5vw,36px);display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;justify-content:space-between;box-shadow:0 14px 34px rgba(33,34,81,.14);}
-  .strip .strip-txt{max-width:60ch;}
-  .strip .eyebrow{color:var(--gold);margin-bottom:10px;}
-  .strip h2{font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:800;margin-bottom:8px;line-height:1.16;}
-  .strip p{color:rgba(255,255,255,.85);font-size:1rem;}
+  .strip{background:var(--navy);color:var(--white);border-radius:24px;padding:clamp(28px,4vw,42px);display:flex;flex-wrap:wrap;align-items:center;gap:20px 36px;justify-content:space-between;box-shadow:0 18px 44px rgba(33,34,81,.18);position:relative;overflow:hidden;}
+  .strip::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.4px,transparent 1.4px);background-size:22px 22px;opacity:.5;pointer-events:none;}
+  .strip-txt{position:relative;z-index:1;max-width:60ch;}
+  .strip .eyebrow-lbl{color:var(--gold);margin-bottom:10px;}
+  .strip h2{font-size:clamp(1.4rem,2.6vw,1.95rem);font-weight:800;margin-bottom:8px;color:#fff;}
+  .strip p{color:rgba(255,255,255,.86);font-size:1.02rem;}
+  .strip .pill{position:relative;z-index:1;}
 
-  /* ---------- HOW TO BEGIN (3 steps — reused step cards) ---------- */
-  .begins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,28px);}
-  .step{background:var(--white);border-radius:24px;padding:clamp(26px,3vw,36px);box-shadow:0 10px 30px rgba(33,34,81,.07);border:1px solid rgba(33,34,81,.06);position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease;}
-  .step::before{content:"";position:absolute;left:0;top:0;height:5px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
-  .step:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(33,34,81,.14);}
-  .step:hover::before{transform:scaleX(1);}
-  .step-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
-  .step-num{width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--indigo);font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 8px 18px rgba(239,203,48,.4);}
-  .step-kick{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);opacity:.7;}
-  .step h3{font-size:clamp(1.2rem,1.9vw,1.4rem);font-weight:800;margin-bottom:10px;}
-  .step p{color:#4a4b6b;font-size:.98rem;}
+  /* ---------- NUMBERED STEP CARDS (Section 6) ---------- */
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,28px);margin-top:48px;}
+  .step{position:relative;background:var(--white);border:1px solid rgba(33,34,81,.07);border-radius:20px;padding:40px 30px 32px;box-shadow:0 14px 38px rgba(33,34,81,.08);overflow:hidden;transition:transform .22s ease,box-shadow .22s ease;}
+  .step:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(33,34,81,.14);}
+  .step::after{content:"";position:absolute;left:0;top:0;width:100%;height:5px;background:var(--gold);border-radius:20px 20px 0 0;}
+  .step .step-no{font-family:'DM Mono',ui-monospace,monospace;font-size:3rem;font-weight:500;color:var(--gold);line-height:1;margin-bottom:14px;}
+  .step h3{font-size:clamp(1.2rem,1.9vw,1.4rem);font-weight:800;color:var(--indigo);margin-bottom:11px;}
+  .step p{font-size:.98rem;color:#4a4b6b;margin:0;}
 
-  /* ---------- BACKGROUND & FIT (Section 7 — one modest Victor photo) ---------- */
-  .fit-grid{display:grid;grid-template-columns:290px 1fr;gap:clamp(26px,4vw,48px);align-items:start;}
-  .fit-photo-wrap{position:relative;}
-  .fit-photo{width:100%;border-radius:20px;aspect-ratio:4/4.6;object-fit:cover;object-position:top center;box-shadow:0 16px 40px rgba(33,34,81,.2);}
-  .fit-cap{margin-top:12px;font-size:.84rem;color:#6a6b85;font-weight:600;}
-  .subhead{font-size:1.22rem;font-weight:800;color:var(--indigo);margin:30px 0 12px;}
-  .disclaimer{background:#efe9dc;border:1px solid rgba(33,34,81,.14);border-radius:14px;padding:18px 22px;max-width:70ch;font-size:.95rem;color:#55566f;margin-top:24px;line-height:1.55;}
+  /* ---------- BACKGROUND & FIT (Section 7, dark) ---------- */
+  .fit-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(34px,5vw,64px);align-items:start;}
+  .fit-photo{position:relative;}
+  .fit-photo img{width:100%;object-fit:cover;object-position:top center;border-radius:12px;aspect-ratio:4/4.7;}
+  .fit-photo::before{content:"";position:absolute;left:-14px;top:-14px;width:70px;height:70px;border-left:3px solid var(--gold);border-top:3px solid var(--gold);z-index:2;}
+  .fit-photo .photo-cap{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(21,22,55,.82);color:#fff;padding:9px 16px;font-size:.82rem;font-weight:700;letter-spacing:.02em;border-radius:40px;}
+  .fit-sub{margin-top:28px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);}
+  .fit-sub h3{font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:12px;}
+  .note-quiet{margin-top:24px;background:rgba(255,255,255,.05);border-left:3px solid rgba(239,203,48,.6);border-radius:0 12px 12px 0;padding:18px 22px;font-size:.95rem;color:rgba(255,255,255,.75);max-width:70ch;line-height:1.55;}
 
-  /* ---------- FINAL CTA (restrained) ---------- */
-  .cta-band{background:var(--indigo);color:var(--white);text-align:center;border-bottom:4px solid var(--gold);}
-  .cta-band h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:800;max-width:22ch;margin:0 auto 14px;line-height:1.16;}
-  .cta-band p{color:rgba(255,255,255,.82);max-width:56ch;margin:0 auto 26px;}
-  .cta-band .fine{font-size:.86rem;color:rgba(255,255,255,.6);max-width:50ch;margin:18px auto 0;}
+  /* ---------- CINEMATIC FINAL CTA (Section 8) ---------- */
+  .final{position:relative;min-height:56vh;display:flex;align-items:center;overflow:hidden;border-bottom:4px solid var(--gold);
+    background:radial-gradient(120% 120% at 20% 30%,#2c2f6b 0%,var(--indigo) 50%,var(--indigo-deep) 100%);
+    padding:clamp(66px,9vw,116px) 0;}
+  .final-victor{position:absolute;right:0;top:0;bottom:0;width:44%;z-index:1;}
+  .final-victor img{width:100%;height:100%;object-fit:cover;object-position:60% 14%;filter:grayscale(.25) contrast(1.05) brightness(.96);
+    -webkit-mask-image:linear-gradient(to left,#000 58%,transparent 95%);mask-image:linear-gradient(to left,#000 58%,transparent 95%);}
+  .final::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(97deg,var(--indigo-deep) 30%,rgba(25,26,64,.74) 52%,transparent 82%);}
+  .final .wrap{position:relative;z-index:3;width:100%;}
+  .final-inner{max-width:560px;}
+  .final h2{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:800;color:#fff;margin-bottom:18px;line-height:1.08;}
+  .final h2 span{color:var(--gold);}
+  .final p{font-size:1.15rem;color:rgba(255,255,255,.86);max-width:48ch;margin-bottom:30px;}
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--indigo);color:rgba(255,255,255,.72);padding:clamp(48px,6vw,70px) 0 120px;}
   .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(24px,3vw,40px);margin-bottom:40px;}
-  .foot-brand .brand{margin-bottom:14px;display:inline-block;}
+  .foot-brand .brand{margin-bottom:14px;display:inline-flex;}
   .foot-brand p{font-size:.95rem;max-width:40ch;}
   .foot-col h4{color:var(--white);font-size:.95rem;font-weight:700;margin-bottom:14px;letter-spacing:.02em;}
   .foot-col a{display:block;font-size:.92rem;margin-bottom:9px;color:rgba(255,255,255,.72);transition:color .15s;}
@@ -171,28 +213,43 @@
     .nav-menu{display:none;}
     .hamburger{display:inline-flex;}
     .nav-apply{display:none;}
-    .fit-grid{grid-template-columns:1fr;}
-    .fit-photo{max-width:300px;}
+    .feature{grid-template-columns:1fr;gap:34px;}
+    .feature.flip .feat-media{order:0;}
+    .fit-grid{grid-template-columns:1fr;gap:30px;}
+    .fit-photo{max-width:320px;}
     .strip{flex-direction:column;align-items:flex-start;}
-    .begins-grid{grid-template-columns:1fr;}
+    .steps-grid{grid-template-columns:1fr;gap:20px;}
     .foot-top{grid-template-columns:1fr 1fr;}
     .mobile-apply{display:block;}
+    .hero-victor{width:66%;opacity:.5;}
+    .hero::after{background:linear-gradient(97deg,var(--indigo-deep) 52%,rgba(25,26,64,.85) 72%,rgba(25,26,64,.55) 100%);}
+    .final-victor{width:72%;opacity:.42;}
+    .final::after{background:linear-gradient(97deg,var(--indigo-deep) 54%,rgba(25,26,64,.82) 78%,rgba(25,26,64,.5) 100%);}
+  }
+  @media(max-width:600px){
+    .hero{min-height:auto;padding-top:clamp(104px,26vw,132px);}
+    .lede p{font-size:1.4rem;}
+    .hero-cta{flex-direction:column;align-items:stretch;}
+    .hero-cta .pill{justify-content:center;}
   }
   @media(max-width:480px){
-    .nav-apply{padding:.5em 1em;font-size:.88rem;}
     .brand{font-size:1.1rem;}
     .foot-top{grid-template-columns:1fr 1fr;gap:28px 20px;}
     .foot-brand{grid-column:1 / -1;}
+    .framed::before,.framed::after,.fit-photo::before{width:48px;height:48px;}
   }
 </style>
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
-<header class="nav">
+<header class="nav" id="nav">
   <div class="wrap">
     <div class="nav-row1">
-      <a href="/" class="brand">Liberation<span>Coach</span></a>
+      <a href="/" class="brand">
+        <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M23 7.5A12 12 0 1 0 26 20" stroke="#EFCB30" stroke-width="3" stroke-linecap="round"/></svg>
+        Liberation<span>Coach</span>
+      </a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="/">Home</a></li>
         <li><a href="/coaching" aria-current="page">Coaching</a></li>
@@ -224,155 +281,179 @@
   </div>
 </header>
 
-<!-- ============ SECTION 1 — COMPACT PAGE HEADER ============ -->
-<section class="page-head">
-  <div class="wrap">
-    <span class="eyebrow">Work with Victor Pierantoni</span>
-    <h1>One on one coaching with Victor Pierantoni</h1>
-    <p class="lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
-    <div class="head-cta">
-      <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching →</a>
-    </div>
-    <p class="fineprint">Online sessions with Victor. Circle access for coaching members. Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
+<!-- ============ CINEMATIC HERO ============ -->
+<header class="hero">
+  <div class="hero-victor">
+    <img src="assets/victor-studio.jpg" alt="Victor Pierantoni standing with his arms crossed, a calm and composed expression">
   </div>
-</section>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow mono">1:1 Coaching</span>
+      <h1>One on one coaching with <span>Victor Pierantoni</span></h1>
+      <p class="lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
+      <div class="hero-cta">
+        <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching &rarr;</a>
+        <a href="/method" class="pill pill-ghost-light">See What a Session Can Involve</a>
+      </div>
+      <p class="fineprint">Online sessions with Victor. Circle access for coaching members. Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
+    </div>
+  </div>
+</header>
 
-<!-- ============ OPENING DEFINITION (first body band, directly below header) ============ -->
-<section class="band compact">
-  <div class="wrap prose">
+<!-- ============ BIG EDITORIAL LEDE ============ -->
+<section class="sec-pad lede sec-cream">
+  <div class="wrap">
     <p>In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation. Victor's questions examine your response and the assumptions shaping it; you consider what you want to do next.</p>
     <p>The offer is for founders, business owners and adult athletes. Bring a decision, a difficult conversation or a performance concern that matters in your life. Sessions take place online, and all coaching members receive Circle access.</p>
   </div>
 </section>
 
-<!-- ============ SECTION 2 — WHAT CAN YOU BRING ============ -->
-<section class="band" style="background:var(--white);">
+<!-- ============ SECTION 2 — WHAT CAN YOU BRING (media + prose) ============ -->
+<section class="sec-pad sec-cream" style="padding-top:0;">
   <div class="wrap">
-    <span class="eyebrow">What to Bring</span>
-    <h2 class="ihead">What Can You Bring to Coaching?</h2>
-    <p class="lead-line">Start with something specific.</p>
-    <div class="prose">
-      <p>For a founder, that could be a decision that keeps reopening or a conversation with someone you lead. You might want to understand why you avoid giving direct feedback, or what makes it difficult to trust someone with a responsibility. For an athlete, it could be pressure before competing, attention caught on a mistake or the demands of a changing sporting career.</p>
-      <p>Personal and professional priorities can overlap. Describe where a business or sporting goal competes with a relationship, rest or enjoyment of what you do, and which part you want to examine with Victor.</p>
-      <p>When productivity is the concern, describe the work you want to finish and why it matters. A useful starting question is which action would serve that goal, given your other responsibilities and the time you have.</p>
-    </div>
-    <div class="btn-row">
-      <a href="/for-founders" class="pill pill-ghost-dark">Explore Founder Coaching →</a>
-      <a href="/for-athletes" class="pill pill-ghost-dark">Explore Coaching for Athletes →</a>
+    <div class="feature">
+      <div class="feat-media">
+        <div class="framed tall">
+          <span class="stock-label">Stock placeholder</span>
+          <img src="assets/bg-desk.jpg" alt="A quiet desk with a notebook and pen, where a specific situation can be written down">
+        </div>
+      </div>
+      <div class="feat-prose">
+        <span class="eyebrow-lbl mono">What You Can Bring</span>
+        <h2>What Can You Bring to Coaching?</h2>
+        <p class="lead-line">Start with something specific.</p>
+        <p>For a founder, that could be a decision that keeps reopening or a conversation with someone you lead. You might want to understand why you avoid giving direct feedback, or what makes it difficult to trust someone with a responsibility. For an athlete, it could be pressure before competing, attention caught on a mistake or the demands of a changing sporting career.</p>
+        <p>Personal and professional priorities can overlap. Describe where a business or sporting goal competes with a relationship, rest or enjoyment of what you do, and which part you want to examine with Victor.</p>
+        <p>When productivity is the concern, describe the work you want to finish and why it matters. A useful starting question is which action would serve that goal, given your other responsibilities and the time you have.</p>
+        <div class="btn-row">
+          <a href="/for-founders" class="pill pill-ghost-dark">Explore Founder Coaching &rarr;</a>
+          <a href="/for-athletes" class="pill pill-ghost-dark">Explore Coaching for Athletes &rarr;</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 3 — WHAT THE CONVERSATION HELPS YOU EXAMINE ============ -->
-<section class="band">
+<!-- ============ SECTION 3 — WHAT THE CONVERSATION EXAMINES (dark, ringed motif) ============ -->
+<section class="sec-pad sec-dark">
   <div class="wrap">
-    <span class="eyebrow">Inside the Conversation</span>
-    <h2 class="ihead">What Can One on One Coaching Help You Examine?</h2>
-    <div class="prose">
-      <p>Victor asks questions about what happened, how you interpret it and what you want from the conversation. His work can also include attention to feelings and bodily sensations. These are examples from his coaching and teaching, not a fixed script for every session.</p>
-      <p>A practical focus could be identifying a question to ask before deciding, checking an assumption or choosing an action to try. A chosen action is something you can do; the eventual business, personal or sporting result depends on more than a session.</p>
-      <p>You can learn from an action you choose by comparing what you expected with what happened. For example, after a difficult conversation, note what you said, how the other person responded and which assumption you would check next time.</p>
-    </div>
-    <div class="reflect-img">
-      <span class="stock-label">Stock placeholder</span>
-      <img src="assets/bg-stones.jpg" alt="Balanced stack of smooth stones on a quiet shore, suggesting a steady, reflective pause">
-    </div>
-    <div class="btn-row">
-      <a href="/method" class="pill pill-ghost-dark">See What a Session Can Involve →</a>
+    <div class="feature flip">
+      <div class="feat-media">
+        <div class="ring-media">
+          <span class="stock-label">Stock placeholder</span>
+          <img src="assets/bg-water.jpg" alt="Still water with a calm, even surface, suggesting a pause for reflection">
+        </div>
+      </div>
+      <div class="feat-prose">
+        <span class="eyebrow-lbl mono">Inside the Conversation</span>
+        <h2>What Can One on One Coaching Help You Examine?</h2>
+        <p>Victor asks questions about what happened, how you interpret it and what you want from the conversation. His work can also include attention to feelings and bodily sensations. These are examples from his coaching and teaching, not a fixed script for every session.</p>
+        <p>A practical focus could be identifying a question to ask before deciding, checking an assumption or choosing an action to try. A chosen action is something you can do; the eventual business, personal or sporting result depends on more than a session.</p>
+        <p>You can learn from an action you choose by comparing what you expected with what happened. For example, after a difficult conversation, note what you said, how the other person responded and which assumption you would check next time.</p>
+        <div class="btn-row">
+          <a href="/method" class="pill pill-ghost-light">See What a Session Can Involve &rarr;</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ SECTION 4 — A USEFUL STARTING POINT ============ -->
-<section class="band" style="background:var(--white);">
-  <div class="wrap">
-    <span class="eyebrow">Getting Started</span>
-    <h2 class="ihead">A Useful Starting Point</h2>
-    <p class="lead-line">You can begin with an unresolved question.</p>
-    <div class="prose">
-      <p>As a starting point, describe what happened, what you keep returning to and what you would like help thinking through. You do not need to arrive with an answer.</p>
+<section class="sec-pad sec-white">
+  <div class="wrap" style="max-width:860px;">
+    <span class="eyebrow-lbl mono">Getting Started</span>
+    <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--indigo);margin-bottom:16px;">A Useful Starting Point</h2>
+    <p style="font-size:1.18rem;font-weight:700;color:var(--navy);margin-bottom:14px;">You can begin with an unresolved question.</p>
+    <p style="font-size:1.05rem;color:#3a3b5c;max-width:66ch;">As a starting point, describe what happened, what you keep returning to and what you would like help thinking through. You do not need to arrive with an answer.</p>
+    <div class="callout">
+      <p><b>Illustration:</b> if you keep revisiting a decision, a useful focus could be distinguishing information you still need from an assumption you are making. That gives the conversation a specific question to examine.</p>
     </div>
-    <p class="illus"><b>Illustration:</b> if you keep revisiting a decision, a useful focus could be distinguishing information you still need from an assumption you are making. That gives the conversation a specific question to examine.</p>
   </div>
 </section>
 
 <!-- ============ SECTION 5 — ONLINE SESSIONS & CIRCLE (compact strip) ============ -->
-<section class="band compact">
+<section class="sec-cream" style="padding:clamp(30px,4vw,54px) 0;">
   <div class="wrap">
     <div class="strip">
       <div class="strip-txt">
-        <span class="eyebrow">Format</span>
+        <span class="eyebrow-lbl mono">Format</span>
         <h2>Online Sessions and Circle Access</h2>
         <p>Coaching sessions take place online. All coaching members receive Circle access alongside their 1:1 work with Victor.</p>
       </div>
-      <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching →</a>
+      <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 6 — HOW TO BEGIN (3 steps) ============ -->
-<section class="band" style="background:var(--white);">
+<!-- ============ SECTION 6 — HOW TO BEGIN (numbered steps) ============ -->
+<section class="sec-pad sec-white">
   <div class="wrap">
-    <span class="eyebrow">The Process</span>
-    <h2 class="ihead">How to Begin</h2>
-    <p class="lead-line">Apply, meet Victor, then decide.</p>
-    <div class="begins-grid">
+    <div class="sec-head">
+      <span class="eyebrow-lbl mono">The Process</span>
+      <h2>How to Begin</h2>
+      <p class="lead-line">Apply, meet Victor, then decide.</p>
+    </div>
+    <div class="steps-grid">
       <div class="step">
-        <div class="step-head"><div class="step-num">1</div><span class="step-kick">First</span></div>
+        <div class="step-no">01</div>
         <h3>Apply</h3>
         <p>Describe the situation you want to work on and what you would like to be different.</p>
       </div>
       <div class="step">
-        <div class="step-head"><div class="step-num">2</div><span class="step-kick">Then</span></div>
+        <div class="step-no">02</div>
         <h3>Discovery Call</h3>
         <p>The next step is a Zoom conversation with Victor to explore whether coaching is a fit. There is no obligation to proceed with coaching.</p>
       </div>
       <div class="step">
-        <div class="step-head"><div class="step-num">3</div><span class="step-kick">If It Fits</span></div>
+        <div class="step-no">03</div>
         <h3>Your Decision</h3>
         <p>If you choose to begin coaching, the work takes place online and coaching members receive Circle access.</p>
       </div>
     </div>
     <div class="btn-row">
-      <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching →</a>
+      <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 7 — BACKGROUND & PROFESSIONAL FIT ============ -->
-<section class="band">
+<!-- ============ SECTION 7 — BACKGROUND & PROFESSIONAL FIT (dark) ============ -->
+<section class="sec-pad sec-dark">
   <div class="wrap">
-    <span class="eyebrow">About Victor</span>
-    <h2 class="ihead">Background and Professional Fit</h2>
     <div class="fit-grid">
-      <div class="fit-photo-wrap">
-        <img class="fit-photo" src="assets/victor-studio.jpg" alt="Victor Pierantoni standing with arms crossed in a studio portrait">
-        <p class="fit-cap">Victor Pierantoni</p>
+      <div class="fit-photo">
+        <img src="assets/victor-avatar.jpg" alt="Victor Pierantoni, performance coach, in a relaxed studio portrait">
+        <span class="photo-cap">Victor Pierantoni</span>
       </div>
-      <div>
-        <div class="prose">
-          <p>Victor's public background includes martial arts and founding Zen Stoic. In his public interviews, he discusses attention, stillness and the questions people bring to their lives. Read Victor's background and dated interview references when considering whether the reflective approach described here fits your needs.</p>
+      <div class="feat-prose">
+        <span class="eyebrow-lbl mono">About Victor</span>
+        <h2>Background and Professional Fit</h2>
+        <p>Victor's public background includes martial arts and founding Zen Stoic. In his public interviews, he discusses attention, stillness and the questions people bring to their lives. Read Victor's background and dated interview references when considering whether the reflective approach described here fits your needs.</p>
+        <div class="btn-row">
+          <a href="/about" class="pill pill-ghost-light">Read Victor's Background &rarr;</a>
         </div>
-        <div class="btn-row" style="margin-top:20px;">
-          <a href="/about" class="pill pill-ghost-dark">Read Victor's Background →</a>
-        </div>
-        <h3 class="subhead">Coaching and Professional Advice</h3>
-        <div class="prose">
+        <div class="fit-sub">
+          <h3>Coaching and Professional Advice</h3>
           <p>Reflective coaching examines how you interpret and respond to a situation. Training teaches a skill through instruction and practice; a mentor offers guidance informed by experience in a relevant field. If you need someone to teach a sporting technique or advise on a business decision itself, check that person's relevant expertise. Different kinds of help can address different parts of the same concern.</p>
         </div>
-        <p class="disclaimer">Liberation Coach's services are educational. A mental health concern, injury or specialist business question may require the appropriate qualified professional. Coaching does not replace medical, psychological, legal or financial advice, and specific outcomes are not guaranteed.</p>
+        <div class="note-quiet">
+          Liberation Coach's services are educational. A mental health concern, injury or specialist business question may require the appropriate qualified professional. Coaching does not replace medical, psychological, legal or financial advice, and specific outcomes are not guaranteed.
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 8 — FINAL INVITATION ============ -->
-<section class="band cta-band">
+<!-- ============ SECTION 8 — CINEMATIC FINAL CTA ============ -->
+<section class="final">
+  <div class="final-victor">
+    <img src="assets/victor-studio.jpg" alt="Victor Pierantoni standing with his arms crossed, ready to begin a conversation">
+  </div>
   <div class="wrap">
-    <h2>Apply for 1:1 coaching with Victor.</h2>
-    <p>Tell Victor what you would like to explore. Your next step is a discovery Zoom call with him, with no obligation to proceed with coaching.</p>
-    <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching →</a>
-    <p class="fine">Online sessions with Victor. Circle access for coaching members.</p>
+    <div class="final-inner">
+      <h2>Apply for 1:1 coaching with <span>Victor</span>.</h2>
+      <p>Tell Victor what you would like to explore. Your next step is a discovery Zoom call with him, with no obligation to proceed with coaching.</p>
+      <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching &rarr;</a>
+    </div>
   </div>
 </section>
 
@@ -381,7 +462,10 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href="/" class="brand">Liberation<span style="color:var(--gold)">Coach</span></a>
+        <a href="/" class="brand">
+          <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M23 7.5A12 12 0 1 0 26 20" stroke="#EFCB30" stroke-width="3" stroke-linecap="round"/></svg>
+          Liberation<span>Coach</span>
+        </a>
         <p>Online 1:1 performance coaching with Victor Pierantoni for founders, business owners and adult athletes. Liberation Coach Inc.</p>
       </div>
       <div class="foot-col">
@@ -411,7 +495,7 @@
         <a href="#" style="color:rgba(255,255,255,.55)">Coaching Disclaimer</a>
         <a href="#" style="color:rgba(255,255,255,.55)">Accessibility</a>
       </div>
-      <span>© 2026 Liberation Coach Inc. · Online, worldwide</span>
+      <span>&copy; 2026 Liberation Coach Inc. &middot; Online, worldwide</span>
       <span>Performance coaching is not therapy, counseling or medical treatment.</span>
     </div>
   </div>
@@ -419,15 +503,23 @@
 
 <!-- ============ MOBILE STICKY APPLY ============ -->
 <div class="mobile-apply">
-  <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching →</a>
+  <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching &rarr;</a>
 </div>
 
 <script>
   (function(){
+    var nav = document.getElementById('nav');
+    function onScroll(){
+      if(window.scrollY > 60){ nav.classList.add('solid'); }
+      else{ nav.classList.remove('solid'); }
+    }
+    window.addEventListener('scroll', onScroll); onScroll();
+
     var btn = document.getElementById('hamburger');
     var panel = document.getElementById('mobilePanel');
     btn.addEventListener('click', function(){
       var open = panel.classList.toggle('open');
+      nav.classList.add('solid');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     panel.querySelectorAll('a').forEach(function(a){
