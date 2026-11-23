@@ -30,7 +30,7 @@
   }
   img{max-width:100%;display:block}
   a{text-decoration:none;color:inherit}
-  h1,h2,h3,h4{font-weight:800;line-height:1.08;letter-spacing:-0.01em}
+  h1,h2,h3,h4{font-weight:800;line-height:1.1;letter-spacing:-0.01em}
 
   /* ---------- Buttons: SQUARE ---------- */
   .btn{
@@ -44,10 +44,6 @@
   .btn-yellow:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(34,28,75,.25)}
   .btn-indigo{background:var(--indigo);color:var(--white)}
   .btn-indigo:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(0,0,0,.2)}
-  .btn-outline{background:transparent;color:var(--indigo);border:2px solid var(--indigo)}
-  .btn-outline:hover{background:var(--indigo);color:var(--white)}
-  .btn-outline-light{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.55)}
-  .btn-outline-light:hover{background:var(--white);color:var(--indigo);border-color:var(--white)}
   .btn-sm{padding:.7rem 1.3rem;font-size:.92rem}
 
   .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
@@ -60,9 +56,12 @@
   }
   .eyebrow-y{color:var(--yellow)}
 
-  /* signature highlighted-block type device */
-  .hl-y{background:var(--yellow);color:var(--indigo);padding:.06em .3em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-  .hl-i{background:var(--indigo);color:var(--white);padding:.06em .3em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  /* yellow marker-underline accent for a single word in a heading */
+  .uline{
+    background-image:linear-gradient(var(--yellow),var(--yellow));
+    background-repeat:no-repeat;background-position:0 92%;background-size:100% .26em;
+    padding:0 .04em;
+  }
 
   /* stock label chip */
   .stock-tag{
@@ -72,9 +71,14 @@
   }
   .imgwrap{position:relative;overflow:hidden}
 
-  /* reusable torn / grunge divider */
-  .divider-torn{position:relative;height:clamp(32px,5vw,60px);line-height:0;overflow:hidden}
-  .divider-torn svg{display:block;width:100%;height:100%}
+  /* inline text link accent */
+  .inline-link{color:var(--teal);font-weight:700;border-bottom:2px solid rgba(31,143,166,.35)}
+  .inline-link:hover{color:var(--indigo);border-bottom-color:var(--yellow)}
+  .inline-link-y{color:var(--indigo);font-weight:700;border-bottom:2px solid var(--yellow)}
+  .inline-link-y:hover{color:var(--teal)}
+  /* inline link variant on the dark fit band */
+  .inline-link-dark{color:var(--yellow);font-weight:700;border-bottom:2px solid rgba(252,194,45,.45)}
+  .inline-link-dark:hover{color:#fff}
 
   /* ======================================================
      1. NAV
@@ -94,160 +98,105 @@
   .hamburger span{width:26px;height:3px;background:var(--indigo);display:block;transition:.2s}
 
   /* ======================================================
-     2. HIGHLIGHTED-BLOCK HERO (typographic, indigo)
+     2. BREADCRUMB
   ====================================================== */
-  .hero{background:var(--indigo);position:relative;overflow:hidden;padding:clamp(3rem,7vw,5.5rem) 0 clamp(3rem,6vw,4.5rem)}
-  .hero .wrap{position:relative;z-index:3}
-  .hero-inner{max-width:900px}
-  .hero h1{margin:0 0 1.4rem;max-width:16ch}
-  .hero .hl-line{display:inline-block;color:var(--white);font-weight:800;line-height:1.22;letter-spacing:-0.02em;
-    font-size:clamp(2.1rem,6vw,4.1rem)}
-  .hero .hl-plain{display:block;color:var(--white);font-weight:800;line-height:1.1;
-    font-size:clamp(2.1rem,6vw,4.1rem);margin-top:.5rem}
-  .hero .lead{font-size:clamp(1.08rem,2.1vw,1.32rem);color:#e7e5f2;font-weight:500;max-width:60ch;margin-bottom:1.9rem;line-height:1.5}
-  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
-  .hero .fineprint{font-size:.86rem;color:#b9b6d0;margin-top:1.4rem;font-weight:400;max-width:52ch}
-  /* thin teal accent strip under the headline block */
-  .hero-accent{display:block;width:92px;height:10px;background:var(--teal);margin:0 0 1.9rem}
+  .crumb{background:var(--mist);border-bottom:1px solid #e7e4f1}
+  .crumb-inner{display:flex;align-items:center;gap:.5rem;padding:.75rem 0;font-size:.84rem;font-weight:600;color:#6b6786}
+  .crumb-inner a{color:var(--teal)}
+  .crumb-inner a:hover{color:var(--indigo)}
+  .crumb-sep{color:#b7b3cc}
+  .crumb-cur{color:var(--indigo)}
 
   /* ======================================================
-     3. OPENING DEFINITION BAND
+     3. PAGE HEADER (crafted page-title band, NOT a hero)
   ====================================================== */
-  .define{background:var(--white);padding:clamp(2.8rem,6vw,4.6rem) 0}
-  .define .wrap{max-width:980px}
-  .define .d-lead{font-size:clamp(1.4rem,2.9vw,2.1rem);line-height:1.32;font-weight:600;color:var(--indigo);letter-spacing:-0.01em}
-  .define .d-body{margin-top:1.3rem;font-size:clamp(1.05rem,1.7vw,1.22rem);color:#55516b;font-weight:400;max-width:70ch}
+  .phead{background:var(--indigo);position:relative;overflow:hidden;
+    padding:clamp(2.4rem,5vw,3.6rem) 0 clamp(2.6rem,5vw,3.8rem)}
+  .phead::before{content:"";position:absolute;left:0;top:0;width:100%;height:6px;background:var(--teal)}
+  .phead .wrap{position:relative;z-index:2;max-width:860px}
+  .phead h1{color:#fff;font-size:clamp(2rem,5.2vw,3.4rem);line-height:1.12;max-width:17ch;margin:.2rem 0 1.2rem}
+  .phead .lead{font-size:clamp(1.08rem,2.1vw,1.28rem);color:#e7e5f2;font-weight:500;max-width:58ch;margin-bottom:1.7rem;line-height:1.5}
+  .phead .btn-row{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+  .phead .fineprint{font-size:.86rem;color:#b9b6d0;margin-top:1.3rem;font-weight:400;max-width:54ch}
 
   /* ======================================================
-     4. BENEFIT QUAD — "What can you bring?"
+     4. EDITORIAL CONTENT SHELL
   ====================================================== */
-  .quad{background:var(--mist);padding:clamp(2.8rem,6vw,4.6rem) 0}
-  .quad .shead{max-width:720px;margin-bottom:2.2rem}
-  .quad h2{font-size:clamp(1.7rem,3.8vw,2.6rem);color:var(--indigo)}
-  .quad .lead-line{font-size:1.14rem;font-weight:700;color:var(--teal);margin-top:.9rem}
-  .quad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2vw,1.5rem)}
-  .quad-item{background:var(--white);border:2px solid #e7e4f1;border-top:7px solid var(--yellow);
-    padding:1.6rem 1.35rem 1.5rem;transition:transform .15s ease,box-shadow .18s ease,border-color .18s ease}
-  .quad-item:nth-child(2n){border-top-color:var(--teal)}
-  .quad-item:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(34,28,75,.16)}
-  .quad-ic-wrap{width:52px;height:52px;background:var(--indigo);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
-  .quad-item:nth-child(2n) .quad-ic-wrap{background:var(--teal)}
-  .quad-ic{width:28px;height:28px;color:var(--yellow)}
-  .quad-item h3{font-size:1.22rem;color:var(--indigo);margin-bottom:.5rem;line-height:1.15}
-  .quad-item p{font-size:.95rem;color:var(--ink)}
+  .sec{padding:clamp(2.4rem,5vw,4rem) 0}
+  .sec .wrap{max-width:860px}
+  .sec.alt{background:var(--mist)}
+  .sec h2{font-size:clamp(1.55rem,3.4vw,2.25rem);color:var(--indigo);margin-bottom:1.1rem;line-height:1.18}
+  .sec p{font-size:clamp(1.03rem,1.6vw,1.14rem);color:#4a4760;margin-bottom:1.05rem;max-width:68ch}
+  .sec p:last-child{margin-bottom:0}
+  .sec .lede{font-size:clamp(1.2rem,2.4vw,1.5rem);line-height:1.38;font-weight:600;color:var(--indigo);margin-bottom:1.2rem;max-width:30ch;max-width:62ch}
+  .sec .lead-line{font-size:1.1rem;font-weight:700;color:var(--teal);margin-bottom:.9rem}
 
-  /* ======================================================
-     5. ROUTE CARDS (square duotone)
-  ====================================================== */
-  .routes{background:var(--white);padding:clamp(2.8rem,6vw,4.6rem) 0}
-  .routes .shead{max-width:720px;margin-bottom:2.2rem}
-  .routes h2{font-size:clamp(1.7rem,3.8vw,2.6rem);color:var(--indigo)}
-  .route-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,2.5vw,1.8rem)}
-  .route-card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
-    min-height:360px;overflow:hidden;background:var(--indigo);padding:1.8rem}
-  .route-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:grayscale(1) contrast(1.05)}
-  .route-card::after{content:"";position:absolute;inset:0;z-index:1;
-    background:linear-gradient(160deg,rgba(31,143,166,.45) 0%,rgba(34,28,75,.55) 48%,rgba(26,21,57,.94) 100%)}
-  .route-card>*{position:relative;z-index:2}
-  .route-tag{align-self:flex-start;background:var(--yellow);color:var(--indigo);
-    font-weight:800;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;padding:.5rem .9rem;margin-bottom:auto}
-  .route-card h3{color:#fff;font-size:clamp(1.4rem,2.6vw,1.85rem);margin:1.4rem 0 .7rem;line-height:1.12}
-  .route-card p{color:#d9d7e8;font-size:1rem;margin-bottom:1.3rem;max-width:40ch}
-  .route-card .btn{align-self:flex-start}
+  /* two-column prose + single image */
+  .split{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(1.6rem,4vw,3rem);align-items:start;max-width:1040px}
+  .split .txt p:last-child{margin-bottom:0}
+  .split-media{position:relative}
+  .split-media::before{content:"";position:absolute;left:-14px;bottom:-14px;width:60%;height:60%;background:var(--yellow);z-index:0}
+  .split-photo{position:relative;z-index:1;aspect-ratio:4/5;overflow:hidden}
+  .split-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
 
-  /* ======================================================
-     6. EXAMINE — 2-col duotone square photo + prose
-  ====================================================== */
-  .examine{background:var(--indigo);color:#fff;padding:clamp(3rem,6vw,5rem) 0}
-  .examine-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.8rem,4.5vw,3.5rem);align-items:center}
-  .examine-media{position:relative}
-  /* yellow offset block behind the square photo */
-  .examine-media::before{content:"";position:absolute;left:-16px;bottom:-16px;width:62%;height:62%;background:var(--yellow);z-index:0}
-  .examine-photo{position:relative;z-index:1;aspect-ratio:1;overflow:hidden}
-  .examine-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:grayscale(1) contrast(1.04) brightness(.97)}
-  /* indigo/yellow duotone treatment on Victor */
-  .examine-photo::after{content:"";position:absolute;inset:0;z-index:2;mix-blend-mode:screen;
-    background:linear-gradient(145deg,rgba(252,194,45,.26),rgba(31,143,166,.18))}
-  .examine-photo::before{content:"";position:absolute;inset:0;z-index:3;mix-blend-mode:multiply;background:rgba(34,28,75,.34)}
-  .examine-txt h2{font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:1.1rem;max-width:20ch}
-  .examine-txt p{font-size:1.05rem;color:#d9d7e8;margin-bottom:1.05rem;max-width:62ch}
-  .examine-txt p:last-of-type{margin-bottom:0}
-  .examine-txt .btn-row{margin-top:1.6rem}
-
-  /* ======================================================
-     7. A USEFUL STARTING POINT — highlighted callout
-  ====================================================== */
-  .start{background:var(--white);padding:clamp(2.8rem,6vw,4.6rem) 0}
-  .start .wrap{max-width:860px}
-  .start h2{font-size:clamp(1.7rem,3.6vw,2.4rem);color:var(--indigo);margin-bottom:1rem;line-height:1.3}
-  .start .lead-line{font-size:1.14rem;font-weight:700;color:var(--teal);margin-bottom:1rem}
-  .start p.body{font-size:1.06rem;color:var(--ink);max-width:66ch}
+  /* quiet illustration callout */
   .illus-callout{background:var(--mist);border-left:7px solid var(--yellow);padding:1.2rem 1.4rem;
-    font-size:1rem;color:var(--ink);margin-top:1.5rem;max-width:70ch}
+    font-size:1rem;color:#4a4760;margin-top:1.4rem;max-width:70ch}
   .illus-callout strong{color:var(--indigo)}
+  .sec.alt .illus-callout{background:var(--white)}
+
+  /* compact online/circle note */
+  .note-band{border:2px solid #e7e4f1;border-left:7px solid var(--teal);background:var(--white);
+    padding:1.3rem 1.5rem;max-width:72ch}
+  .note-band h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
+  .note-band p{margin-bottom:0}
+
+  /* inline-link trailing line */
+  .more-line{margin-top:1.3rem;font-size:1.05rem;color:#4a4760}
 
   /* ======================================================
-     8. ONLINE + CIRCLE — teal square band
+     5. HOW TO BEGIN — clean numbered 1-2-3 timeline
   ====================================================== */
-  .strip{background:var(--teal);color:#fff;padding:clamp(2.6rem,5vw,3.8rem) 0}
-  .strip-inner{display:flex;align-items:center;gap:clamp(1.4rem,4vw,2.6rem)}
-  .strip-icon{flex:0 0 76px;width:76px;height:76px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center}
-  .strip-icon svg{width:38px;height:38px;stroke:#fff;fill:none;stroke-width:2}
-  .strip-text h2{font-size:clamp(1.4rem,3vw,2rem);color:#fff;margin-bottom:.45rem}
-  .strip-text .lead-line{font-size:1.08rem;font-weight:700;color:var(--indigo);margin-bottom:.5rem}
-  .strip-text p{font-size:1.05rem;color:#eafafe;margin:0;max-width:72ch}
+  .begin-list{list-style:none;margin:1.6rem 0 0;max-width:720px}
+  .begin-list li{display:flex;gap:1.2rem;align-items:flex-start;padding-bottom:1.6rem;position:relative}
+  .begin-list li:not(:last-child)::after{content:"";position:absolute;left:21px;top:46px;bottom:0;width:2px;background:#d9d6e8}
+  .begin-num{flex:0 0 auto;width:44px;height:44px;background:var(--indigo);color:var(--yellow);
+    font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .begin-body h3{font-size:1.22rem;color:var(--indigo);margin-bottom:.35rem}
+  .begin-body p{font-size:1.02rem;color:#4a4760;margin:0;max-width:60ch}
+  .begin-cta{margin-top:1.4rem}
 
   /* ======================================================
-     9. HOW TO BEGIN — square numbered blocks
+     6. BACKGROUND & PROFESSIONAL FIT — indigo band
   ====================================================== */
-  .begins{background:var(--mist);padding:clamp(3rem,6vw,5rem) 0}
-  .begins .shead{max-width:640px;margin-bottom:2.4rem}
-  .begins h2{font-size:clamp(1.7rem,3.8vw,2.6rem);color:var(--indigo);margin-bottom:.5rem}
-  .begins .lead-line{font-size:1.14rem;font-weight:700;color:var(--teal)}
-  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.5vw,1.6rem)}
-  .step{position:relative;background:var(--indigo);color:#fff;padding:2rem 1.6rem 1.8rem;overflow:hidden;
-    transition:transform .16s ease,box-shadow .18s ease}
-  .step:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(34,28,75,.25)}
-  .step .step-no{font-size:clamp(3rem,6vw,4.4rem);font-weight:800;color:var(--yellow);line-height:.9;letter-spacing:-0.03em;margin-bottom:.7rem}
-  .step h3{font-size:1.3rem;color:#fff;margin-bottom:.6rem}
-  .step p{font-size:.98rem;color:#d9d7e8;margin:0}
-  .step::after{content:"";position:absolute;right:0;top:0;width:10px;height:100%;background:var(--teal)}
-  .step:nth-child(2)::after{background:var(--yellow)}
-  .steps-cta{margin-top:2.4rem}
-
-  /* ======================================================
-     10. BACKGROUND & PROFESSIONAL FIT — indigo band
-  ====================================================== */
-  .fit{background:var(--indigo);color:#fff;padding:clamp(3rem,6vw,5rem) 0}
-  .fit-grid{display:grid;grid-template-columns:.74fr 1.26fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+  .fit{background:var(--indigo);color:#fff;padding:clamp(2.8rem,6vw,4.4rem) 0}
+  .fit-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(1.8rem,4.5vw,3.4rem);align-items:start;max-width:1040px}
   .fit-photo{position:relative}
-  .fit-photo::before{content:"";position:absolute;left:-14px;top:-14px;width:68px;height:68px;border-left:5px solid var(--yellow);border-top:5px solid var(--yellow);z-index:2}
-  .fit-photo .fp-inner{position:relative;aspect-ratio:1;overflow:hidden}
+  .fit-photo::before{content:"";position:absolute;left:-14px;top:-14px;width:64px;height:64px;border-left:5px solid var(--yellow);border-top:5px solid var(--yellow);z-index:2}
+  .fit-photo .fp-inner{position:relative;aspect-ratio:4/5;overflow:hidden}
   .fit-photo img{width:100%;height:100%;object-fit:cover;object-position:center 16%}
   .fit-photo .photo-cap{position:absolute;left:12px;bottom:12px;z-index:3;background:rgba(23,18,46,.85);color:#fff;padding:.5rem 1rem;font-size:.84rem;font-weight:700}
-  .fit-prose h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:1.2rem;max-width:22ch}
-  .fit-prose p{color:#d9d7e8;font-size:1.05rem;margin-bottom:1.1rem;max-width:68ch}
-  .inline-link{color:var(--yellow);font-weight:700;border-bottom:2px solid rgba(252,194,45,.5)}
-  .inline-link:hover{color:#fff}
+  .fit-prose h2{color:#fff;font-size:clamp(1.55rem,3.4vw,2.25rem);margin-bottom:1.1rem;max-width:22ch}
+  .fit-prose p{color:#d9d7e8;font-size:1.05rem;margin-bottom:1.05rem;max-width:68ch}
   .fit-sub{margin-top:1.8rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.16)}
-  .fit-sub h3{color:var(--yellow);font-size:1.3rem;font-weight:800;margin-bottom:.8rem;max-width:40ch}
+  .fit-sub h3{color:var(--yellow);font-size:1.28rem;font-weight:800;margin-bottom:.8rem;max-width:40ch}
   .fit-note{background:rgba(255,255,255,.06);border-left:5px solid var(--teal);padding:1.1rem 1.3rem;
     font-size:.92rem;color:#c9c6dd;max-width:72ch;margin-top:1.5rem}
 
   /* ======================================================
-     11. FINAL CTA — indigo, torn top, highlighted block
+     7. FINAL CTA — focused indigo apply band
   ====================================================== */
-  .final{background:var(--indigo);padding:clamp(3.2rem,7vw,5rem) 0 clamp(3.5rem,7vw,5.5rem);text-align:center}
-  .final .wrap{max-width:900px}
-  .final .hl-final{display:inline-block;background:var(--yellow);color:var(--indigo);font-weight:800;
-    font-size:clamp(1.6rem,4.6vw,3rem);line-height:1.22;padding:.18em .4em;margin-bottom:1.6rem;letter-spacing:-0.01em}
-  .final p{color:#d9d7e8;font-size:1.1rem;max-width:52ch;margin:0 auto 1.8rem}
+  .final{background:var(--indigo-deep);padding:clamp(3rem,6vw,4.6rem) 0;text-align:center}
+  .final .wrap{max-width:760px}
+  .final .eyebrow{color:var(--yellow)}
+  .final h2{color:#fff;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.18;margin-bottom:1rem;max-width:20ch;margin-left:auto;margin-right:auto}
+  .final p{color:#d9d7e8;font-size:1.08rem;max-width:50ch;margin:0 auto 1.7rem}
   .final .fine{color:#b9b6d0;font-size:.85rem;margin-top:1.2rem;margin-bottom:0}
 
   /* ======================================================
      FOOTER
   ====================================================== */
-  .footer{background:var(--indigo-deep);color:#c9c6dd;padding:clamp(3rem,5vw,4rem) 0 2rem}
+  .footer{background:var(--indigo-deep);color:#c9c6dd;padding:clamp(3rem,5vw,4rem) 0 2rem;border-top:1px solid rgba(255,255,255,.08)}
   .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
   .footer .logo{color:#fff;margin-bottom:1rem;display:inline-flex}
   .footer-about{font-size:.92rem;color:#a7a3c2;max-width:340px}
@@ -283,21 +232,15 @@
     body{padding-bottom:70px}
   }
   @media(max-width:820px){
-    .quad-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem}
-    .route-grid{grid-template-columns:1fr}
-    .examine-grid{grid-template-columns:1fr;gap:2.2rem}
-    .examine-media{max-width:420px}
-    .strip-inner{flex-direction:column;align-items:flex-start;gap:1.4rem}
-    .steps-grid{grid-template-columns:1fr}
-    .step::after{width:100%;height:8px;top:auto;bottom:0}
+    .split{grid-template-columns:1fr;gap:2rem}
+    .split-media{max-width:360px}
     .fit-grid{grid-template-columns:1fr;gap:2.2rem}
     .fit-photo{max-width:320px}
     .footer-grid{grid-template-columns:1fr 1fr;gap:1.8rem}
   }
   @media(max-width:480px){
-    .quad-grid{grid-template-columns:1fr}
-    .hero-cta{flex-direction:column;align-items:stretch}
-    .hero-cta .btn{width:100%}
+    .phead .btn-row{flex-direction:column;align-items:stretch}
+    .phead .btn-row .btn{width:100%}
     .footer-grid{grid-template-columns:1fr 1fr;gap:1.6rem 1.2rem}
     .footer-grid>div:first-child{grid-column:1 / -1}
   }
@@ -330,179 +273,124 @@
   </div>
 </nav>
 
-<!-- ============ 1. HIGHLIGHTED-BLOCK HERO ============ -->
-<header class="hero">
+<!-- ============ BREADCRUMB ============ -->
+<nav class="crumb" aria-label="Breadcrumb">
+  <div class="wrap crumb-inner">
+    <a href="/">Home</a>
+    <span class="crumb-sep" aria-hidden="true">&rsaquo;</span>
+    <span class="crumb-cur" aria-current="page">Coaching</span>
+  </div>
+</nav>
+
+<!-- ============ PAGE HEADER (title band) ============ -->
+<header class="phead">
   <div class="wrap">
-    <div class="hero-inner">
-      <span class="hero-accent" aria-hidden="true"></span>
-      <h1>
-        <span class="hl-line">One on one <span class="hl-y">coaching</span></span>
-        <span class="hl-plain">with Victor Pierantoni</span>
-      </h1>
-      <p class="lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
-      <div class="hero-cta">
-        <a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a>
-      </div>
-      <p class="fineprint">Online sessions with Victor. Circle access for coaching members.</p>
+    <span class="eyebrow eyebrow-y">1:1 Coaching</span>
+    <h1>One on one <span class="uline">coaching</span> with Victor Pierantoni</h1>
+    <p class="lead">In one on one coaching with Victor, you bring a situation you want to approach differently and work through it in conversation.</p>
+    <div class="btn-row">
+      <a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a>
     </div>
+    <p class="fineprint">Online sessions with Victor. Circle access for coaching members.</p>
   </div>
 </header>
 
-<!-- ============ 2. OPENING DEFINITION BAND ============ -->
-<section class="define">
+<!-- ============ OPENING DEFINITION ============ -->
+<section class="sec">
   <div class="wrap">
-    <p class="d-lead">Victor's questions examine your response and the assumptions shaping it; you consider what you want to do next.</p>
-    <p class="d-body">The offer is for founders, business owners and adult athletes. Bring a decision, a difficult conversation or a performance concern that matters in your life. Sessions take place online, and all coaching members receive Circle access.</p>
+    <p class="lede">Victor's questions examine your response and the assumptions shaping it; you consider what you want to do next.</p>
+    <p>The offer is for founders, business owners and adult athletes. Bring a decision, a difficult conversation or a performance concern that matters in your life. Sessions take place online, and all coaching members receive Circle access.</p>
   </div>
 </section>
 
-<!-- ============ 3. BENEFIT QUAD — WHAT CAN YOU BRING ============ -->
-<section class="quad">
+<!-- ============ WHAT CAN YOU BRING ============ -->
+<section class="sec alt">
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Bring Something Specific</span>
-      <h2>What Can You Bring to <span class="hl-y">Coaching</span>?</h2>
-      <p class="lead-line">Start with something specific.</p>
-    </div>
-    <div class="quad-grid">
-      <div class="quad-item">
-        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/></svg></div>
-        <h3>Founders &amp; Business Owners</h3>
+    <div class="split">
+      <div class="txt">
+        <span class="eyebrow">Bring Something Specific</span>
+        <h2>What Can You Bring to <span class="uline">Coaching</span>?</h2>
         <p>A decision that keeps reopening or a conversation with someone you lead. You might want to understand why you avoid giving direct feedback, or what makes it difficult to trust someone with a responsibility.</p>
-      </div>
-      <div class="quad-item">
-        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2.4"/><path d="M12 8v6M8 22l4-8 4 8M6 11l6 2 6-2"/></svg></div>
-        <h3>Adult Athletes</h3>
         <p>Pressure before competing, attention caught on a mistake or the demands of a changing sporting career. Start with the moment your focus or confidence changed and what you noticed.</p>
+        <p>Personal and professional priorities can overlap. Describe where a business or sporting goal competes with a relationship, rest or enjoyment of what you do, and which part you want to examine with Victor. When productivity is the concern, describe the work you want to finish and why it matters. A useful starting question is which action would serve that goal, given your other responsibilities and the time you have.</p>
+        <p class="more-line">Read the focus of <a href="/for-founders" class="inline-link-y">founder coaching</a> or <a href="/for-athletes" class="inline-link-y">coaching for adult athletes</a>.</p>
       </div>
-      <div class="quad-item">
-        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg></div>
-        <h3>Overlapping Priorities</h3>
-        <p>Personal and professional priorities can overlap. Describe where a business or sporting goal competes with a relationship, rest or enjoyment of what you do, and which part you want to examine with Victor.</p>
-      </div>
-      <div class="quad-item">
-        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
-        <h3>Productivity</h3>
-        <p>When productivity is the concern, describe the work you want to finish and why it matters. A useful starting question is which action would serve that goal, given your other responsibilities and the time you have.</p>
+      <div class="split-media">
+        <div class="split-photo imgwrap">
+          <img src="assets/bg-desk.jpg" alt="A quiet desk with an open notebook and pen, ready to write down a specific situation">
+          <span class="stock-tag">Stock placeholder</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- torn divider into the route cards -->
-<div class="divider-torn" aria-hidden="true">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-    <path fill="#FFFFFF" d="M0,60 L0,30 L40,40 L80,18 L130,36 L180,14 L230,34 L285,16 L340,36 L400,18 L460,38 L520,20 L585,38 L650,16 L715,36 L780,18 L845,38 L910,18 L975,36 L1040,18 L1110,36 L1160,20 L1200,34 L1200,0 L0,0 Z"/>
-  </svg>
-</div>
-
-<!-- ============ 4. ROUTE CARDS ============ -->
-<section class="routes">
+<!-- ============ WHAT CAN COACHING HELP YOU EXAMINE ============ -->
+<section class="sec">
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Two Ways In</span>
-      <h2>Choose the <span class="hl-y">route</span> that fits you</h2>
-    </div>
-    <div class="route-grid">
-      <div class="route-card imgwrap">
-        <img src="assets/bg-desk.jpg" alt="A quiet desk with a notebook and pen, ready to write down a specific situation">
-        <span class="stock-tag">Stock placeholder</span>
-        <span class="route-tag">For Founders &amp; Business Owners</span>
-        <h3>Founder Coaching</h3>
-        <p>Start with a decision, a conversation you lead or a responsibility you are weighing in your business.</p>
-        <a href="/for-founders" class="btn btn-yellow">Explore Founder Coaching</a>
-      </div>
-      <div class="route-card imgwrap">
-        <img src="assets/bg-gi.jpg" alt="A martial arts practitioner in a white gi during training">
-        <span class="stock-tag">Stock placeholder</span>
-        <span class="route-tag">For Adult Athletes</span>
-        <h3>Coaching for Athletes</h3>
-        <p>Start with pressure before competing, focus on a mistake or the demands of a changing sporting career.</p>
-        <a href="/for-athletes" class="btn btn-yellow">Explore Coaching for Athletes</a>
-      </div>
-    </div>
+    <span class="eyebrow">The Focus of the Work</span>
+    <h2>What Can One on One Coaching Help You <span class="uline">Examine</span>?</h2>
+    <p>Victor asks questions about what happened, how you interpret it and what you want from the conversation. His work can also include attention to feelings and bodily sensations. These are examples from his coaching and teaching, not a fixed script for every session.</p>
+    <p>A practical focus could be identifying a question to ask before deciding, checking an assumption or choosing an action to try. A chosen action is something you can do; the eventual business, personal or sporting result depends on more than a session.</p>
+    <p>You can learn from an action you choose by comparing what you expected with what happened. For example, after a difficult conversation, note what you said, how the other person responded and which assumption you would check next time.</p>
+    <p class="more-line"><a href="/method" class="inline-link">See what a session can involve</a> on the Method page.</p>
   </div>
 </section>
 
-<!-- ============ 5. EXAMINE ============ -->
-<section class="examine">
-  <div class="wrap examine-grid">
-    <div class="examine-media">
-      <div class="examine-photo imgwrap">
-        <img src="assets/victor-gesture.jpg" alt="Victor Pierantoni gesturing mid-conversation while explaining an idea">
-      </div>
-    </div>
-    <div class="examine-txt">
-      <span class="eyebrow eyebrow-y">The Focus of the Work</span>
-      <h2>What Can One on One Coaching Help You <span class="hl-y">Examine</span>?</h2>
-      <p>Victor asks questions about what happened, how you interpret it and what you want from the conversation. His work can also include attention to feelings and bodily sensations. These are examples from his coaching and teaching, not a fixed script for every session.</p>
-      <p>A practical focus could be identifying a question to ask before deciding, checking an assumption or choosing an action to try. A chosen action is something you can do; the eventual business, personal or sporting result depends on more than a session.</p>
-      <p>You can learn from an action you choose by comparing what you expected with what happened. For example, after a difficult conversation, note what you said, how the other person responded and which assumption you would check next time.</p>
-      <div class="btn-row">
-        <a href="/method" class="btn btn-yellow">See What a Session Can Involve</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 6. A USEFUL STARTING POINT ============ -->
-<section class="start">
+<!-- ============ A USEFUL STARTING POINT ============ -->
+<section class="sec alt">
   <div class="wrap">
     <span class="eyebrow">Where to Start</span>
     <h2>A Useful Starting Point</h2>
     <p class="lead-line">You can begin with an unresolved question.</p>
-    <p class="body">As a starting point, describe what happened, what you keep returning to and what you would like help thinking through. You do not need to arrive with an answer.</p>
+    <p>As a starting point, describe what happened, what you keep returning to and what you would like help thinking through. You do not need to arrive with an answer.</p>
     <p class="illus-callout"><strong>Illustration:</strong> if you keep revisiting a decision, a useful focus could be distinguishing information you still need from an assumption you are making. That gives the conversation a specific question to examine.</p>
   </div>
 </section>
 
-<!-- ============ 7. ONLINE + CIRCLE ============ -->
-<section class="strip">
+<!-- ============ ONLINE + CIRCLE (compact) ============ -->
+<section class="sec">
   <div class="wrap">
-    <div class="strip-inner">
-      <div class="strip-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
-      </div>
-      <div class="strip-text">
-        <span class="eyebrow eyebrow-y">How It Works</span>
-        <h2>Online Sessions and Circle Access</h2>
-        <p class="lead-line">Work with Victor online.</p>
-        <p>Coaching sessions take place online. All coaching members receive Circle access alongside their 1:1 work with Victor.</p>
-      </div>
+    <div class="note-band">
+      <h2>Online Sessions and Circle Access</h2>
+      <p>Coaching sessions take place online. All coaching members receive Circle access alongside their 1:1 work with Victor.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ 8. HOW TO BEGIN — numbered square blocks ============ -->
-<section class="begins">
+<!-- ============ HOW TO BEGIN (numbered 1-2-3) ============ -->
+<section class="sec alt">
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">How to Begin</span>
-      <h2>Apply, meet Victor, then <span class="hl-y">decide</span></h2>
-      <p class="lead-line">Three steps, no pressure to continue.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-no">01</div>
-        <h3>Apply</h3>
-        <p>Describe the situation you want to work on and what you would like to be different.</p>
-      </div>
-      <div class="step">
-        <div class="step-no">02</div>
-        <h3>Discovery Call</h3>
-        <p>The next step is a Zoom conversation with Victor to explore whether coaching is a fit. There is no obligation to proceed with coaching.</p>
-      </div>
-      <div class="step">
-        <div class="step-no">03</div>
-        <h3>Your Decision</h3>
-        <p>If you choose to begin coaching, the work takes place online and coaching members receive Circle access.</p>
-      </div>
-    </div>
-    <div class="steps-cta"><a href="/apply" class="btn btn-indigo">Apply for 1:1 Coaching</a></div>
+    <span class="eyebrow">How to Begin</span>
+    <h2>Apply, Meet Victor, Then <span class="uline">Decide</span></h2>
+    <ol class="begin-list">
+      <li>
+        <span class="begin-num">1</span>
+        <div class="begin-body">
+          <h3>Apply</h3>
+          <p>Describe the situation you want to work on and what you would like to be different.</p>
+        </div>
+      </li>
+      <li>
+        <span class="begin-num">2</span>
+        <div class="begin-body">
+          <h3>Discovery Call</h3>
+          <p>The next step is a Zoom conversation with Victor to explore whether coaching is a fit. There is no obligation to proceed with coaching.</p>
+        </div>
+      </li>
+      <li>
+        <span class="begin-num">3</span>
+        <div class="begin-body">
+          <h3>Your Decision</h3>
+          <p>If you choose to begin coaching, the work takes place online and coaching members receive Circle access.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="begin-cta"><a href="/apply" class="btn btn-indigo">Apply for 1:1 Coaching</a></div>
   </div>
 </section>
 
-<!-- ============ 9. BACKGROUND & PROFESSIONAL FIT ============ -->
+<!-- ============ BACKGROUND & PROFESSIONAL FIT ============ -->
 <section class="fit">
   <div class="wrap">
     <div class="fit-grid">
@@ -515,10 +403,7 @@
       <div class="fit-prose">
         <span class="eyebrow eyebrow-y">Is This the Right Kind of Help?</span>
         <h2>Background and Professional Fit</h2>
-        <p>Victor's public background includes martial arts and founding Zen Stoic. In his public interviews, he discusses attention, stillness and the questions people bring to their lives. Read <a href="/about" class="inline-link">Victor's background and dated interview references</a> when considering whether the reflective approach described here fits your needs.</p>
-        <div class="btn-row">
-          <a href="/about" class="btn btn-yellow btn-sm">Read Victor's Background</a>
-        </div>
+        <p>Victor's public background includes martial arts and founding Zen Stoic. In his public interviews, he discusses attention, stillness and the questions people bring to their lives. Read <a href="/about" class="inline-link-dark">Victor's background and dated interview references</a> when considering whether the reflective approach described here fits your needs.</p>
         <div class="fit-sub">
           <h3>Coaching and Professional Advice</h3>
           <p>Reflective coaching examines how you interpret and respond to a situation. Training teaches a skill through instruction and practice; a mentor offers guidance informed by experience in a relevant field. If you need someone to teach a sporting technique or advise on a business decision itself, check that person's relevant expertise. Different kinds of help can address different parts of the same concern.</p>
@@ -529,17 +414,11 @@
   </div>
 </section>
 
-<!-- torn divider into the final indigo band -->
-<div class="divider-torn" aria-hidden="true">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-    <path fill="#221C4B" d="M0,60 L0,30 L40,40 L80,18 L130,36 L180,14 L230,34 L285,16 L340,36 L400,18 L460,38 L520,20 L585,38 L650,16 L715,36 L780,18 L845,38 L910,18 L975,36 L1040,18 L1110,36 L1160,20 L1200,34 L1200,60 Z"/>
-  </svg>
-</div>
-
-<!-- ============ 10. FINAL CTA ============ -->
+<!-- ============ FINAL CTA ============ -->
 <section class="final">
   <div class="wrap">
-    <span class="hl-final">Apply for 1:1 coaching with Victor.</span>
+    <span class="eyebrow">Take the Next Step</span>
+    <h2>Apply for 1:1 Coaching With Victor</h2>
     <p>Tell Victor what you would like to explore.</p>
     <div><a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a></div>
     <p class="fine">Your next step is a discovery Zoom call with him, with no obligation to proceed with coaching.</p>
