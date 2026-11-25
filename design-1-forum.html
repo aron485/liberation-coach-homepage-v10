@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Liberation Coach — 1:1 Performance Coaching for Founders & Athletes</title>
+<title>1:1 Performance Coaching for Founders & Athletes | Liberation Coach</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -87,7 +87,7 @@
   .hero h1 .brush-word{border-bottom:3px solid var(--gold);padding-bottom:.04em;line-height:1.4;}
   .hero-sub{font-size:clamp(1.02rem,1.5vw,1.18rem);color:rgba(255,255,255,.86);max-width:36ch;margin-bottom:28px;}
   .hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:16px;}
-  .fineprint{font-size:.86rem;color:rgba(255,255,255,.6);max-width:46ch;line-height:1.5;}
+  .fineprint{font-size:1rem;color:rgba(255,255,255,.72);max-width:52ch;line-height:1.55;}
 
   .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:340px;}
   .gold-blob{position:absolute;width:min(92%,430px);aspect-ratio:1/1;background:var(--gold);border-radius:48% 52% 55% 45%/50% 48% 52% 50%;top:50%;left:50%;transform:translate(-50%,-50%);}
@@ -110,6 +110,9 @@
   .impact-step{font-weight:800;font-size:.78rem;letter-spacing:.12em;color:var(--gold);display:block;margin-bottom:6px;}
   .impact-col h3{font-size:clamp(1.15rem,1.7vw,1.4rem);font-weight:800;margin-bottom:8px;}
   .impact-col p{font-size:.98rem;color:rgba(255,255,255,.82);}
+  .q-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 0 22px;max-width:62ch;}
+  .q-list li{position:relative;padding-left:28px;color:rgba(255,255,255,.9);font-size:1rem;}
+  .q-list li::before{content:"";position:absolute;left:4px;top:.6em;width:9px;height:9px;background:var(--gold);border-radius:50%;}
 
   /* ---------- TRUST STRIP ---------- */
   .trust{padding:clamp(34px,4vw,48px) 0 clamp(14px,2vw,22px);}
@@ -142,6 +145,31 @@
   .route-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid rgba(255,255,255,.18);padding-top:18px;}
   .route-tag{font-weight:700;font-size:.92rem;color:var(--gold);}
   .stock-label{position:absolute;top:12px;right:12px;z-index:1;background:rgba(33,34,81,.72);color:rgba(255,255,255,.82);font-size:.66rem;letter-spacing:.04em;padding:4px 9px;border-radius:30px;font-weight:600;}
+
+  /* ---------- AUDIENCE SELECTOR (signature interaction) ---------- */
+  .aud-intro{font-size:clamp(1.02rem,1.4vw,1.16rem);color:#3a3b5c;max-width:66ch;margin-bottom:26px;line-height:1.6;}
+  .aud-tabs{display:inline-flex;flex-wrap:wrap;gap:6px;background:var(--white);border:1px solid rgba(33,34,81,.12);border-radius:46px;padding:6px;margin-bottom:28px;box-shadow:0 8px 22px rgba(33,34,81,.06);}
+  .aud-tab{font-family:inherit;font-weight:700;font-size:clamp(.9rem,1.1vw,1rem);color:var(--indigo);background:transparent;border:none;border-radius:40px;padding:.72em 1.5em;cursor:pointer;transition:background .2s ease,color .2s ease;}
+  .aud-tab:hover{color:var(--navy);}
+  .aud-tab[aria-pressed="true"]{background:var(--navy);color:var(--white);}
+  .aud-tab[aria-pressed="true"]:hover{color:var(--white);}
+  .aud-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  .aud-hint{font-size:.9rem;color:#5a5b78;margin:-14px 0 26px;font-weight:600;}
+  .audience:not(.is-enhanced) .aud-hint{display:none;}
+  .aud-panels{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,30px);}
+  .aud-panel{position:relative;border-radius:26px;overflow:hidden;min-height:clamp(340px,40vw,440px);display:flex;align-items:flex-end;color:var(--white);isolation:isolate;box-shadow:0 14px 34px rgba(33,34,81,.14);transition:transform .25s ease,box-shadow .25s ease;}
+  .aud-panel:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(33,34,81,.3);}
+  .aud-panel .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);z-index:-2;}
+  .aud-panel::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(33,34,81,.28) 0%,rgba(33,34,81,.78) 60%,rgba(43,55,155,.92) 100%);}
+  .aud-body{padding:clamp(24px,3vw,34px);width:100%;}
+  .aud-pill{display:inline-flex;align-items:center;gap:.5em;background:rgba(239,203,48,.18);border:1px solid rgba(239,203,48,.55);color:var(--gold);font-weight:700;font-size:.82rem;letter-spacing:.02em;padding:.4em 1em;border-radius:40px;margin-bottom:14px;}
+  .aud-body h3{font-size:clamp(1.35rem,2.4vw,1.85rem);font-weight:800;margin-bottom:12px;}
+  .aud-body p{font-size:1rem;color:rgba(255,255,255,.9);max-width:44ch;margin-bottom:22px;}
+  .aud-panel .pill{position:relative;z-index:1;}
+  .aud-panel[hidden]{display:none;}
+  .audience.is-enhanced.is-filtered .aud-panels{grid-template-columns:1fr;}
+  .audience.is-enhanced .aud-panel.is-solo{animation:audReveal .35s ease;}
+  @keyframes audReveal{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
 
   /* ---------- REFLECTION ---------- */
   .reflect-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,60px);align-items:center;}
@@ -257,10 +285,15 @@
     .hero-inner{grid-template-columns:1fr;text-align:center;}
     .hero-sub,.fineprint{margin-left:auto;margin-right:auto;}
     .hero-cta{justify-content:center;}
-    .hero-visual{order:-1;margin-bottom:10px;}
+    .hero-text{order:1;}
+    .hero-visual{order:2;margin-top:18px;min-height:0;}
+    .hero-photo{width:min(72%,300px);}
     .brush-word .brush{left:0;width:100%;}
     .impact{grid-template-columns:1fr;gap:22px;}
     .routes-grid{grid-template-columns:1fr;}
+    .aud-panels{grid-template-columns:1fr;}
+    .aud-tabs{display:flex;width:100%;}
+    .aud-tab{flex:1 1 auto;text-align:center;}
     .reflect-grid{grid-template-columns:1fr;}
     .reflect-media{min-height:240px;order:-1;}
     .meet-grid{grid-template-columns:1fr;text-align:center;}
@@ -287,18 +320,19 @@
 <header class="nav">
   <div class="wrap">
     <div class="nav-row1">
-      <a href="/" class="brand">Liberation<span>Coach</span></a>
+      <a href="design-1-forum.html" class="brand">Liberation<span>Coach</span></a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="/">Home</a></li>
+        <li><a href="design-1-forum.html">Home</a></li>
         <li><a href="coaching-forum.html">Coaching</a></li>
-        <li><a href="/method">Method</a></li>
-        <li><a href="/for-founders">For Founders</a></li>
-        <li><a href="/for-athletes">For Athletes</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/faq">FAQ</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#founders">For Founders</a></li>
+        <li><a href="#athletes">For Athletes</a></li>
+        <li><a href="#meet">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="contact-forum.html">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="/apply" class="pill pill-gold nav-apply" style="white-space:nowrap;">Apply for 1:1 Coaching</a>
+        <a href="apply-forum.html" class="pill pill-gold nav-apply" style="white-space:nowrap;">Apply for 1:1 Coaching</a>
         <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobilePanel">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
         </button>
@@ -307,14 +341,15 @@
   </div>
   <div class="mobile-panel" id="mobilePanel">
     <ul>
-      <li><a href="/">Home</a></li>
+      <li><a href="design-1-forum.html">Home</a></li>
       <li><a href="coaching-forum.html">Coaching</a></li>
-      <li><a href="/method">Method</a></li>
-      <li><a href="/for-founders">For Founders</a></li>
-      <li><a href="/for-athletes">For Athletes</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/faq">FAQ</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#founders">For Founders</a></li>
+      <li><a href="#athletes">For Athletes</a></li>
+      <li><a href="#meet">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="apply-forum.html">Apply for 1:1 Coaching</a></li>
+      <li><a href="contact-forum.html">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -328,10 +363,9 @@
         <h1>1:1 performance coaching for founders and
           <span class="brush-word">athletes<svg class="brush" viewBox="0 0 220 24" preserveAspectRatio="none" fill="none"><path d="M4 15 C 40 6, 70 20, 108 11 C 150 2, 180 18, 216 9" stroke="#EFCB30" stroke-width="7" stroke-linecap="round"/></svg></span>
         </h1>
-        <p class="hero-sub">Performance coaching at Liberation Coach is individual work with Victor Pierantoni on how you respond to a challenge and what you choose to do next. Founders, business owners and athletes aged 18 and older can bring a specific situation, examine the assumptions around it and consider a practical next step.</p>
         <p class="hero-sub">Bring a decision you keep revisiting, a conversation you are putting off or a moment of pressure you want to handle differently.</p>
         <div class="hero-cta">
-          <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching →</a>
+          <a href="apply-forum.html" class="pill pill-gold">Apply for 1:1 Coaching →</a>
         </div>
         <p class="fineprint">Online sessions with Victor. Circle access for coaching members. Apply to take the next step: a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
       </div>
@@ -347,10 +381,16 @@
   <div class="impact" style="display:block;">
     <div class="impact-col" style="padding:22px 0 8px 22px;">
       <span class="impact-step">What The Work Is For</span>
-      <h3 style="font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:14px;max-width:24ch;">Turn a broad concern into something you can work on.</h3>
-      <p style="margin-bottom:14px;max-width:62ch;">You might call it a mental block: you keep second-guessing a decision or putting off a conversation. Start with that specific situation. What happened? What are you assuming it means? What do you need to find out before deciding?</p>
+      <h3 style="font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:14px;max-width:24ch;">What you can work on with Victor</h3>
+      <p style="margin-bottom:14px;max-width:62ch;">Performance coaching at Liberation Coach is individual work with Victor Pierantoni on how you respond to a challenge and what you choose to do next. Founders, business owners and athletes aged 18 and older can bring a specific situation, examine the assumptions around it and consider a practical next step.</p>
+      <p style="margin-bottom:14px;max-width:62ch;">You might call it a mental block: you keep second-guessing a decision or putting off a conversation. Start with that specific situation, then work through three questions:</p>
+      <ul class="q-list">
+        <li>What happened?</li>
+        <li>What are you assuming it means?</li>
+        <li>What do you need to find out before deciding?</li>
+      </ul>
       <p style="margin-bottom:24px;max-width:62ch;">In performance coaching, you and Victor work together on those questions. Personal growth can mean a change you choose in your own life, such as asking a question you have avoided, checking an assumption or taking an action you chose. You can then review what you did and what you learned.</p>
-      <a href="/method" class="pill pill-gold">See What a Session Can Involve →</a>
+      <a href="coaching-forum.html" class="pill pill-gold">See What a Session Can Involve →</a>
     </div>
   </div>
 </div>
@@ -366,45 +406,38 @@
   </div>
 </div>
 
-<!-- ============ ROUTES ============ -->
+<!-- ============ AUDIENCE SELECTOR (signature interaction) ============ -->
 <section class="band" id="routes">
-  <svg class="sec-spark" style="top:6%;right:4%;width:40px;" viewBox="0 0 24 24" fill="none" stroke="#EFCB30" stroke-width="1.6" stroke-linecap="round"><path d="M12 2 L13.4 10.6 L22 12 L13.4 13.4 L12 22 L10.6 13.4 L2 12 L10.6 10.6 Z"/></svg>
   <div class="wrap">
     <span class="eyebrow">Where to Start</span>
-    <h2 class="sec-head">Two routes into the same
-      <span class="brush-word dark">work<svg class="brush" viewBox="0 0 160 24" preserveAspectRatio="none" fill="none"><path d="M4 15 C 36 7, 60 19, 92 11 C 124 4, 140 17, 156 10" stroke="#EFCB30" stroke-width="7" stroke-linecap="round"/></svg></span>
-    </h2>
-    <div class="routes-grid">
-      <article class="route-card">
-        <span class="stock-label">Stock placeholder</span>
-        <img class="photo" src="assets/bg-city-night.jpg" alt="City skyline at night representing business leadership">
-        <div class="route-body">
-          <span class="route-pill">For Founders &amp; Business Owners</span>
-          <h3>Leading, under pressure</h3>
-          <p>Leading a business can put you between a decision and the people who need an answer. You might be postponing feedback to a colleague or deciding which responsibilities to hand over. Start with a situation in your business and the response you want to change.</p>
-          <div class="route-foot">
-            <span class="route-tag">Explore Founder Coaching</span>
-            <a href="/for-founders" class="arrow-btn" aria-label="Explore founder coaching">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
+    <h2 class="sec-head">Two routes into the same work</h2>
+    <p class="aud-intro">Founders and adult athletes come to the same 1:1 work with Victor from different starting points. Pick the route that fits you, or read both. Each one leads to the same next step: applying for coaching.</p>
+    <div class="audience" id="audience">
+      <div class="aud-tabs" role="group" aria-label="Choose who the coaching is for">
+        <button type="button" class="aud-tab" data-aud="founders" aria-pressed="false" aria-controls="founders">For Founders &amp; Business Owners</button>
+        <button type="button" class="aud-tab" data-aud="athletes" aria-pressed="false" aria-controls="athletes">For Adult Athletes</button>
+      </div>
+      <p class="aud-hint" aria-live="polite">Select a route to focus it. Choose it again to see both.</p>
+      <div class="aud-panels">
+        <article class="aud-panel" id="founders" aria-label="Coaching for founders and business owners">
+          <img class="photo" src="assets/bg-city-night.jpg" alt="City skyline at night representing business leadership">
+          <div class="aud-body">
+            <span class="aud-pill">For Founders &amp; Business Owners</span>
+            <h3>Leading, under pressure</h3>
+            <p>Leading a business can put you between a decision and the people who need an answer. You might be postponing feedback to a colleague or deciding which responsibilities to hand over. Start with a situation in your business and the response you want to change.</p>
+            <a href="apply-forum.html" class="pill pill-gold">Apply for 1:1 Coaching →</a>
           </div>
-        </div>
-      </article>
-      <article class="route-card">
-        <span class="stock-label">Stock placeholder</span>
-        <img class="photo" src="assets/bg-gi.jpg" alt="Martial arts gi folded, representing athletic discipline">
-        <div class="route-body">
-          <span class="route-pill">For Adult Athletes</span>
-          <h3>Focus, when it counts</h3>
-          <p>You may trust a skill in practice and begin to doubt it in competition. Pressure can pull your concentration toward the last mistake or what might happen next. Start with a moment when your focus or confidence changed and what you noticed.</p>
-          <div class="route-foot">
-            <span class="route-tag">Explore Coaching for Athletes</span>
-            <a href="/for-athletes" class="arrow-btn" aria-label="Explore coaching for athletes">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
+        </article>
+        <article class="aud-panel" id="athletes" aria-label="Coaching for adult athletes">
+          <img class="photo" src="assets/bg-gi.jpg" alt="Martial arts gi folded, representing athletic discipline">
+          <div class="aud-body">
+            <span class="aud-pill">For Adult Athletes</span>
+            <h3>Focus, when it counts</h3>
+            <p>You may trust a skill in practice and begin to doubt it in competition. Pressure can pull your concentration toward the last mistake or what might happen next. Start with a moment when your focus or confidence changed and what you noticed.</p>
+            <a href="apply-forum.html" class="pill pill-gold">Apply for 1:1 Coaching →</a>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -414,7 +447,7 @@
   <div class="wrap">
     <span class="quote-mark">&ldquo;</span>
     <blockquote>It&rsquo;s better to be a warrior in the garden than a gardener in a war.</blockquote>
-    <cite>— A line Victor coaches by</cite>
+    <cite>A line Victor coaches by</cite>
   </div>
 </section>
 
@@ -428,7 +461,7 @@
         </div>
         <div class="meet-quote">
           Work grounded in martial arts and a long interest in how Zen and Stoic philosophy meet daily life.
-          <cite>— The Liberation Coach approach</cite>
+          <cite>The Liberation Coach approach</cite>
         </div>
       </div>
       <div class="meet-text">
@@ -445,7 +478,7 @@
           </ul>
         </div>
         <div class="meet-links">
-          <a href="/about" class="pill pill-gold">Read Victor's Background →</a>
+          <a href="coaching-forum.html" class="pill pill-gold">Read Victor's Background →</a>
           <a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener" class="pill pill-ghost-light">Watch on YouTube</a>
         </div>
         <div class="meet-episodes">
@@ -466,7 +499,7 @@
         <span class="eyebrow">The Emotional Side of the Work</span>
         <h2 class="sec-head">Reflection and emotional awareness</h2>
         <p style="font-size:1.05rem;margin-bottom:28px;">Victor's emotional-awareness teaching includes noticing bodily sensations associated with a feeling. His reflective questions examine the situation and your interpretation of it. The Method page explains these parts of his work in plain language.</p>
-        <a href="/method" class="pill pill-ghost-dark">Understand Victor's Approach →</a>
+        <a href="coaching-forum.html" class="pill pill-ghost-dark">Understand Victor's Approach →</a>
       </div>
       <div class="reflect-media">
         <span class="stock-label">Stock placeholder</span>
@@ -478,7 +511,6 @@
 
 <!-- ============ HOW IT BEGINS ============ -->
 <section class="band" id="begins">
-  <svg class="sec-spark" style="bottom:10%;left:3%;width:34px;opacity:.4;" viewBox="0 0 24 24" fill="none" stroke="#2B379B" stroke-width="1.6" stroke-linecap="round"><path d="M12 3 L13 11 L21 12 L13 13 L12 21 L11 13 L3 12 L11 11 Z"/></svg>
   <div class="wrap">
     <span class="eyebrow">The Process</span>
     <h2 class="sec-head">A conversation is the next
@@ -512,7 +544,6 @@
 
 <!-- ============ FAQ ============ -->
 <section class="band" id="faq" style="background:var(--white);">
-  <svg class="sec-spark" style="top:8%;right:6%;width:36px;opacity:.4;" viewBox="0 0 24 24" fill="none" stroke="#2B379B" stroke-width="1.6" stroke-linecap="round"><path d="M12 4 L12.8 11.2 L20 12 L12.8 12.8 L12 20 L11.2 12.8 L4 12 L11.2 11.2 Z"/></svg>
   <div class="wrap">
     <span class="eyebrow" style="display:block;text-align:center;">Questions</span>
     <h2 class="sec-head" style="text-align:center;">Frequently
@@ -529,7 +560,7 @@
       </details>
       <details class="faq">
         <summary>What happens after I apply? <span class="ic">+</span></summary>
-        <div class="faq-a">Applying opens a no-obligation discovery Zoom call with Victor — a conversation to see if the work fits, not a booked session and not automatic acceptance.</div>
+        <div class="faq-a">Applying opens a no-obligation discovery Zoom call with Victor. This is a conversation to see if the work fits, not a booked session and not automatic acceptance.</div>
       </details>
       <details class="faq">
         <summary>What is Circle access? <span class="ic">+</span></summary>
@@ -551,9 +582,9 @@
     <h2>Bring the situation you want to approach
       <span class="brush-word">differently<svg class="brush" viewBox="0 0 260 24" preserveAspectRatio="none" fill="none" style="bottom:-.18em;"><path d="M4 15 C 50 6, 90 20, 140 11 C 190 3, 220 18, 256 10" stroke="#EFCB30" stroke-width="7" stroke-linecap="round"/></svg></span>
     </h2>
-    <p>Explore <a href="/about" style="color:var(--gold);text-decoration:underline;">Victor's background</a> and <a href="/method" style="color:var(--gold);text-decoration:underline;">how he approaches coaching</a>, then describe what you would like to work on. Coaching is educational and does not replace medical, psychological, legal or financial advice.</p>
-    <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching →</a>
-    <p style="font-size:.86rem;color:rgba(255,255,255,.6);max-width:46ch;margin:18px auto 0;position:relative;z-index:2;">Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
+    <p>Explore <a href="#meet" style="color:var(--gold);text-decoration:underline;">Victor's background</a> and <a href="coaching-forum.html" style="color:var(--gold);text-decoration:underline;">how he approaches coaching</a>, then describe what you would like to work on. Coaching is educational and does not replace medical, psychological, legal or financial advice.</p>
+    <a href="apply-forum.html" class="pill pill-gold">Apply for 1:1 Coaching →</a>
+    <p style="font-size:1rem;color:rgba(255,255,255,.72);max-width:52ch;margin:18px auto 0;position:relative;z-index:2;">Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
   </div>
 </section>
 
@@ -562,35 +593,35 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href="/" class="brand">Liberation<span style="color:var(--gold)">Coach</span></a>
+        <a href="design-1-forum.html" class="brand">Liberation<span style="color:var(--gold)">Coach</span></a>
         <p>Online 1:1 performance coaching with Victor Pierantoni for founders, business owners and adult athletes. Liberation Coach Inc.</p>
       </div>
       <div class="foot-col">
         <h4>Coaching</h4>
-        <a href="/for-founders">For Founders</a>
-        <a href="/for-athletes">For Athletes</a>
-        <a href="/method">The Method</a>
+        <a href="#founders">For Founders</a>
+        <a href="#athletes">For Athletes</a>
+        <a href="#method">The Method</a>
         <a href="coaching-forum.html">1:1 Coaching</a>
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
-        <a href="/about">About Victor</a>
+        <a href="#meet">About Victor</a>
         <a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener">Zen Stoic Path Show</a>
         <a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener">YouTube</a>
-        <a href="/faq">FAQ</a>
+        <a href="#faq">FAQ</a>
       </div>
       <div class="foot-col">
         <h4>Company</h4>
-        <a href="/apply">Apply</a>
-        <a href="/contact">Contact</a>
+        <a href="apply-forum.html">Apply</a>
+        <a href="contact-forum.html">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">
       <div style="display:flex;flex-wrap:wrap;gap:14px;">
-        <a href="#" style="color:rgba(255,255,255,.55)">Privacy</a>
-        <a href="#" style="color:rgba(255,255,255,.55)">Terms</a>
-        <a href="#" style="color:rgba(255,255,255,.55)">Coaching Disclaimer</a>
-        <a href="#" style="color:rgba(255,255,255,.55)">Accessibility</a>
+        <a href="#" aria-disabled="true" title="Coming soon" style="color:rgba(255,255,255,.55)">Privacy</a>
+        <a href="#" aria-disabled="true" title="Coming soon" style="color:rgba(255,255,255,.55)">Terms</a>
+        <a href="#" aria-disabled="true" title="Coming soon" style="color:rgba(255,255,255,.55)">Coaching Disclaimer</a>
+        <a href="#" aria-disabled="true" title="Coming soon" style="color:rgba(255,255,255,.55)">Accessibility</a>
       </div>
       <span>© 2026 Liberation Coach Inc. · Online, worldwide</span>
       <span>Performance coaching is not therapy, counseling or medical treatment.</span>
@@ -600,7 +631,7 @@
 
 <!-- ============ MOBILE STICKY APPLY ============ -->
 <div class="mobile-apply">
-  <a href="/apply" class="pill pill-gold">Apply for 1:1 Coaching →</a>
+  <a href="apply-forum.html" class="pill pill-gold">Apply for 1:1 Coaching →</a>
 </div>
 
 <script>
@@ -617,6 +648,50 @@
         btn.setAttribute('aria-expanded','false');
       });
     });
+  })();
+
+  /* ---------- AUDIENCE SELECTOR (progressive enhancement) ----------
+     JS OFF: both audience panels are visible side by side (no hidden content).
+     JS ON : both start visible; tapping / Enter / Space on a route button
+             focuses that one panel; pressing the same button again shows both.
+             Buttons are native <button> elements, so keyboard activation and
+             focus states work for free; aria-pressed announces the state. */
+  (function(){
+    var aud = document.getElementById('audience');
+    if(!aud) return;
+    var tabs = Array.prototype.slice.call(aud.querySelectorAll('.aud-tab'));
+    var panels = {
+      founders: document.getElementById('founders'),
+      athletes: document.getElementById('athletes')
+    };
+    if(!tabs.length || !panels.founders || !panels.athletes) return;
+    aud.classList.add('is-enhanced');
+
+    function showBoth(){
+      tabs.forEach(function(t){ t.setAttribute('aria-pressed','false'); });
+      Object.keys(panels).forEach(function(k){
+        panels[k].hidden = false;
+        panels[k].classList.remove('is-solo');
+      });
+      aud.classList.remove('is-filtered');
+    }
+    function focusOne(key){
+      tabs.forEach(function(t){ t.setAttribute('aria-pressed', t.getAttribute('data-aud')===key ? 'true':'false'); });
+      Object.keys(panels).forEach(function(k){
+        var on = (k===key);
+        panels[k].hidden = !on;
+        panels[k].classList.toggle('is-solo', on);
+      });
+      aud.classList.add('is-filtered');
+    }
+    tabs.forEach(function(t){
+      t.addEventListener('click', function(){
+        var key = t.getAttribute('data-aud');
+        if(t.getAttribute('aria-pressed')==='true'){ showBoth(); }
+        else { focusOne(key); }
+      });
+    });
+    showBoth(); /* initial enhanced state keeps BOTH routes visible */
   })();
 </script>
 

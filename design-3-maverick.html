@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Liberation Coach — 1:1 Performance Coaching with Victor Pierantoni</title>
+<title>Liberation Coach: 1:1 Performance Coaching with Victor Pierantoni</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
   .btn-outline:hover{background:var(--white);color:var(--indigo)}
   .btn-sm{padding:.7rem 1.3rem;font-size:.92rem}
 
-  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
   section{position:relative}
 
   .stock-tag{
@@ -124,12 +124,15 @@
 
   /* Phase 2: drop decorative dot-grids + triangles (AI-tell clutter) */
   .geo-dots-dark,.geo-tri-v,.geo-dots-b,.geo-tri-final{display:none}
+  /* Phase 3: retire the torn / jagged section edges so the accent system
+     is consistent (yellow highlights, yellow left-borders, yellow top-borders only) */
+  .torn,.divider-torn{display:none}
   @media(max-width:700px){.seg.side.seg-victor{flex-basis:0;opacity:.28}}
 
-  .hero-content{position:relative;z-index:10;padding:clamp(3rem,7vw,6rem) 0 clamp(7rem,12vw,11rem)}
-  .headline-blocks{margin-bottom:1.6rem;max-width:18ch;text-wrap:balance;text-shadow:0 2px 16px rgba(20,16,45,.5)}
-  .hl-line{display:inline;font-weight:800;line-height:1.08;padding:0;
-    font-size:clamp(2rem,4.8vw,3.5rem);letter-spacing:-0.02em}
+  .hero-content{position:relative;z-index:10;padding-block:clamp(2.6rem,6vw,4.4rem) clamp(3rem,6vw,5rem)}
+  .headline-blocks{margin-bottom:1.5rem;max-width:22ch;text-wrap:balance;text-shadow:0 2px 16px rgba(20,16,45,.5)}
+  .hl-line{display:inline;font-weight:800;line-height:1.1;padding:0;
+    font-size:clamp(2rem,4.8vw,3.4rem);letter-spacing:-0.02em}
   .hl-1{color:var(--yellow)}
   .hl-2{color:var(--white)}
 
@@ -138,7 +141,9 @@
     padding:clamp(1.4rem,3vw,2.2rem);max-width:560px;border-left:8px solid var(--yellow);
   }
   .hero-card p.lead{font-size:clamp(1rem,2.1vw,1.18rem);font-weight:500;color:var(--ink);margin-bottom:1.3rem}
-  .hero-card .fineprint{font-size:.82rem;color:#6b6980;margin-top:.9rem;font-weight:400}
+  .hero-card .intro{font-weight:600;color:var(--indigo)}
+  .hero-card .detail{font-size:clamp(.98rem,2vw,1.08rem);color:var(--ink);margin-top:1.3rem}
+  .hero-card .fineprint{font-size:1rem;line-height:1.5;color:#55536b;margin-top:1rem;font-weight:400}
 
   /* torn white edge */
   .torn{position:absolute;left:0;right:0;bottom:-1px;z-index:8;width:100%;height:clamp(40px,7vw,90px);display:block}
@@ -162,6 +167,24 @@
   .quad-item .tiny{display:block;margin-top:.6rem;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
   @media(max-width:820px){.quad-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem}}
   @media(max-width:430px){.quad-grid{grid-template-columns:1fr}}
+
+  /* ---- SIGNATURE: coaching-activities exploration (expandable cards) ---- */
+  .acts-hint{margin:0 0 1.6rem;font-size:1rem;color:var(--ink);max-width:62ch}
+  .act{border:2px solid #ece9f5;border-top:5px solid var(--yellow);background:var(--white);
+    transition:box-shadow .18s ease,border-color .18s ease}
+  .act[open]{border-top-color:var(--teal);box-shadow:0 14px 30px rgba(34,28,75,.14)}
+  .act > summary{list-style:none;cursor:pointer;padding:1.3rem 1.2rem;display:flex;align-items:center;gap:.9rem}
+  .act > summary::-webkit-details-marker{display:none}
+  .act > summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+  .act-ic-wrap{flex:0 0 auto;width:48px;height:48px;background:var(--indigo);display:flex;align-items:center;justify-content:center}
+  .act[open] .act-ic-wrap{background:var(--teal)}
+  .act-ic{width:26px;height:26px;color:var(--yellow)}
+  .act-head{flex:1 1 auto}
+  .act-head h3{font-size:1.14rem;color:var(--indigo);line-height:1.18}
+  .act-sign{flex:0 0 auto;font-size:1.5rem;font-weight:800;color:var(--indigo);line-height:1;transition:transform .2s ease}
+  .act[open] .act-sign{transform:rotate(45deg);color:var(--teal)}
+  .act-body{padding:0 1.2rem 1.3rem}
+  .act-body p{font-size:.95rem;color:var(--ink);margin:0}
 
   /* ======================================================
      STATS STRIP
@@ -304,7 +327,7 @@
   .final .hl-final{display:inline-block;background:var(--yellow);color:var(--indigo);font-weight:800;
     font-size:clamp(1.6rem,4.5vw,3rem);line-height:1.1;padding:.3em .55em;margin-bottom:1.8rem;max-width:900px}
   .final .btn{margin-top:.5rem}
-  .final .fine{color:#b9b6d0;font-size:.85rem;margin-top:1.2rem}
+  .final .fine{color:#cfcde0;font-size:1rem;line-height:1.5;max-width:620px;margin:1.2rem auto 0}
 
   /* ======================================================
      10. FOOTER
@@ -343,18 +366,18 @@
 <!-- ============ 1. NAV ============ -->
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a href="/" class="logo">Liberation<span>Coach</span></a>
+    <a href="design-3-maverick.html" class="logo">Liberation<span>Coach</span></a>
     <div class="nav-menu" id="navMenu">
-      <a href="/">Home</a>
+      <a href="design-3-maverick.html">Home</a>
       <a href="#victor">About</a>
       <a href="coaching-maverick.html">Coaching</a>
       <a href="#method">Method</a>
-      <a href="#routes">For Founders</a>
-      <a href="#routes">For Athletes</a>
-      <a href="/contact">Contact</a>
+      <a href="#founders">For Founders</a>
+      <a href="#athletes">For Athletes</a>
+      <a href="contact-maverick.html">Contact</a>
     </div>
     <div class="nav-cta">
-      <a href="/apply" class="btn btn-yellow btn-sm nav-desktop-apply">Apply for 1:1 Coaching</a>
+      <a href="apply-maverick.html" class="btn btn-yellow btn-sm nav-desktop-apply">Apply for 1:1 Coaching</a>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
         <span></span><span></span><span></span>
       </button>
@@ -373,14 +396,13 @@
   <div class="wrap hero-content">
     <span class="eyebrow" style="color:var(--yellow)">Work with Victor Pierantoni</span>
     <h1 class="headline-blocks">
-      <span class="hl-line hl-1">1:1 performance coaching</span><br>
-      <span class="hl-line hl-2">for founders and athletes</span>
+      <span class="hl-line hl-1">1:1 performance coaching</span> <span class="hl-line hl-2">for founders and athletes</span>
     </h1>
     <p style="color:#fff;font-weight:700;font-size:clamp(1.1rem,2.6vw,1.5rem);max-width:640px;margin:-.3rem 0 1.7rem;letter-spacing:-.01em">Bring the Situation You Keep Revisiting</p>
     <div class="hero-card" id="apply">
-      <p class="lead">Performance coaching at Liberation Coach is individual work with Victor Pierantoni on how you respond to a challenge and what you choose to do next. Founders, business owners and athletes aged 18 and older can bring a specific situation, examine the assumptions around it and consider a practical next step.</p>
-      <p class="lead" style="font-weight:500">Bring a decision you keep revisiting, a conversation you are putting off or a moment of pressure you want to handle differently.</p>
-      <a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a>
+      <p class="lead intro">Bring a decision you keep revisiting, a conversation you are putting off or a moment of pressure you want to handle differently.</p>
+      <a href="apply-maverick.html" class="btn btn-yellow">Apply for 1:1 Coaching</a>
+      <p class="detail">Performance coaching at Liberation Coach is individual work with Victor Pierantoni on how you respond to a challenge and what you choose to do next. Founders, business owners and athletes aged 18 and older can bring a specific situation, examine the assumptions around it and consider a practical next step.</p>
       <p class="fineprint">Online sessions with Victor. Circle access for coaching members. Apply to take the next step: a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
     </div>
   </div>
@@ -401,7 +423,7 @@
       <h2>Where does the pressure <span class="hl-y">show up</span> for you?</h2>
     </div>
 
-    <div class="route-row">
+    <div class="route-row" id="founders">
       <div class="route-img imgwrap">
         <span class="route-tag">For Founders &amp; Business Owners</span>
         <img src="assets/bg-city-night.jpg" alt="City skyline lit up at night, viewed across a river">
@@ -415,11 +437,11 @@
           <span class="chip">Team pressure</span>
           <span class="chip">High stakes</span>
         </div>
-        <a href="/for-founders" class="btn btn-indigo">Explore Founder Coaching</a>
+        <a href="coaching-maverick.html" class="btn btn-indigo">Explore Founder Coaching</a>
       </div>
     </div>
 
-    <div class="route-row flip">
+    <div class="route-row flip" id="athletes">
       <div class="route-img imgwrap">
         <span class="route-tag">For Adult Athletes</span>
         <img src="assets/bg-gi.jpg" alt="Martial arts practitioner in a white gi during training">
@@ -433,7 +455,7 @@
           <span class="chip">Focus &amp; confidence</span>
           <span class="chip">Practice vs. game day</span>
         </div>
-        <a href="/for-athletes" class="btn btn-indigo">Explore Coaching for Athletes</a>
+        <a href="coaching-maverick.html" class="btn btn-indigo">Explore Coaching for Athletes</a>
       </div>
     </div>
   </div>
@@ -444,39 +466,52 @@
   <div class="wrap">
     <div class="shead">
       <span class="eyebrow">What the work is for</span>
-      <h2>Turn a broad concern into something you can <span class="hl-y">work on</span></h2>
+      <h2>What you can <span class="hl-y">work on</span> with Victor</h2>
       <p style="margin-top:1rem;font-size:1.05rem;color:var(--ink)">You might call it a mental block: you keep second-guessing a decision or putting off a conversation. Start with that specific situation. In performance coaching, you and Victor work together, and personal growth can mean a change you choose in your own life.</p>
     </div>
-    <div class="quad-grid">
-      <div class="quad-item">
-        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h3>Check an Assumption</h3>
-        <p>Examine what you are assuming the situation means before you decide.</p>
-      </div>
-      <div class="quad-item">
-        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.6.5 1 1.2 1 2h6c0-.8.4-1.5 1-2a7 7 0 0 0-4-12z"/></svg></div>
-        <h3>Ask an Avoided Question</h3>
-        <p>Ask a question you have been avoiding.</p>
-      </div>
-      <div class="quad-item">
-        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg></div>
-        <h3>Choose an Action</h3>
-        <p>Take an action you have chosen.</p>
-      </div>
-      <div class="quad-item">
-        <div class="quad-ic-wrap"><svg class="quad-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg></div>
-        <h3>Review What Happened</h3>
-        <p>Review what you did and what you learned.</p>
-      </div>
+    <p class="acts-hint">Four kinds of move come up in the work. Select any one to see how it plays out in a session.</p>
+    <div class="quad-grid" id="activities">
+      <details class="act" open>
+        <summary>
+          <span class="act-ic-wrap"><svg class="act-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span class="act-head"><h3>Check an Assumption</h3></span>
+          <span class="act-sign" aria-hidden="true">+</span>
+        </summary>
+        <div class="act-body"><p>Examine what you are assuming the situation means before you decide.</p></div>
+      </details>
+      <details class="act" open>
+        <summary>
+          <span class="act-ic-wrap"><svg class="act-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12c.6.5 1 1.2 1 2h6c0-.8.4-1.5 1-2a7 7 0 0 0-4-12z"/></svg></span>
+          <span class="act-head"><h3>Ask an Avoided Question</h3></span>
+          <span class="act-sign" aria-hidden="true">+</span>
+        </summary>
+        <div class="act-body"><p>Ask a question you have been avoiding.</p></div>
+      </details>
+      <details class="act" open>
+        <summary>
+          <span class="act-ic-wrap"><svg class="act-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg></span>
+          <span class="act-head"><h3>Choose an Action</h3></span>
+          <span class="act-sign" aria-hidden="true">+</span>
+        </summary>
+        <div class="act-body"><p>Take an action you have chosen.</p></div>
+      </details>
+      <details class="act" open>
+        <summary>
+          <span class="act-ic-wrap"><svg class="act-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg></span>
+          <span class="act-head"><h3>Review What Happened</h3></span>
+          <span class="act-sign" aria-hidden="true">+</span>
+        </summary>
+        <div class="act-body"><p>Review what you did and what you learned.</p></div>
+      </details>
     </div>
-    <div style="margin-top:2rem"><a href="/method" class="btn btn-indigo">See What a Session Can Involve</a></div>
+    <div style="margin-top:2rem"><a href="#method" class="btn btn-indigo">See What a Session Can Involve</a></div>
   </div>
 </section>
 
 <!-- ============ STATS STRIP ============ -->
 <section class="stats">
   <div class="wrap" style="padding:clamp(1.6rem,3vw,2.4rem) 0;text-align:center">
-    <p style="color:#fff;font-size:clamp(1.02rem,2.2vw,1.2rem);font-weight:600;max-width:860px;margin:0 auto;line-height:1.5">Performance coaching for two groups &mdash; founders and business owners, and adult athletes aged 18 and older &mdash; delivered online with Victor, wherever you are.</p>
+    <p style="color:#fff;font-size:clamp(1.02rem,2.2vw,1.2rem);font-weight:600;max-width:860px;margin:0 auto;line-height:1.5">Performance coaching for two groups (founders and business owners, and adult athletes aged 18 and older) delivered online with Victor, wherever you are.</p>
   </div>
 </section>
 
@@ -502,7 +537,7 @@
         <li><span class="q-num">2</span><strong>What are you assuming it means?</strong></li>
         <li><span class="q-num">3</span><strong>What do you need to find out before deciding?</strong></li>
       </ul>
-      <p class="method-note">In coaching, you and Victor work through those questions together — then review what you did and what you learned.</p>
+      <p class="method-note">In coaching, you and Victor work through those questions together, then review what you did and what you learned.</p>
     </div>
   </div>
 </section>
@@ -550,7 +585,7 @@
       <p class="bio">Victor Pierantoni is the coach behind Liberation Coach. His background includes martial arts and the Zen and Stoic ideas he has discussed through Zen Stoic. His teaching considers attention, emotional experience and the choices people make in everyday life.</p>
       <p class="bio">Hear Victor discuss these ideas in Super Mamas, episode 235 (2020) and Acta Non Verba, episode 156 (2023). These conversations give background to his ideas.</p>
       <div class="victor-btns">
-        <a href="/about" class="btn btn-yellow btn-sm">Read Victor's Background</a>
+        <a href="coaching-maverick.html" class="btn btn-yellow btn-sm">Read Victor's Background</a>
         <a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Watch on YouTube</a>
       </div>
     </div>
@@ -563,7 +598,7 @@
     <span class="eyebrow">The emotional side of the work</span>
     <h2 style="max-width:780px">Reflection and emotional awareness</h2>
     <p class="method-lead" style="max-width:780px">Victor's emotional-awareness teaching includes noticing bodily sensations associated with a feeling. His reflective questions examine the situation and your interpretation of it. The Method page explains these parts of his work in plain language.</p>
-    <div style="margin-top:1.4rem"><a href="/method" class="btn btn-indigo">Understand Victor's Approach</a></div>
+    <div style="margin-top:1.4rem"><a href="#method" class="btn btn-indigo">Understand Victor's Approach</a></div>
   </div>
 </section>
 
@@ -599,7 +634,7 @@
         <p>If you choose to begin coaching, sessions take place online and coaching members receive Circle access.</p>
       </div>
     </div>
-    <div style="text-align:center;margin-top:2.4rem"><a href="/coaching" class="btn btn-indigo">Explore 1:1 Coaching</a></div>
+    <div style="text-align:center;margin-top:2.4rem"><a href="coaching-maverick.html" class="btn btn-indigo">Explore 1:1 Coaching</a></div>
   </div>
 </section>
 
@@ -619,7 +654,7 @@
       </details>
       <details>
         <summary>What happens after I apply?</summary>
-        <div class="faq-ans">Applying opens a no-obligation discovery Zoom call with Victor — a conversation to see if the work fits, not a booked session and not automatic acceptance.</div>
+        <div class="faq-ans">Applying opens a no-obligation discovery Zoom call with Victor, a conversation to see if the work fits, not a booked session and not automatic acceptance.</div>
       </details>
       <details>
         <summary>What is Circle access?</summary>
@@ -647,7 +682,7 @@
   </svg>
   <div class="wrap">
     <span class="hl-final">Bring the situation you want to approach differently.</span>
-    <div><a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a></div>
+    <div><a href="apply-maverick.html" class="btn btn-yellow">Apply for 1:1 Coaching</a></div>
     <p class="fine">Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
   </div>
 </section>
@@ -657,16 +692,16 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="/" class="logo">Liberation<span>Coach</span></a>
+        <a href="design-3-maverick.html" class="logo">Liberation<span>Coach</span></a>
         <p class="footer-about">Online 1:1 performance coaching with Victor Pierantoni for founders, business owners and adult athletes. Liberation Coach Inc.</p>
       </div>
       <div>
         <h4>Coaching</h4>
         <ul>
-          <li><a href="/for-founders">For Founders</a></li>
-          <li><a href="/for-athletes">For Athletes</a></li>
-          <li><a href="/method">The Method</a></li>
-          <li><a href="/apply">Apply for 1:1 Coaching</a></li>
+          <li><a href="#founders">For Founders</a></li>
+          <li><a href="#athletes">For Athletes</a></li>
+          <li><a href="#method">The Method</a></li>
+          <li><a href="apply-maverick.html">Apply for 1:1 Coaching</a></li>
         </ul>
       </div>
       <div>
@@ -680,10 +715,10 @@
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Coaching Disclaimer</a></li>
-          <li><a href="#">Accessibility</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Privacy</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Terms</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Coaching Disclaimer</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Accessibility</a></li>
         </ul>
       </div>
     </div>
@@ -696,7 +731,7 @@
 
 <!-- ============ MOBILE STICKY APPLY ============ -->
 <div class="mobile-apply">
-  <a href="/apply" class="btn btn-yellow">Apply for 1:1 Coaching</a>
+  <a href="apply-maverick.html" class="btn btn-yellow">Apply for 1:1 Coaching</a>
 </div>
 
 <script>
@@ -712,6 +747,15 @@
       menu.classList.remove('open');
       ham.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  // Signature: coaching-activities exploration.
+  // The four <details.act> ship OPEN in the HTML so every explanation is
+  // readable with JS off. When JS runs we collapse them into an exploration
+  // the visitor opens one (or more) at a time. Native <details>/<summary>
+  // handles tap + keyboard (Enter/Space) + aria state for free.
+  document.querySelectorAll('.act[open]').forEach(function(d){
+    d.removeAttribute('open');
   });
 </script>
 

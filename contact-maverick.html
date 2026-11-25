@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Liberation Coach</title>
+<meta name="description" content="Contact Liberation Coach. General inquiries can reach Victor Pierantoni's team. To start coaching, apply for a discovery Zoom call.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FCC22D;
+    --indigo:#221C4B;
+    --indigo-deep:#1a1539;
+    --teal:#1F8FA6;
+    --white:#FFFFFF;
+    --ink:#333232;
+    --mist:#f6f6fb;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  h1,h2,h3,h4{font-weight:800;line-height:1.1;letter-spacing:-0.01em}
+
+  /* ---------- Buttons: SQUARE ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;
+    padding:.95rem 1.8rem;border:0;border-radius:0;cursor:pointer;
+    text-transform:none;letter-spacing:.01em;transition:transform .12s ease,box-shadow .15s ease,background .15s ease,color .15s ease;
+    line-height:1.1;
+  }
+  .btn-yellow{background:var(--yellow);color:var(--indigo)}
+  .btn-yellow:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(34,28,75,.25)}
+  .btn-indigo{background:var(--indigo);color:var(--white)}
+  .btn-indigo:hover{transform:translateY(-2px);box-shadow:0 8px 0 rgba(0,0,0,.2)}
+  .btn-outline{background:transparent;color:var(--indigo);border:2px solid var(--indigo)}
+  .btn-outline:hover{background:var(--indigo);color:#fff}
+  .btn-sm{padding:.7rem 1.3rem;font-size:.92rem}
+
+  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+  section{position:relative}
+
+  .eyebrow{display:inline-block;font-weight:700;font-size:.78rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:.9rem}
+  .eyebrow-y{color:var(--yellow)}
+  .uline{background-image:linear-gradient(var(--yellow),var(--yellow));
+    background-repeat:no-repeat;background-position:0 92%;background-size:100% .26em;padding:0 .04em}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:3px solid var(--indigo)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-weight:800;font-size:1.3rem;color:var(--indigo);letter-spacing:-0.02em;white-space:nowrap;display:inline-flex;align-items:center;gap:.55rem}
+  .logo .mark{width:24px;height:24px;flex:none}
+  .logo span{color:var(--yellow);-webkit-text-stroke:.6px var(--indigo)}
+  .nav-menu{display:flex;align-items:center;gap:clamp(.9rem,2vw,1.9rem)}
+  .nav-menu a{font-weight:600;font-size:.95rem;color:var(--indigo);transition:color .15s}
+  .nav-menu a:hover{color:var(--teal)}
+  .nav-menu a[aria-current="page"]{color:var(--teal)}
+  .nav-cta{display:flex;align-items:center;gap:1rem}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+  .hamburger span{width:26px;height:3px;background:var(--indigo);display:block;transition:.2s}
+
+  /* ---------- BREADCRUMB ---------- */
+  .crumb{background:var(--mist);border-bottom:1px solid #e7e4f1}
+  .crumb-inner{display:flex;align-items:center;gap:.5rem;padding:.75rem 0;font-size:.84rem;font-weight:600;color:#6b6786}
+  .crumb-inner a{color:var(--teal)}
+  .crumb-inner a:hover{color:var(--indigo)}
+  .crumb-sep{color:#b7b3cc}
+  .crumb-cur{color:var(--indigo)}
+
+  /* ---------- PAGE HEADER (compact title band) ---------- */
+  .phead{background:var(--indigo);position:relative;overflow:hidden;
+    padding:clamp(2.4rem,5vw,3.4rem) 0 clamp(2.4rem,5vw,3.4rem)}
+  .phead::before{content:"";position:absolute;left:0;top:0;width:100%;height:6px;background:var(--teal)}
+  .phead .wrap{position:relative;z-index:2;max-width:820px}
+  .phead h1{color:#fff;font-size:clamp(2rem,5.2vw,3.1rem);line-height:1.12;max-width:18ch;margin:.2rem 0 1rem}
+  .phead .lead{font-size:clamp(1.08rem,2.1vw,1.26rem);color:#e7e5f2;font-weight:500;max-width:60ch;line-height:1.5}
+
+  /* ---------- CONTENT SHELL ---------- */
+  .sec{padding:clamp(2.4rem,5vw,3.6rem) 0}
+  .sec .wrap{max-width:760px}
+  .sec.alt{background:var(--mist)}
+  .sec h2{font-size:clamp(1.4rem,3vw,2rem);color:var(--indigo);margin-bottom:1.1rem;line-height:1.18}
+  .sec p{font-size:clamp(1.03rem,1.6vw,1.14rem);color:#4a4760;margin-bottom:1.05rem;max-width:66ch}
+  .sec p:last-child{margin-bottom:0}
+  .sec .btn-row{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.6rem}
+
+  /* honest build-phase note */
+  .buildnote{background:var(--white);border:2px solid #e7e4f1;border-left:7px solid var(--yellow);
+    padding:1.3rem 1.5rem;max-width:66ch;margin-top:1.8rem}
+  .buildnote .tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--indigo);background:var(--yellow);padding:.25rem .6rem;margin-bottom:.7rem}
+  .buildnote p{font-size:1rem;color:#4a4760;margin:0;max-width:none}
+
+  /* ---------- FOOTER ---------- */
+  .footer{background:var(--indigo-deep);color:#c9c6dd;padding:clamp(3rem,5vw,4rem) 0 2rem;border-top:1px solid rgba(255,255,255,.08)}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
+  .footer .logo{color:#fff;margin-bottom:1rem;display:inline-flex}
+  .footer-about{font-size:.92rem;color:#a7a3c2;max-width:340px}
+  .footer h4{color:#fff;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
+  .footer ul{list-style:none}
+  .footer ul li{margin-bottom:.55rem}
+  .footer ul a{font-size:.92rem;color:#c9c6dd;transition:color .15s}
+  .footer ul a:hover{color:var(--yellow)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.6rem;font-size:.83rem;color:#8b87a8}
+  .footer-bottom .disc{margin-top:.5rem;font-size:.78rem;color:#777397}
+
+  /* ---------- MOBILE STICKY APPLY ---------- */
+  .mobile-apply{display:none;position:fixed;bottom:0;left:0;right:0;z-index:120;
+    background:var(--indigo);padding:.7rem clamp(1rem,4vw,1.5rem);box-shadow:0 -6px 20px rgba(0,0,0,.25)}
+  .mobile-apply .btn{width:100%}
+
+  /* ---------- RESPONSIVE (nav-collapse carried over) ---------- */
+  @media(max-width:900px){
+    .nav-menu{position:fixed;top:74px;left:0;right:0;background:var(--indigo);
+      flex-direction:column;align-items:flex-start;gap:0;padding:1rem 1.5rem 2rem;
+      transform:translateY(-120%);transition:transform .28s ease;z-index:99}
+    .nav-menu.open{transform:translateY(0)}
+    .nav-menu a{color:#fff;width:100%;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:1.05rem}
+    .nav-menu a[aria-current="page"]{color:var(--yellow)}
+    .nav-desktop-apply{display:none}
+    .hamburger{display:flex}
+    .mobile-apply{display:block}
+    body{padding-bottom:70px}
+  }
+  @media(max-width:480px){
+    .sec .btn-row{flex-direction:column;align-items:stretch}
+    .sec .btn-row .btn{width:100%}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:1.6rem 1.2rem}
+    .footer-grid>div:first-child{grid-column:1 / -1}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="design-3-maverick.html" class="logo">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="#FCC22D" stroke-width="2.6"/><path d="M16 2a14 14 0 0 1 0 28 7 7 0 0 1 0-14 7 7 0 0 0 0-14Z" fill="#FCC22D"/></svg>
+      Liberation<span>Coach</span>
+    </a>
+    <div class="nav-menu" id="navMenu">
+      <a href="design-3-maverick.html">Home</a>
+      <a href="design-3-maverick.html#victor">About</a>
+      <a href="coaching-maverick.html">Coaching</a>
+      <a href="design-3-maverick.html#method">Method</a>
+      <a href="design-3-maverick.html#founders">For Founders</a>
+      <a href="design-3-maverick.html#athletes">For Athletes</a>
+      <a href="contact-maverick.html" aria-current="page">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="apply-maverick.html" class="btn btn-yellow btn-sm nav-desktop-apply">Apply for 1:1 Coaching</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ BREADCRUMB ============ -->
+<nav class="crumb" aria-label="Breadcrumb">
+  <div class="wrap crumb-inner">
+    <a href="design-3-maverick.html">Home</a>
+    <span class="crumb-sep" aria-hidden="true">&rsaquo;</span>
+    <span class="crumb-cur" aria-current="page">Contact</span>
+  </div>
+</nav>
+
+<!-- ============ PAGE HEADER ============ -->
+<header class="phead">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-y">Get in Touch</span>
+    <h1>Contact</h1>
+    <p class="lead">General inquiries can reach Victor Pierantoni's team. If you would like to start coaching, the quickest route is to apply.</p>
+  </div>
+</header>
+
+<!-- ============ CONTACT BODY ============ -->
+<section class="sec">
+  <div class="wrap">
+    <p>Liberation Coach is an online practice, so coaching and conversations happen wherever you are. For general questions, you can reach Victor's team; to begin working together, apply and the next step is a discovery Zoom call, with no obligation to proceed with coaching.</p>
+
+    <div class="buildnote">
+      <span class="tag">Preview note</span>
+      <p>The contact form and contact details connect in the build phase. In the finished site, this is where general inquiries would reach Victor's team.</p>
+    </div>
+
+    <div class="btn-row">
+      <a href="apply-maverick.html" class="btn btn-yellow">Apply for 1:1 Coaching</a>
+      <a href="coaching-maverick.html" class="btn btn-outline">Explore 1:1 Coaching</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="design-3-maverick.html" class="logo">Liberation<span>Coach</span></a>
+        <p class="footer-about">Online 1:1 performance coaching with Victor Pierantoni for founders, business owners and adult athletes. Liberation Coach Inc.</p>
+      </div>
+      <div>
+        <h4>Coaching</h4>
+        <ul>
+          <li><a href="design-3-maverick.html#founders">For Founders</a></li>
+          <li><a href="design-3-maverick.html#athletes">For Athletes</a></li>
+          <li><a href="design-3-maverick.html#method">The Method</a></li>
+          <li><a href="apply-maverick.html">Apply for 1:1 Coaching</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="design-3-maverick.html#victor">Meet Victor</a></li>
+          <li><a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener">Zen Stoic Path Show</a></li>
+          <li><a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="contact-maverick.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Privacy</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Terms</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Coaching Disclaimer</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Liberation Coach Inc. &middot; Online, worldwide</div>
+      <div class="disc">Performance coaching is not therapy, counseling or medical treatment.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MOBILE STICKY APPLY ============ -->
+<div class="mobile-apply">
+  <a href="apply-maverick.html" class="btn btn-yellow">Apply for 1:1 Coaching</a>
+</div>
+
+<script>
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('navMenu');
+  ham.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>

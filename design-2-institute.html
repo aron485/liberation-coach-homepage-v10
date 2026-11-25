@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Liberation Coach — 1:1 Performance Coaching for Founders and Athletes</title>
+<title>Liberation Coach: 1:1 Performance Coaching for Founders and Athletes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
@@ -91,26 +91,26 @@ h1,h2,h3{line-height:1.12;font-weight:900;letter-spacing:-.01em;}
 }
 .hero-bg{
   position:absolute;inset:0;z-index:0;
-  background:url('assets/victor-avatar.jpg') right 22%/cover no-repeat;
-  filter:grayscale(1) brightness(.8) contrast(1.02);
+  background:url('assets/victor-avatar.jpg') right 32%/cover no-repeat;
+  filter:grayscale(1) brightness(.92) contrast(1.0);
 }
 .hero-scrim{
   position:absolute;inset:0;z-index:1;
-  background:linear-gradient(100deg,rgba(39,39,42,.92) 0%,rgba(39,39,42,.62) 48%,rgba(39,39,42,.1) 100%);
+  background:linear-gradient(100deg,rgba(39,39,42,.9) 0%,rgba(39,39,42,.55) 52%,rgba(39,39,42,.12) 100%);
 }
 .hero-inner{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:140px;}
-.hero-content{max-width:680px;}
+.hero-content{max-width:760px;}
 .eyebrow{
   display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.22em;
   text-transform:uppercase;color:var(--amber);margin-bottom:22px;
 }
 .hero h1{
   font-size:clamp(2.2rem,5.6vw,3.5rem);color:var(--amber);font-weight:900;
-  margin-bottom:24px;max-width:14ch;
+  margin-bottom:24px;max-width:22ch;text-wrap:balance;
 }
-.hero p.lead{font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--white);max-width:44ch;margin-bottom:30px;opacity:.95;text-shadow:0 1px 10px rgba(0,0,0,.45);}
+.hero p.lead{font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--white);max-width:52ch;margin-bottom:30px;opacity:.95;text-shadow:0 1px 10px rgba(0,0,0,.45);}
 .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:20px;}
-.hero .finepoint{font-size:.85rem;color:rgba(255,255,255,.72);max-width:30ch;}
+.hero .finepoint{font-size:1rem;color:rgba(255,255,255,.82);max-width:34ch;}
 
 /* fixed apply button */
 .edge-tab{
@@ -126,7 +126,7 @@ h1,h2,h3{line-height:1.12;font-weight:900;letter-spacing:-.01em;}
 /* ---------- OVERLAP CARDS ---------- */
 .cards-overlap{position:relative;z-index:5;}
 .cards-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
   margin-top:-90px;
 }
 .icard{
@@ -253,6 +253,34 @@ section{position:relative;}
 .q-list li h3{font-size:1.4rem;color:var(--white);}
 .method-copy h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:var(--amber);margin-bottom:22px;}
 .method-copy p{font-size:1.1rem;color:rgba(255,255,255,.88);}
+
+/* interview explorer (signature interaction 1) */
+.iv-intro{font-size:1.05rem;color:#3f3f46;margin-bottom:6px;}
+.iv-list{margin-top:18px;}
+.iv-item{margin-bottom:12px;}
+.iv-item summary{font-size:1.05rem;}
+.iv-head{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.iv-name{color:var(--charcoal);}
+.iv-meta{font-size:.68rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#a16207;background:rgba(255,194,13,.16);padding:4px 10px;border-radius:0 6px 6px 6px;}
+.iv-item .iv-body{padding:0 26px 24px;}
+.iv-item .iv-body p{padding:0;margin:0 0 10px;font-size:1rem;color:#3f3f46;}
+.iv-item .iv-why{color:#52525b;}
+.iv-item .iv-why strong{color:#a16207;}
+.iv-link{display:inline-flex;align-items:center;gap:.4em;font-weight:700;color:#a16207;text-decoration:underline;text-underline-offset:3px;font-size:1rem;}
+.iv-link:hover{color:var(--charcoal);}
+.iv-more{margin-top:16px;font-size:1rem;color:#52525b;}
+.iv-more a{color:#a16207;font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+
+/* method reflective panels (signature interaction 2) */
+.q-lead{font-size:1rem;color:rgba(255,255,255,.8);margin-bottom:18px;max-width:48ch;}
+.q-panels{display:flex;flex-direction:column;gap:12px;}
+.q-item summary{font-size:1.1rem;}
+.q-head{display:inline-flex;align-items:center;gap:14px;}
+.q-no{flex:0 0 36px;width:36px;height:36px;border-radius:0 8px 8px 8px;background:var(--amber);color:var(--charcoal);display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:1.05rem;}
+.q-txt{color:var(--charcoal);}
+.q-item .q-body{padding:0 26px 24px 26px;}
+.q-item .q-body p{padding:0;margin:0;font-size:1.02rem;color:#3f3f46;}
+.q-item .q-body strong{color:#a16207;}
 
 /* stats */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;margin-top:46px;}
@@ -381,20 +409,19 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="/" class="brand">Liberation Coach<span class="dot">.</span></a>
+    <a href="design-2-institute.html" class="brand">Liberation Coach<span class="dot">.</span></a>
     <ul class="nav-menu">
-      <li><a href="/">Home</a></li>
+      <li><a href="design-2-institute.html">Home</a></li>
       <li><a href="coaching-institute.html">Coaching</a></li>
-      <li><a href="/method">Method</a></li>
-      <li><a href="/for-founders">For Founders</a></li>
-      <li><a href="/for-athletes">For Athletes</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/faq">FAQ</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="contact-institute.html">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="/apply" class="btn btn-amber">Apply for 1:1 Coaching</a>
+      <a href="apply-institute.html" class="btn btn-amber">Apply for 1:1 Coaching</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -410,7 +437,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
       <h1>1:1 performance coaching for founders and athletes</h1>
       <p class="lead">Performance coaching at Liberation Coach is individual work with Victor Pierantoni on how you respond to a challenge and what you choose to do next. Founders, business owners and athletes aged 18 and older can bring a specific situation, examine the assumptions around it and consider a practical next step.</p>
       <div class="hero-cta">
-        <a href="/apply" class="btn btn-amber">Apply for 1:1 Coaching</a>
+        <a href="apply-institute.html" class="btn btn-amber">Apply for 1:1 Coaching</a>
         <span class="finepoint">After applying, the next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</span>
       </div>
     </div>
@@ -430,7 +457,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
         </div>
         <h3>For founders and business owners</h3>
         <p>Leading a business can put you between a decision and the people who need an answer. You might be postponing feedback to a colleague or deciding which responsibilities to hand over. Start with a situation in your business and the response you want to change.</p>
-        <a href="/for-founders" class="btn btn-charcoal">Explore Founder Coaching &rarr;</a>
+        <a href="coaching-institute.html" class="btn btn-charcoal">Explore Founder Coaching &rarr;</a>
       </div>
       <!-- Card B -->
       <div class="icard" id="athletes">
@@ -440,17 +467,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
         </div>
         <h3>For adult athletes</h3>
         <p>You may trust a skill in practice and begin to doubt it in competition. Pressure can pull your concentration toward the last mistake or what might happen next. Start with a moment when your focus or confidence changed and what you noticed.</p>
-        <a href="/for-athletes" class="btn btn-charcoal">Explore Coaching for Athletes &rarr;</a>
-      </div>
-      <!-- Card C -->
-      <div class="icard" id="method-card">
-        <span class="ctag">Approach</span>
-        <div class="ic">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        </div>
-        <h3>The Method</h3>
-        <p>Turn a broad concern into one situation you can work on.</p>
-        <a href="/method" class="btn btn-charcoal">See What a Session Can Involve &rarr;</a>
+        <a href="coaching-institute.html" class="btn btn-charcoal">Explore Coaching for Athletes &rarr;</a>
       </div>
     </div>
   </div>
@@ -465,7 +482,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
         <div class="amber-rule"></div>
         <h2>Individual work with Victor</h2>
         <p>Founders, business owners and athletes aged 18 and older bring a specific situation, examine the assumptions around it, and consider a practical next step. One person, one situation, one honest conversation at a time.</p>
-        <a href="/method" class="btn btn-charcoal">See What a Session Can Involve &rarr;</a>
+        <a href="#method" class="btn btn-charcoal">See What a Session Can Involve &rarr;</a>
       </div>
       <div class="bring-card">
         <h3>What you can bring</h3>
@@ -497,19 +514,36 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
         <div class="amber-rule"></div>
         <h2>A coach with a background in martial arts and philosophy</h2>
         <p>Victor Pierantoni is the coach behind Liberation Coach. His background includes martial arts and the Zen and Stoic ideas he has discussed through Zen Stoic. His teaching considers attention, emotional experience and the choices people make in everyday life.</p>
-        <p>Hear Victor discuss these ideas in <a href="http://supermamas.com/episodeblog/ep235-learning-to-stay-sane-and-zen-stoic-while-in-quarantine-with-life-coach-victor-pierantoni-of-zen-stoic-mastery" target="_blank" rel="noopener" style="color:#b58a05;font-weight:700;text-decoration:underline;">Super Mamas, episode 235 (2020)</a> and <a href="https://podcasts.apple.com/ie/podcast/victor-pierantoni-the-zen-stoic-on-the-similarities/id1531794099?i=1000620849756" target="_blank" rel="noopener" style="color:#b58a05;font-weight:700;text-decoration:underline;">Acta Non Verba, episode 156 (2023)</a>. These conversations give background to his ideas.</p>
         <blockquote class="story-quote">"It's better to be a warrior in the garden than a gardener in a war."</blockquote>
-        <cite style="display:block;margin-top:10px;font-style:normal;font-size:.9rem;opacity:.7;">— A line Victor coaches by</cite>
-        <div class="pill-row">
-          <a class="pill" href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.16 19.49c.08-.76.04-1.72-.14-2.55l-.9-3.82s-.23-.46-.23-1.13c0-1.06.61-1.85 1.38-1.85.65 0 .96.49.96 1.07 0 .65-.42 1.63-.63 2.53-.18.76.38 1.38 1.13 1.38 1.35 0 2.26-1.74 2.26-3.8 0-1.57-1.06-2.74-2.98-2.74-2.17 0-3.52 1.62-3.52 3.43 0 .62.18 1.06.47 1.4.13.16.15.22.1.4l-.14.57c-.05.18-.19.25-.35.18-.98-.4-1.44-1.48-1.44-2.69 0-2 1.69-4.4 5.03-4.4 2.69 0 4.46 1.95 4.46 4.04 0 2.76-1.54 4.83-3.8 4.83-.76 0-1.48-.41-1.72-.88l-.47 1.86c-.17.64-.5 1.29-.8 1.78A10 10 0 1012 2z"/></svg>
-            Zen Stoic Path Show
-          </a>
-          <a class="pill" href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M23 7.5a3 3 0 00-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 001 7.5 31 31 0 001 12a31 31 0 00.1 4.5 3 3 0 002.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 002.1-2.1A31 31 0 0023 12a31 31 0 00-.1-4.5zM10 15V9l5 3z"/></svg>
-            YouTube
-          </a>
+        <cite style="display:block;margin-top:10px;font-style:normal;font-size:.9rem;opacity:.7;">A line Victor coaches by</cite>
+        <p class="iv-intro" style="margin-top:28px;">Hear Victor in his own words. Open an interview for a short intro, why it is relevant and a link to the original recording.</p>
+        <div class="iv-list">
+          <details class="iv-item">
+            <summary><span class="iv-head"><span class="iv-name">The Zen Stoic Path Show</span><span class="iv-meta">Podcast</span></span></summary>
+            <div class="iv-body">
+              <p>Victor's own show. He discusses the Zen and Stoic ideas behind his work, including attention, emotional experience and the choices people make in everyday life.</p>
+              <p class="iv-why"><strong>Why it's relevant:</strong> it gives background to the reflective approach used in coaching.</p>
+              <a class="iv-link" href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener">Listen on Apple Podcasts &rarr;</a>
+            </div>
+          </details>
+          <details class="iv-item">
+            <summary><span class="iv-head"><span class="iv-name">Acta Non Verba, episode 156 (2023)</span><span class="iv-meta">Guest interview</span></span></summary>
+            <div class="iv-body">
+              <p>A guest conversation on the similarities between Zen and Stoic thought.</p>
+              <p class="iv-why"><strong>Why it's relevant:</strong> background to his ideas, in his own words.</p>
+              <a class="iv-link" href="https://podcasts.apple.com/ie/podcast/victor-pierantoni-the-zen-stoic-on-the-similarities/id1531794099?i=1000620849756" target="_blank" rel="noopener">Listen to the episode &rarr;</a>
+            </div>
+          </details>
+          <details class="iv-item">
+            <summary><span class="iv-head"><span class="iv-name">Super Mamas, episode 235 (2020)</span><span class="iv-meta">Guest interview</span></span></summary>
+            <div class="iv-body">
+              <p>An earlier guest conversation on staying calm and reflective under pressure.</p>
+              <p class="iv-why"><strong>Why it's relevant:</strong> an earlier conversation giving background to his ideas.</p>
+              <a class="iv-link" href="http://supermamas.com/episodeblog/ep235-learning-to-stay-sane-and-zen-stoic-while-in-quarantine-with-life-coach-victor-pierantoni-of-zen-stoic-mastery" target="_blank" rel="noopener">Listen to the episode &rarr;</a>
+            </div>
+          </details>
         </div>
+        <p class="iv-more">More from Victor on <a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener">YouTube</a>.</p>
       </div>
     </div>
   </div>
@@ -522,17 +556,29 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
       <div class="method-copy">
         <p class="sec-head-eyebrow">The Method</p>
         <div class="amber-rule"></div>
-        <h2>Turn a broad concern into something you can work on</h2>
+        <h2>What you can work on with Victor</h2>
         <p>In performance coaching, you and Victor work together on those questions. Personal growth can mean a change you choose in your own life, such as asking a question you have avoided, checking an assumption or taking an action you chose. You can then review what you did and what you learned.</p>
         <div class="method-note">
           <p><strong>Reflection and emotional awareness.</strong> Victor's emotional-awareness teaching includes noticing bodily sensations associated with a feeling. His reflective questions examine the situation and your interpretation of it. The Method page explains these parts of his work in plain language.</p>
         </div>
       </div>
-      <ol class="q-list">
-        <li><h3>What happened?</h3></li>
-        <li><h3>What are you assuming it means?</h3></li>
-        <li><h3>What do you need to find out before deciding?</h3></li>
-      </ol>
+      <div class="method-panels">
+        <p class="q-lead">Three reflective questions shape the work. Open each for an example. These are examples, not a fixed script.</p>
+        <div class="q-panels">
+          <details class="q-item">
+            <summary><span class="q-head"><span class="q-no">1</span><span class="q-txt">What happened?</span></span></summary>
+            <div class="q-body"><p><strong>Example:</strong> describe the situation plainly. After a difficult conversation, note what you said and how the other person responded.</p></div>
+          </details>
+          <details class="q-item">
+            <summary><span class="q-head"><span class="q-no">2</span><span class="q-txt">What are you assuming it means?</span></span></summary>
+            <div class="q-body"><p><strong>Example:</strong> name the interpretation you are adding. If you keep revisiting a decision, separate the information you still need from an assumption you are making.</p></div>
+          </details>
+          <details class="q-item">
+            <summary><span class="q-head"><span class="q-no">3</span><span class="q-txt">What do you need to find out before deciding?</span></span></summary>
+            <div class="q-body"><p><strong>Example:</strong> identify a question to ask or an assumption to check before you act, then choose one action to try and review what happened.</p></div>
+          </details>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -564,13 +610,13 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
       </div>
     </div>
     <div style="margin-top:44px;">
-      <a href="/apply" class="btn btn-amber">Apply for 1:1 Coaching</a>
+      <a href="apply-institute.html" class="btn btn-amber">Apply for 1:1 Coaching</a>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="sec-pad">
+<section class="sec-pad" id="faq">
   <div class="wrap faq-wrap">
     <div class="faq-head">
       <p class="sec-head-eyebrow">Questions</p>
@@ -604,8 +650,8 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 <section class="sec-pad final" id="contact">
   <div class="wrap">
     <h2>Bring the situation you want to approach differently.</h2>
-    <p>Explore <a href="/about" style="color:var(--charcoal);text-decoration:underline;">Victor's background</a> and <a href="/method" style="color:var(--charcoal);text-decoration:underline;">how he approaches coaching</a>, then describe what you would like to work on. Coaching is educational and does not replace medical, psychological, legal or financial advice.</p>
-    <a href="/apply" class="btn btn-charcoal">Apply for 1:1 Coaching</a>
+    <p>Explore <a href="#about" style="color:var(--charcoal);text-decoration:underline;">Victor's background</a> and <a href="#method" style="color:var(--charcoal);text-decoration:underline;">how he approaches coaching</a>, then describe what you would like to work on. Coaching is educational and does not replace medical, psychological, legal or financial advice.</p>
+    <a href="apply-institute.html" class="btn btn-charcoal">Apply for 1:1 Coaching</a>
     <p style="font-size:.95rem;color:#3f3f46;max-width:48ch;margin:18px auto 0;">Your next step is a discovery Zoom call with Victor, with no obligation to proceed with coaching.</p>
   </div>
 </section>
@@ -615,42 +661,42 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <a href="/" class="brand">Liberation Coach<span class="dot">.</span></a>
+        <a href="design-2-institute.html" class="brand">Liberation Coach<span class="dot">.</span></a>
         <p class="footer-blurb">Online 1:1 performance coaching with Victor Pierantoni for founders, business owners and adult athletes. Liberation Coach Inc.</p>
       </div>
       <div>
         <h4>Coaching</h4>
         <ul>
-          <li><a href="/for-founders">For Founders</a></li>
-          <li><a href="/for-athletes">For Athletes</a></li>
-          <li><a href="/method">The Method</a></li>
-          <li><a href="/apply">Apply</a></li>
+          <li><a href="design-2-institute.html#founders">For Founders</a></li>
+          <li><a href="design-2-institute.html#athletes">For Athletes</a></li>
+          <li><a href="#method">The Method</a></li>
+          <li><a href="apply-institute.html">Apply</a></li>
         </ul>
       </div>
       <div>
         <h4>Explore</h4>
         <ul>
-          <li><a href="/about">About Victor</a></li>
+          <li><a href="#about">About Victor</a></li>
           <li><a href="https://podcasts.apple.com/us/podcast/zen-stoic-path-show/id1571381944" target="_blank" rel="noopener">Podcast</a></li>
           <li><a href="https://www.youtube.com/@victor.liberationcoach" target="_blank" rel="noopener">YouTube</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="contact-institute.html">Contact</a></li>
         </ul>
       </div>
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Coaching Disclaimer</a></li>
-          <li><a href="#">Accessibility</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Privacy</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Terms</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Coaching Disclaimer</a></li>
+          <li><a href="#" aria-disabled="true" title="Coming soon">Accessibility</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Liberation Coach Inc. &middot; Online, worldwide</span>
       <div class="footer-legal">
-        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Coaching Disclaimer</a><a href="#">Accessibility</a>
+        <a href="#" aria-disabled="true" title="Coming soon">Privacy</a><a href="#" aria-disabled="true" title="Coming soon">Terms</a><a href="#" aria-disabled="true" title="Coming soon">Coaching Disclaimer</a><a href="#" aria-disabled="true" title="Coming soon">Accessibility</a>
       </div>
       <p class="footer-disclaimer">Performance coaching is not therapy, counseling or medical treatment.</p>
     </div>
@@ -659,7 +705,7 @@ details p{padding:0 26px 24px;color:#3f3f46;font-size:1.03rem;}
 
 <!-- MOBILE STICKY APPLY -->
 <div class="mobile-apply">
-  <a href="/apply" class="btn btn-amber">Apply for 1:1 Coaching</a>
+  <a href="apply-institute.html" class="btn btn-amber">Apply for 1:1 Coaching</a>
 </div>
 
 <script>
@@ -674,12 +720,13 @@ window.addEventListener('scroll',onScroll);onScroll();
 // hamburger
 var ham=document.getElementById('hamburger');
 ham.addEventListener('click',function(){
-  nav.classList.toggle('open');
+  var open=nav.classList.toggle('open');
   nav.classList.add('solid');
+  ham.setAttribute('aria-expanded',open?'true':'false');
 });
 // close mobile menu on link click
 document.querySelectorAll('.nav-menu a, .nav-right a').forEach(function(a){
-  a.addEventListener('click',function(){nav.classList.remove('open');});
+  a.addEventListener('click',function(){nav.classList.remove('open');ham.setAttribute('aria-expanded','false');});
 });
 </script>
 </body>
