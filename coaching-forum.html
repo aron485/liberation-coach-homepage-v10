@@ -101,7 +101,7 @@
   .ph-fine{font-size:.88rem;color:rgba(255,255,255,.62);max-width:48ch;line-height:1.55;}
 
   /* ---------- EDITORIAL SECTION SHELL ---------- */
-  section.band{padding:clamp(48px,6.5vw,86px) 0;position:relative;}
+  section.band{padding:clamp(44px,5.5vw,70px) 0;position:relative;}
   .band--cream{background:var(--cream);}
   .band--white{background:var(--white);}
   .eyebrow{display:inline-block;font-weight:700;letter-spacing:.15em;text-transform:uppercase;font-size:.76rem;color:var(--navy);margin-bottom:12px;}
@@ -159,7 +159,7 @@
   .final p{color:rgba(33,34,81,.82);font-weight:500;max-width:50ch;margin:0 auto 28px;font-size:1.08rem;}
 
   /* ---------- FOOTER ---------- */
-  footer{background:var(--indigo);color:rgba(255,255,255,.72);padding:clamp(48px,6vw,70px) 0 120px;}
+  footer{background:var(--indigo);color:rgba(255,255,255,.72);padding:clamp(42px,5vw,58px) 0 84px;}
   .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(24px,3vw,40px);margin-bottom:40px;}
   .foot-brand .brand{margin-bottom:14px;display:inline-block;}
   .foot-brand p{font-size:.95rem;max-width:40ch;}
@@ -201,6 +201,10 @@
     .ph-cta .pill{width:100%;justify-content:center;}
     .foot-top{grid-template-columns:1fr 1fr;gap:28px 20px;}
     .foot-brand{grid-column:1 / -1;}
+  }
+  /* Arah Nov 24: ~18px desktop body copy */
+  @media(min-width:901px){
+    .wrap p:not(.fineprint):not(.finepoint):not(.fine):not(.eyebrow):not(.cap):not(.lead):not(.format-note){font-size:1.125rem;line-height:1.6}
   }
 </style>
 </head>

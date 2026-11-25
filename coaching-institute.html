@@ -69,7 +69,7 @@ h1,h2,h3{line-height:1.12;font-weight:900;letter-spacing:-.01em;}
 /* ---------- PAGE HEADER (charcoal title band, NOT a full hero) ---------- */
 .page-header{
   background:var(--charcoal);color:var(--white);position:relative;overflow:hidden;
-  padding:clamp(128px,16vw,165px) 0 clamp(56px,7vw,84px);
+  padding:clamp(112px,13vw,140px) 0 clamp(48px,6vw,70px);
 }
 .page-header::after{
   content:"";position:absolute;right:-80px;top:-80px;width:360px;height:360px;z-index:0;
@@ -99,7 +99,7 @@ h1,h2,h3{line-height:1.12;font-weight:900;letter-spacing:-.01em;}
 
 /* ---------- SECTIONS ---------- */
 section{position:relative;}
-.sec-pad{padding:clamp(60px,8.5vw,104px) 0;}
+.sec-pad{padding:clamp(50px,7vw,80px) 0;}
 .sec-grey{background:var(--grey);}
 .sec-dark{background:var(--charcoal);color:var(--white);}
 .sec-head-eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:16px;}
@@ -198,7 +198,7 @@ section{position:relative;}
 .final .btn-charcoal{font-size:1.1rem;padding:17px 38px;}
 
 /* footer */
-.footer{background:var(--charcoal);color:rgba(255,255,255,.72);padding:70px 0 40px;}
+.footer{background:var(--charcoal);color:rgba(255,255,255,.72);padding:54px 0 40px;}
 .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
 .footer .brand{font-size:1.5rem;margin-bottom:16px;display:block;}
 .footer-blurb{font-size:.98rem;max-width:34ch;}
@@ -253,6 +253,10 @@ section{position:relative;}
   .header-cta{flex-direction:column;align-items:flex-start;}
   .begin-row{grid-template-columns:1fr;gap:8px;}
 }
+  /* Arah Nov 24: ~18px desktop body copy */
+  @media(min-width:901px){
+    .wrap p:not(.fineprint):not(.finepoint):not(.fine):not(.eyebrow):not(.cap):not(.lead){font-size:1.125rem;line-height:1.6}
+  }
 </style>
 </head>
 <body>
